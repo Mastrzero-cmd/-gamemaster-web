@@ -84,7 +84,7 @@ export function Catalog() {
     : missingGameUrl;
 
   return (
-    <section className="catalogSection" id="catalogo" aria-labelledby="catalog-title">
+    <section className="catalogSection" id="catalogo" aria-labelledby="catalog-title" data-quote-bar-avoid>
       <div className="catalogHeading sectionShell">
         <p className="pixelLabel">✢ Capítulo 01 · Gaming</p>
         <h2 id="catalog-title">Encuentra tu <em>próxima partida.</em></h2>

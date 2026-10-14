@@ -8,7 +8,7 @@ const switch2Games = catalog.filter((game) => game.platform === 'Nintendo Switch
 
 export function Hero() {
   return (
-    <section className="hero" id="inicio" aria-labelledby="hero-title">
+    <section className="hero" id="inicio" aria-labelledby="hero-title" data-quote-bar-avoid>
       <div className="heroField depthPlane" aria-hidden="true" />
       <div className="heroBlade depthPlane" aria-hidden="true" />
 
