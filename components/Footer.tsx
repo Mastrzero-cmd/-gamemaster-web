@@ -1,20 +1,21 @@
 import { ArrowUpRight } from 'lucide-react';
-import { BrandMark } from './BrandMark';
 import { FACEBOOK_URL, GENERAL_CONTACT_URL } from '@/lib/contact';
 
 export function Footer() {
   return (
-    <footer>
+    <footer className="siteFooter">
+      <div className="footerField depthPlane" aria-hidden="true" />
       <div className="sectionShell footerTop">
-        <BrandMark />
-        <p>Gaming Nintendo digital, streaming, IA y privacidad en una experiencia de descubrimiento clara, visual y atendida directamente.</p>
+        <p className="pixelLabel">✢ GameMaster · Entretenimiento digital · México ✢</p>
+        <p className="footerLede">Gaming Nintendo digital, streaming, IA y privacidad, con atención directa de una persona.</p>
         <div className="footerContact">
-          <a href={GENERAL_CONTACT_URL} target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight aria-hidden="true" /></a>
-          <a href={FACEBOOK_URL} target="_blank" rel="noreferrer">Facebook <ArrowUpRight aria-hidden="true" /></a>
+          <a className="buttonBlack" href={GENERAL_CONTACT_URL} target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight aria-hidden="true" /></a>
+          <a className="buttonBlack" href={FACEBOOK_URL} target="_blank" rel="noreferrer">Facebook <ArrowUpRight aria-hidden="true" /></a>
         </div>
       </div>
+      <p className="footerWordmark" aria-hidden="true">GameMaster</p>
       <div className="sectionShell footerBottom">
-        <span>© {new Date().getFullYear()} GAMEMASTER</span>
+        <span className="pixelLabel">© {new Date().getFullYear()} GameMaster</span>
         <p>Negocio independiente. Las marcas y artes mostradas pertenecen a sus respectivos titulares; no implican afiliación ni patrocinio.</p>
       </div>
     </footer>

@@ -1,13 +1,11 @@
 import type { Metadata, Viewport } from 'next';
-import { Bebas_Neue, Outfit } from 'next/font/google';
+import { Jersey_10, Outfit, Silkscreen } from 'next/font/google';
 import { getSiteUrl } from '@/lib/site';
 import './globals.css';
-import './art-direction.css';
-import './art-fixes.css';
-import './art-pass-v2.css';
 
-const display = Bebas_Neue({ variable: '--font-display', subsets: ['latin'], weight: '400' });
-const body = Outfit({ variable: '--font-body', subsets: ['latin'] });
+const display = Jersey_10({ variable: '--font-display', subsets: ['latin', 'latin-ext'], weight: '400' });
+const pixel = Silkscreen({ variable: '--font-pixel', subsets: ['latin', 'latin-ext'], weight: ['400', '700'] });
+const body = Outfit({ variable: '--font-body', subsets: ['latin', 'latin-ext'] });
 
 const siteUrl = getSiteUrl();
 const socialImage = siteUrl ? new URL('/og.png', siteUrl).toString() : undefined;
@@ -44,9 +42,9 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#030304',
+  themeColor: '#050506',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="es-MX"><body className={`${display.variable} ${body.variable}`}>{children}</body></html>;
+  return <html lang="es-MX"><body className={`${display.variable} ${pixel.variable} ${body.variable}`}>{children}</body></html>;
 }

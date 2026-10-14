@@ -26,17 +26,17 @@ export function QuoteBuilder() {
 
   return (
     <section className="quoteSection" id="cotizar" aria-labelledby="quote-title">
+      <div className="quoteSlab depthPlane" aria-hidden="true" />
       <div className="sectionShell quoteLayout">
         <div className="quoteCopy">
-          <p className="eyebrow"><span /> SOLICITUD DIRECTA</p>
-          <h2 id="quote-title">Tu acceso empieza<br /><em>con una elección.</em></h2>
-          <p>Elige un interés, agrega varios juegos si quieres y envía una solicitud con los títulos incluidos.</p>
-          <div className="quoteHuman"><MessageCircle aria-hidden="true" /><span><strong>Atención humana</strong><small>Precio y disponibilidad se revisan al momento.</small></span></div>
+          <p className="pixelLabel">✢ Capítulo 04 · Cotización</p>
+          <h2 id="quote-title">Arma tu <em>solicitud.</em></h2>
+          <p>Elige un interés, agrega uno o varios juegos y envía un solo mensaje por WhatsApp. Una persona te responde con precio y disponibilidad vigentes.</p>
         </div>
 
         <div className="quoteBuilder">
           <div className="quoteBuilderHeader">
-            <span>SOLICITUD / GM</span>
+            <span className="pixelLabel">Solicitud / GM</span>
             <strong aria-live="polite">{String(selectedCount).padStart(2, '0')}</strong>
           </div>
           <fieldset className="quoteInterests">
@@ -56,7 +56,7 @@ export function QuoteBuilder() {
             </div>
           </fieldset>
           <div className="quoteSelection" aria-live="polite">
-            <div className="quoteSelectionHeading"><span>JUEGOS SELECCIONADOS</span><strong>{selectedCount}</strong></div>
+            <div className="quoteSelectionHeading"><span className="pixelLabel">Juegos seleccionados</span><strong>{selectedCount}</strong></div>
             {selectedGames.length ? (
               <ul>
                 {selectedGames.map((game) => (
@@ -67,10 +67,12 @@ export function QuoteBuilder() {
               <p>Agrega juegos desde cualquier portada con el botón <strong>+</strong>. Puedes seleccionar más de uno.</p>
             )}
           </div>
-          <button className="copyButton" type="button" onClick={copyRequest}>
-            {copied ? <><Check aria-hidden="true" /> Solicitud copiada</> : <><Copy aria-hidden="true" /> Copiar solicitud</>}
-          </button>
-          <a className="whatsappButton" href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Cotizar por WhatsApp <ArrowUpRight aria-hidden="true" /></a>
+          <div className="quoteActions">
+            <a className="buttonRed" href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Cotizar por WhatsApp <ArrowUpRight aria-hidden="true" /></a>
+            <button className="buttonGhost" type="button" onClick={copyRequest}>
+              {copied ? <><Check aria-hidden="true" /> Solicitud copiada</> : <><Copy aria-hidden="true" /> Copiar solicitud</>}
+            </button>
+          </div>
           <small>No se publica un precio fijo: se confirma antes de cada compra.</small>
         </div>
       </div>

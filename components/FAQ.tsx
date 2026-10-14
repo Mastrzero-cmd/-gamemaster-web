@@ -11,14 +11,14 @@ const questions = [
 export function FAQ() {
   return (
     <section className="faqSection sectionShell" id="preguntas" aria-labelledby="faq-title">
-      <div className="faqHeading">
-        <p className="eyebrow"><span /> RESPUESTAS CLARAS</p>
-        <h2 id="faq-title">Preguntas<br /><em>frecuentes.</em></h2>
+      <div className="sectionHeading faqHeading">
+        <p className="pixelLabel">✢ Capítulo 05 · Respuestas claras</p>
+        <h2 id="faq-title">Preguntas <em>frecuentes.</em></h2>
       </div>
       <div className="faqList">
         {questions.map(([question, answer], index) => (
           <details key={question}>
-            <summary><span>{String(index + 1).padStart(2, '0')}</span><strong>{question}</strong><i aria-hidden="true">+</i></summary>
+            <summary><span className="pixelLabel">{String(index + 1).padStart(2, '0')}</span><strong>{question}</strong><i aria-hidden="true" /></summary>
             <p>{answer}</p>
           </details>
         ))}
