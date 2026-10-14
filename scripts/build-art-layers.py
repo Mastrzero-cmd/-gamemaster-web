@@ -1,6 +1,7 @@
 """Posterize the Image Gen art sources into the exact GameMaster palette.
 
-Sources live in `art-src/` (raw generations, never served). Output goes to
+Sources live in `art-src/` (raw generations, git-ignored and never served;
+only the optimized output is versioned). Output goes to
 `public/art/cromo/` as lossless WebP so every pixel is exactly blue, black or
 red: no intermediate tones, no purple blends, no anti-aliased fringes.
 

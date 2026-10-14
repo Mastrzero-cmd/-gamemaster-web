@@ -39,3 +39,6 @@ next-env.d.ts
 
 # typescript
 *.tsbuildinfo
+
+# raw Image Gen sources (only optimized assets in public/art are versioned)
+art-src/
