@@ -1,4 +1,5 @@
 import { ArrowRight, Check, Gamepad2, UserRound, UsersRound, Wifi, WifiOff } from 'lucide-react';
+import { GiantType, Sprite } from './art/Sprite';
 
 const steps = [
   ['01', 'Elige tus juegos', 'Busca en el catálogo y agrega los títulos que quieres revisar.'],
@@ -11,6 +12,10 @@ export function PurchaseModes() {
   return (
     <section className="modesSection" id="modalidades" aria-labelledby="modes-title">
       <div className="modesRearBand depthPlane" aria-hidden="true" />
+      <GiantType className="modesType">Juega</GiantType>
+      <Sprite name="console-tower" className="modesSpriteTower" />
+      <Sprite name="side-controller" className="modesSpriteSide" />
+      <Sprite name="memory-card" className="modesSpriteCard" />
       <div className="sectionShell">
         <div className="sectionHeading">
           <p className="pixelLabel">✢ Capítulo 03 · Cómo funciona</p>

@@ -5,6 +5,7 @@ import { ArrowRight, ChevronDown, Compass, MessageCircle, Search } from 'lucide-
 import { catalog, exploreCatalogShelves, homepageCatalogShelves } from '@/app/data/catalog';
 import { toWhatsApp } from '@/lib/contact';
 import { CatalogShelf } from './CatalogShelf';
+import { GiantType, Sprite } from '../art/Sprite';
 import { Filters, type CatalogFilterState } from './Filters';
 import { GameCard } from './GameCard';
 
@@ -30,7 +31,9 @@ function CatalogInterlude() {
   return (
     <aside className="catalogInterlude" aria-labelledby="interlude-title">
       <div className="interludeField depthPlane" aria-hidden="true" />
-      <div className="interludeBlade depthPlane" aria-hidden="true" />
+      <Sprite name="handheld" className="interludeSpriteHandheld" />
+      <Sprite name="cartridge" className="interludeSpriteCartridge" />
+      <Sprite name="memory-card" className="interludeSpriteCard" />
       <div className="interludeCopy">
         <p className="pixelLabel">✢ Pedido especial</p>
         <h3 id="interlude-title">¿No ves tu juego?</h3>
@@ -86,6 +89,9 @@ export function Catalog() {
   return (
     <section className="catalogSection" id="catalogo" aria-labelledby="catalog-title" data-quote-bar-avoid>
       <div className="catalogHeading sectionShell">
+        <GiantType className="catalogType">Gaming</GiantType>
+        <Sprite name="gamepad" className="catalogSpriteGamepad" />
+        <Sprite name="side-controller" className="catalogSpriteSide" />
         <p className="pixelLabel">✢ Capítulo 01 · Gaming</p>
         <h2 id="catalog-title">Encuentra tu <em>próxima partida.</em></h2>
         <p>Busca por título o combina plataforma, género, franquicia y colección. Agrega con <strong>+</strong> los juegos que quieras y cotízalos juntos.</p>

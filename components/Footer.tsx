@@ -1,10 +1,14 @@
 import { ArrowUpRight } from 'lucide-react';
 import { FACEBOOK_URL, GENERAL_CONTACT_URL } from '@/lib/contact';
+import { Sprite } from './art/Sprite';
 
 export function Footer() {
   return (
     <footer className="siteFooter">
       <div className="footerField depthPlane" aria-hidden="true" />
+      <Sprite name="gamepad" className="footerSpriteGamepad" />
+      <Sprite name="headset" className="footerSpriteHeadset" />
+      <Sprite name="cartridge" className="footerSpriteCartridge" />
       <div className="sectionShell footerTop">
         <p className="pixelLabel">✢ GameMaster · Entretenimiento digital · México ✢</p>
         <p className="footerLede">Gaming Nintendo digital, streaming, IA y privacidad, con atención directa de una persona.</p>

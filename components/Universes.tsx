@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { ArrowUpRight, Check, Play, SendHorizontal } from 'lucide-react';
 import { aiServices, privacyServices, streamingServices, type Service } from '@/app/data/services';
 import { ServiceMark } from './ServiceMark';
+import { GiantType, Sprite } from './art/Sprite';
 import { useExperience } from './experience/useExperience';
 
 function ServiceButton({ service, selected, onSelect, className = 'serviceLogo' }: {
@@ -28,6 +29,8 @@ export function Universes() {
 
   return (
     <section className="universes" id="servicios" aria-labelledby="universes-title">
+      <GiantType className="universesType">Stream</GiantType>
+      <Sprite name="headphones" className="universesSpriteHeadphones" />
       <div className="universesHeading sectionShell">
         <p className="pixelLabel">✢ Capítulo 02 · Más allá del juego</p>
         <h2 id="universes-title">Streaming, IA y privacidad. <em>Bajo consulta.</em></h2>
@@ -41,6 +44,8 @@ export function Universes() {
       <article className="universe universeStreaming" id="streaming" aria-labelledby="streaming-title">
         <div className="universeArt streamStage">
           <span className="streamSignal depthPlane" aria-hidden="true" />
+          <Sprite name="clapperboard" className="streamSpriteClapper" />
+          <Sprite name="remote" className="streamSpriteRemote" />
           <div className="streamScreen">
             <div className="streamBar" aria-hidden="true">
               <span className="streamBrand">GM</span>
@@ -87,6 +92,8 @@ export function Universes() {
           <span className="aiChipFront depthPlane" aria-hidden="true">
             <Image src="/art/cromo/panel-chip-front.webp" alt="" width={864} height={1152} unoptimized />
           </span>
+          <Sprite name="keycap" className="aiSpriteKeycap" />
+          <Sprite name="mouse" className="aiSpriteMouse" />
           <div className="aiChat">
             <div className="aiTabs" role="group" aria-label="Herramientas de IA consultables">
               {aiServices.map((service) => (
@@ -124,6 +131,7 @@ export function Universes() {
       </article>
 
       <article className="universePrivacy sectionShell" id="privacidad" aria-labelledby="privacy-title">
+        <Sprite name="phone" className="privacySpritePhone" />
         <p className="pixelLabel">Universo 04 · Servicios digitales</p>
         <h3 id="privacy-title">Privacidad digital</h3>
         <p>Proton VPN pertenece a una familia propia. Precio, duración y disponibilidad se consultan al momento.</p>

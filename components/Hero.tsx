@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 import { catalog } from '@/app/data/catalog';
 import { GENERAL_CONTACT_URL } from '@/lib/contact';
 import { GameCard } from './catalog/GameCard';
+import { GiantType, Sprite } from './art/Sprite';
 
 const switch2Games = catalog.filter((game) => game.platform === 'Nintendo Switch 2');
 
@@ -10,7 +11,11 @@ export function Hero() {
   return (
     <section className="hero" id="inicio" aria-labelledby="hero-title" data-quote-bar-avoid>
       <div className="heroField depthPlane" aria-hidden="true" />
+      <GiantType className="heroType">Play</GiantType>
       <div className="heroBlade depthPlane" aria-hidden="true" />
+      <Sprite name="cartridge" className="heroSpriteCartridge" />
+      <Sprite name="keycap" className="heroSpriteKeycap" />
+      <Sprite name="memory-card" className="heroSpriteCard" />
 
       <div className="heroStage">
         <div className="heroCopy">

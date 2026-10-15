@@ -14,6 +14,10 @@
   --gm-line-strong: rgba(244, 244, 239, 0.34);
   --gm-blue: #2438ff;
   --gm-red: #ff2a1f;
+  /* Áreas rojas grandes: más cálidas/oscuras para no fatigar; el rojo vivo queda para piezas y acentos. */
+  --gm-red-deep: #b8231a;
+  --gm-blue-deep: #1622aa;
+  --gm-blue-night: #0c1258;
   --gm-white: #f4f4ef;
   --gm-muted: #a9a9b4;
 
@@ -36,6 +40,10 @@
   --gm-depth-panel: 38;
   --gm-depth-band: 54;
   --gm-depth-slab: -18;
+  --gm-depth-sprite-near: -120;
+  --gm-depth-sprite-mid: -64;
+  --gm-depth-sprite-far: 36;
+  --gm-depth-type: 80;
   --gm-pointer-front: 10px;
   --gm-pointer-rear: 4px;
   --gm-rail-amplitude-desktop: 72;
@@ -57,6 +65,10 @@
     --gm-depth-panel: 16;
     --gm-depth-band: 20;
     --gm-depth-slab: -8;
+    --gm-depth-sprite-near: -44;
+    --gm-depth-sprite-mid: -26;
+    --gm-depth-sprite-far: 14;
+    --gm-depth-type: 30;
   }
 }
 
@@ -448,6 +460,7 @@ h1 em {
 }
 
 .heroStage {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   align-items: center;
@@ -804,6 +817,8 @@ h1 em {
 }
 
 .catalogHeading {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   align-items: end;
@@ -1253,16 +1268,6 @@ h1 em {
   background: var(--gm-field-desktop) center 72% / cover no-repeat;
 }
 
-.interludeBlade {
-  --gm-depth: var(--gm-depth-blade);
-  position: absolute;
-  z-index: -1;
-  top: 18%;
-  right: 0;
-  width: clamp(28px, 4vw, 56px);
-  height: 64%;
-  background: var(--gm-red);
-}
 
 .interludeCopy {
   width: min(560px, calc(100% - 2 * var(--gm-pad-x)));
@@ -1601,8 +1606,8 @@ h1 em {
   gap: 12px 18px;
   min-height: clamp(150px, 15vw, 210px);
   padding: clamp(16px, 1.8vw, 24px);
-  background: var(--gm-red);
-  color: var(--gm-ink);
+  background: var(--gm-red-deep);
+  color: var(--gm-white);
 }
 
 .streamFeature .pixelLabel {
@@ -1624,7 +1629,7 @@ h1 em {
   width: clamp(52px, 5vw, 72px);
   aspect-ratio: 1;
   background: var(--gm-ink);
-  color: var(--gm-red);
+  color: var(--gm-white);
 }
 
 .streamPlay svg {
@@ -1857,7 +1862,7 @@ h1 em {
   right: 0;
   width: clamp(80px, 26vw, 420px);
   height: 46%;
-  background: var(--gm-blue);
+  background: var(--gm-blue-deep);
   clip-path: polygon(48px 0, 100% 0, 100% 100%, 0 100%, 0 48px);
 }
 
@@ -1882,8 +1887,8 @@ h1 em {
 }
 
 .modePrincipal header {
-  background: var(--gm-red);
-  color: var(--gm-ink);
+  background: var(--gm-red-deep);
+  color: var(--gm-white);
 }
 
 .modeSecondary header {
@@ -1983,7 +1988,7 @@ h1 em {
   bottom: clamp(40px, 5vw, 80px);
   left: 0;
   width: calc(max(var(--gm-pad-x), (100vw - var(--gm-max)) / 2 + var(--gm-pad-x)) + min(46vw, 640px));
-  background: var(--gm-red);
+  background: var(--gm-red-deep);
   clip-path: polygon(0 0, 100% 0, calc(100% - 72px) 100%, 0 100%);
 }
 
@@ -1996,15 +2001,17 @@ h1 em {
 
 .quoteCopy {
   max-width: min(46vw, 560px);
-  color: var(--gm-ink);
+  color: var(--gm-white);
 }
 
 .quoteCopy h2 {
   margin: 14px 0 20px;
+  color: var(--gm-ink);
   font-size: clamp(64px, 8vw, 140px);
 }
 
 .quoteCopy p:not(.pixelLabel) {
+  color: var(--gm-white);
   font-size: 18px;
   font-weight: 500;
 }
@@ -2153,6 +2160,8 @@ h1 em {
    ========================================================================== */
 
 .faqSection {
+  position: relative;
+  isolation: isolate;
   padding-block: clamp(72px, 8vw, 128px);
 }
 
@@ -2887,10 +2896,6 @@ h1 em {
     background-position: center top;
   }
 
-  .interludeBlade {
-    top: 8%;
-    height: 34%;
-  }
 
   .universesLedger dd {
     font-size: 22px;
@@ -3012,6 +3017,483 @@ h1 em {
 
   .gameDetailCopy {
     margin-inline: calc(var(--gm-pad-x) * -1);
+  }
+}
+
+/* ==========================================================================
+   PIEZAS ROJAS AL FRENTE Y TIPOGRAFÍA TONAL AL FONDO
+   Cada pieza es un objeto único en su propio plano: rojo vivo con sombra en
+   rojo profundo y detalles negros. Nunca reciben clics ni tapan portadas.
+   ========================================================================== */
+
+main {
+  overflow-x: clip;
+}
+
+.sprite {
+  --gm-depth: var(--gm-depth-sprite-mid);
+  --sprite-pointer: -7px;
+  position: absolute;
+  z-index: 3;
+  display: block;
+  pointer-events: none;
+  transform: translate3d(
+    calc(var(--gm-pointer-x, 0) * var(--sprite-pointer)),
+    calc(var(--gm-shift, 0px) + var(--gm-pointer-y, 0) * var(--sprite-pointer)),
+    0
+  );
+}
+
+.sprite img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.giantType {
+  --gm-depth: var(--gm-depth-type);
+  position: absolute;
+  z-index: -1;
+  color: var(--gm-blue-deep);
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(160px, 26vw, 420px);
+  line-height: 0.78;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  transform: translate3d(0, var(--gm-shift, 0px), 0);
+}
+
+/* hero */
+.heroType {
+  top: calc(var(--gm-header-h) + 1vw);
+  right: -1vw;
+}
+
+.heroSpriteCartridge {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -16px;
+  top: 40%;
+  right: max(0.5vw, calc((100vw - var(--gm-max)) / 2));
+  width: clamp(72px, 8.4vw, 136px);
+}
+
+.heroSpriteKeycap {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -14px;
+  bottom: 4%;
+  left: 44%;
+  width: clamp(56px, 6.6vw, 108px);
+}
+
+.heroSpriteCard {
+  --gm-depth: var(--gm-depth-sprite-far);
+  --sprite-pointer: -4px;
+  top: 14%;
+  left: 49%;
+  width: clamp(36px, 3.6vw, 60px);
+}
+
+/* catálogo */
+.catalogType {
+  z-index: -1;
+  top: -6vw;
+  right: -2vw;
+  color: var(--gm-blue-night);
+  font-size: clamp(120px, 17vw, 300px);
+}
+
+.catalogSpriteGamepad {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -16px;
+  top: -4.5vw;
+  right: 3vw;
+  width: clamp(150px, 21vw, 330px);
+}
+
+.catalogSpriteSide {
+  top: -1vw;
+  right: 26vw;
+  width: clamp(30px, 3.6vw, 58px);
+}
+
+.shelfTitle {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(10px, 1.2vw, 18px);
+}
+
+.shelfTitle > :not(.shelfIcon) {
+  grid-column: 2;
+}
+
+.shelfIcon {
+  position: static;
+  grid-row: 1 / span 2;
+  width: clamp(34px, 3.4vw, 54px);
+  transform: none;
+}
+
+.interludeSpriteHandheld {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -16px;
+  top: 14%;
+  right: 9vw;
+  width: clamp(150px, 19vw, 300px);
+}
+
+.interludeSpriteCartridge {
+  top: 8%;
+  right: 33vw;
+  width: clamp(60px, 7vw, 112px);
+}
+
+.interludeSpriteCard {
+  --gm-depth: var(--gm-depth-sprite-far);
+  bottom: 12%;
+  right: 3vw;
+  width: clamp(40px, 4.4vw, 70px);
+}
+
+/* universos */
+.universesType {
+  top: clamp(40px, 4vw, 72px);
+  right: -2vw;
+}
+
+.universesSpriteHeadphones {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -16px;
+  top: clamp(28px, 3vw, 56px);
+  right: max(3vw, calc((100vw - var(--gm-max)) / 2 + 2vw));
+  width: clamp(96px, 11vw, 176px);
+}
+
+.streamSpriteClapper {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -14px;
+  bottom: -24%;
+  left: 2%;
+  width: clamp(80px, 8.6vw, 140px);
+}
+
+.streamSpriteRemote {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -12px;
+  right: -8%;
+  bottom: 2%;
+  width: clamp(44px, 4.6vw, 72px);
+}
+
+.aiSpriteKeycap {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -14px;
+  top: 4%;
+  left: -6%;
+  width: clamp(60px, 7vw, 112px);
+}
+
+.aiSpriteMouse {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -12px;
+  right: -7%;
+  bottom: 2%;
+  width: clamp(64px, 7.4vw, 120px);
+}
+
+/* cómo funciona */
+.modesType {
+  top: clamp(16px, 2vw, 40px);
+  right: -2vw;
+  color: var(--gm-blue-night);
+  font-size: clamp(120px, 17vw, 300px);
+}
+
+.modesSpriteTower {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -16px;
+  top: 38%;
+  right: 5vw;
+  width: clamp(80px, 9.4vw, 150px);
+}
+
+.modesSpriteSide {
+  top: 9%;
+  right: 40vw;
+  width: clamp(30px, 3.6vw, 58px);
+}
+
+.modesSpriteCard {
+  --gm-depth: var(--gm-depth-sprite-far);
+  bottom: 6%;
+  right: 3vw;
+  width: clamp(54px, 5.6vw, 92px);
+}
+
+/* cotización */
+.quoteSpriteCartridge {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -16px;
+  bottom: 3%;
+  left: max(28vw, calc((100vw - var(--gm-max)) / 2 + 420px));
+  width: clamp(76px, 8.4vw, 136px);
+}
+
+.quoteSpriteCard {
+  top: 4%;
+  left: max(38vw, calc((100vw - var(--gm-max)) / 2 + 560px));
+  width: clamp(36px, 3.8vw, 62px);
+}
+
+.quoteSpriteHeart {
+  --gm-depth: var(--gm-depth-sprite-far);
+  right: max(2vw, calc((100vw - var(--gm-max)) / 2));
+  bottom: 3%;
+  width: clamp(48px, 5vw, 80px);
+}
+
+/* privacidad */
+.universePrivacy {
+  position: relative;
+}
+
+.privacySpritePhone {
+  top: -38%;
+  right: 22%;
+  width: clamp(48px, 5vw, 82px);
+}
+
+/* preguntas frecuentes */
+.faqType {
+  top: 0;
+  right: -2vw;
+  color: var(--gm-blue-night);
+  font-size: clamp(200px, 30vw, 480px);
+}
+
+.faqSpriteHandheld {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -16px;
+  top: 36%;
+  right: 4%;
+  width: clamp(120px, 15vw, 240px);
+}
+
+.faqSpriteKeycap {
+  top: 20%;
+  right: 24%;
+  width: clamp(48px, 5.6vw, 90px);
+}
+
+/* footer */
+.footerSpriteGamepad {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -16px;
+  right: 3vw;
+  bottom: 20%;
+  width: clamp(150px, 15vw, 240px);
+}
+
+.footerSpriteHeadset {
+  top: 18%;
+  left: 47vw;
+  width: clamp(56px, 6vw, 96px);
+}
+
+.footerSpriteCartridge {
+  --gm-depth: var(--gm-depth-sprite-far);
+  bottom: 22%;
+  left: 3vw;
+  width: clamp(60px, 6.4vw, 104px);
+}
+
+/* ficha de juego */
+.detailSpriteCartridge {
+  --gm-depth: var(--gm-depth-sprite-near);
+  --sprite-pointer: -14px;
+  top: -6%;
+  right: -16%;
+  width: 26%;
+}
+
+.detailSpriteCard {
+  bottom: 6%;
+  left: -14%;
+  width: 13%;
+}
+
+@media (max-width: 1080px) {
+  .modesSpriteSide,
+  .faqSpriteKeycap {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .giantType {
+    font-size: 44vw;
+  }
+
+  .heroType {
+    top: calc(var(--gm-header-h) + 52vw);
+    right: -4vw;
+  }
+
+  .heroSpriteCartridge {
+    top: calc(var(--gm-header-h) + 14px);
+    right: 4vw;
+    width: 15vw;
+  }
+
+  .heroSpriteKeycap {
+    top: calc(var(--gm-header-h) + 86vw);
+    bottom: auto;
+    left: auto;
+    right: 5vw;
+    width: 13vw;
+  }
+
+  .heroSpriteCard {
+    display: none;
+  }
+
+  .catalogHeading {
+    padding-top: 30vw;
+  }
+
+  .catalogType {
+    top: 2vw;
+    right: -4vw;
+    font-size: 34vw;
+  }
+
+  .catalogSpriteGamepad {
+    top: 0;
+    right: 4vw;
+    width: 42vw;
+  }
+
+  .catalogSpriteSide {
+    top: 4vw;
+    right: auto;
+    left: 6vw;
+    width: 8vw;
+  }
+
+  .interludeSpriteHandheld {
+    top: 5%;
+    right: 6vw;
+    width: 36vw;
+  }
+
+  .interludeSpriteCartridge {
+    top: 9%;
+    right: auto;
+    left: 8vw;
+    width: 17vw;
+  }
+
+  .interludeSpriteCard {
+    display: none;
+  }
+
+  .universesType {
+    top: 12px;
+    font-size: 40vw;
+  }
+
+  .universesSpriteHeadphones {
+    top: 12px;
+    right: 4vw;
+    width: 20vw;
+  }
+
+  .streamSpriteClapper {
+    top: -6%;
+    left: auto;
+    right: -2vw;
+    width: 18vw;
+  }
+
+  .streamSpriteRemote {
+    right: 2vw;
+    bottom: 0;
+    width: 9vw;
+  }
+
+  .aiSpriteKeycap {
+    top: 2%;
+    left: 0;
+    width: 15vw;
+  }
+
+  .aiSpriteMouse {
+    display: none;
+  }
+
+  .modesType {
+    top: 10px;
+    font-size: 36vw;
+  }
+
+  .modesSpriteTower {
+    top: 12px;
+    right: 4vw;
+    width: 15vw;
+  }
+
+  .modesSpriteCard {
+    display: none;
+  }
+
+  .quoteSpriteCartridge {
+    top: 3%;
+    bottom: auto;
+    left: auto;
+    right: 4vw;
+    width: 18vw;
+  }
+
+  .quoteSpriteCard,
+  .quoteSpriteHeart {
+    display: none;
+  }
+
+  .privacySpritePhone {
+    top: -18px;
+    right: 4vw;
+    width: 13vw;
+  }
+
+  .faqType {
+    top: 0;
+    font-size: 46vw;
+  }
+
+  .faqSpriteHandheld {
+    top: 10px;
+    right: 0;
+    width: 20vw;
+  }
+
+  .footerSpriteGamepad {
+    right: 4vw;
+    bottom: 186px;
+    width: 22vw;
+  }
+
+  .footerSpriteHeadset,
+  .footerSpriteCartridge {
+    display: none;
+  }
+
+  .detailSpriteCartridge {
+    top: -4%;
+    right: -6%;
+    width: 22%;
   }
 }
 

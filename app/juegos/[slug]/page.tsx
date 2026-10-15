@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft, ArrowRight, ArrowUpRight, MessageCircle, UserRound, Wifi } from 'lucide-react';
 import { catalog, getGameBySlug, getRelatedGames } from '@/app/data/catalog';
 import { DepthPlanes } from '@/components/art/DepthPlanes';
+import { Sprite } from '@/components/art/Sprite';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { gameQuoteMessage, toWhatsApp } from '@/lib/contact';
@@ -67,6 +68,8 @@ export default async function GamePage({ params }: GamePageProps) {
           <div className="gameDetailInner sectionShell">
             <div className="gameDetailArt">
               <div className="gameDetailBlade depthPlane" aria-hidden="true" />
+              <Sprite name="cartridge" className="detailSpriteCartridge" />
+              <Sprite name="memory-card" className="detailSpriteCard" />
               <div className="gameDetailCover">
                 <Image src={game.image} alt={`Portada de ${game.title}`} fill sizes="(max-width: 760px) 78vw, 430px" priority />
               </div>

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ArrowUpRight, Check, Copy, MessageCircle, X } from 'lucide-react';
 import { useExperience } from './experience/useExperience';
+import { Sprite } from './art/Sprite';
 
 const interests = ['Nintendo Switch digital', 'Streaming', 'IA / ChatGPT + Claude', 'Privacidad / Proton VPN'];
 
@@ -27,6 +28,9 @@ export function QuoteBuilder() {
   return (
     <section className="quoteSection" id="cotizar" aria-labelledby="quote-title">
       <div className="quoteSlab depthPlane" aria-hidden="true" />
+      <Sprite name="cartridge" className="quoteSpriteCartridge" />
+      <Sprite name="memory-card" className="quoteSpriteCard" />
+      <Sprite name="heart" className="quoteSpriteHeart" />
       <div className="sectionShell quoteLayout">
         <div className="quoteCopy">
           <p className="pixelLabel">✢ Capítulo 04 · Cotización</p>

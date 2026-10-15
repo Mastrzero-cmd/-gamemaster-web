@@ -4,8 +4,10 @@ import { useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Game } from '@/app/data/catalog';
 import { GameCard } from './GameCard';
+import { Sprite, type SpriteName } from '../art/Sprite';
 
 const shelfVariants = ['band', 'open', 'tab'] as const;
+const shelfIcons: SpriteName[] = ['cartridge', 'joystick', 'handheld', 'side-controller', 'keycap', 'memory-card', 'gamepad', 'console-tower', 'mouse', 'headset'];
 
 export function CatalogShelf({ id, title, description, games, position }: {
   id: string;
@@ -63,6 +65,7 @@ export function CatalogShelf({ id, title, description, games, position }: {
       <div className="shelfHeading">
         <span className="shelfNumber pixelLabel" aria-hidden="true">{String(position + 1).padStart(2, '0')}</span>
         <div className="shelfTitle">
+          <Sprite name={shelfIcons[position % shelfIcons.length]} className="shelfIcon" moving={false} />
           <h3 id={`${id}-title`}>{title}</h3>
           <p>{description}</p>
         </div>
