@@ -1,10 +1,21 @@
-# GameMaster · Identidad visual v1 (propuesta)
+# GameMaster · Identidad visual v2 (propuesta)
 
-Página estática aislada (HTML + CSS + JS vanilla, sin build, sin CDN). No toca la web ni `main`.
+Página estática aislada (HTML + CSS + JS vanilla, sin build, sin CDN). No toca la web, `main` ni el PR.
 
-- Abrir: `identidad-visual/index.html` (doble clic, `file://`) o un servidor estático (`python3 -m http.server`).
-- Secciones: paleta, tipografías, cromoestereopsis, parallax, cortes de sección, logos/portadas, filas deslizables y 3 ejemplos (hero, catálogo, streaming + IA).
-- Fuentes libres (OFL) incluidas en `assets/fonts`: Jersey 10, Outfit, Space Mono.
-- Assets copiados del repo (logos, servicios, piezas, 14 portadas). Precios siempre «Consultar precio».
-- `capturas/`: 1440 y 390, por sección, parallax en varios scrolls, filas deslizadas, movimiento reducido.
-- Las marcas de terceros pertenecen a sus dueños.
+**Abrir:** `identidad-visual/index.html` (doble clic) o `python3 -m http.server`. Para probar movimiento reducido: `index.html?reduce`.
+
+## Dirección
+Parte de los dos logos de negocio (letras itálicas de pincel, cian/azul eléctrico, contorno magenta desplazado, glitch horizontal, scanlines, pincelada curva) y de las referencias del repo (campo azul eléctrico, grabado negro de líneas finas y trama, rejilla de horizonte, circuitos, placas isométricas, listón rojo al frente).
+- **Rojo adelante del azul:** piezas rojas (mando, portátil, audífonos, pantalla, chip, cartucho, listón) sobre campos azules. El negro solo separa (líneas, placas, cortes). Nunca texto rojo sobre azul.
+- Áreas grandes en azul suave; efectos marcados solo en logo y piezas; sin parpadeos; `prefers-reduced-motion` respetado.
+- Parallax: fondo fijo (capa fija recortada, funciona en iOS) y piezas que se mueven a distinta velocidad.
+- 5 cortes distintos: pincelada, escaneo, glitch estático, pixel (el único), cinta de película.
+- Filas tipo Netflix: scroll-snap, flechas arriba de la fila (no tapan tarjetas), arrastre con mouse, táctil nativo, teclas ← →.
+
+## Logo (`assets/logo/`)
+SVG vectorial (texto convertido a trazos, fuente Bangers OFL) y PNG con fondo transparente (256/512/1024/2048 px).
+Variantes: `completo`, `horizontal`, `compacto` (icono GM) × `oscuro`, `claro`, `mono-blanco`, `mono-noche`.
+Regenerar: `python3 herramientas/generar_logo.py assets/logo` y `node herramientas/exportar_png.mjs assets/logo` (Playwright).
+
+## Otros
+`herramientas/generar_piezas.py` y `generar_arte.py` generan las piezas rojas y los fondos SVG. Fuentes libres autohospedadas: Bangers, Outfit, Space Mono. Portadas, logos de servicios y plataformas copiados del repo. Precios siempre «Consultar precio»; cotización por WhatsApp. Las marcas de terceros pertenecen a sus dueños.
