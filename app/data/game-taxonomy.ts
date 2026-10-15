@@ -316,7 +316,7 @@ export const catalogRailDefinitions: CatalogRailDefinition[] = [
   { id: 'pelea', title: 'Pelea', description: 'Duelo, arena y combate competitivo.', homepage: false, matches: [{ field: 'genre', value: 'Pelea' }] },
   { id: 'carreras', title: 'Carreras', description: 'Velocidad, circuitos y competencia.', homepage: false, matches: [{ field: 'genre', value: 'Carreras' }] },
   { id: 'deportes', title: 'Deportes', description: 'Competencia deportiva y juego local o conectado.', homepage: false, matches: [{ field: 'genre', value: 'Deportes' }] },
-  { id: 'fiesta-multijugador', title: 'Fiesta y multijugador', description: 'Opciones para compartir, competir o cooperar.', homepage: false, mode: 'any', matches: [{ field: 'genre', value: 'Fiesta' }, { field: 'collection', value: 'Multijugador' }] },
+  { id: 'fiesta-multijugador', title: 'Fiesta y multijugador', description: 'Opciones para competir, cooperar o jugar en grupo.', homepage: false, mode: 'any', matches: [{ field: 'genre', value: 'Fiesta' }, { field: 'collection', value: 'Multijugador' }] },
   { id: 'terror-supervivencia', title: 'Terror y supervivencia', description: 'Tensión, recursos limitados y atmósferas inquietantes.', homepage: false, matches: [{ field: 'genre', value: 'Terror y supervivencia' }] },
   { id: 'puzzle-exploracion', title: 'Puzzle y exploración', description: 'Acertijos, observación y descubrimiento.', homepage: false, mode: 'any', matches: [{ field: 'genre', value: 'Puzzle' }, { field: 'feature', value: 'Exploración' }] },
   { id: 'mundo-abierto', title: 'Mundo abierto', description: 'Espacios amplios con libertad de recorrido.', homepage: false, matches: [{ field: 'collection', value: 'Mundo abierto' }] },
