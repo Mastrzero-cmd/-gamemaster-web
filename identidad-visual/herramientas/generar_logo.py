@@ -90,6 +90,9 @@ def build(kind, theme, uid):
             body += bars(rnd, b, 'r', 5, [T['glitch1'], T['glitch2'], T['glitch1']], 50, 190, 4, 8, gap=10)
             body += bars(rnd, b, 'l', 4, [T['glitch1'], T['glitch2']], 40, 150, 4, 7, gap=14)
             body += bars(rnd, b, 'r', 4, [T['mid'], T['top']], 18, 70, 5, 10, gap=-6)
+        # 0) placa noche exterior (v3): separa el logo de campos azules y evita que se funda
+        if theme == 'oscuro':
+            body += f'<g fill="#05071f" stroke="#05071f" stroke-width="30" stroke-linejoin="round" transform="translate(6 5)">' + ''.join(f'<path d="{d}"/>' for d in texts) + f'<path d="{swd}"/></g>'
         # 1) contorno desplazado magenta-rojo
         body += f'<g fill="{T["off"]}" stroke="{T["off"]}" stroke-width="13" stroke-linejoin="round" transform="translate(11 9)">'
         body += ''.join(f'<path d="{d}"/>' for d in texts) + f'<path d="{swd}"/></g>'

@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GameMaster · Identidad visual v2 (propuesta)</title>
-<meta name="description" content="Propuesta v2 de identidad visual de GameMaster: logo neón cian con contorno magenta, campos azules con piezas rojas al frente, parallax, cortes de sección y filas deslizables.">
+<title>GameMaster · Identidad visual v3 (propuesta)</title>
+<meta name="description" content="Propuesta v3 de identidad visual de GameMaster: logo neón, campos azules con grabado fino (curvas de nivel, circuitos, placas isométricas, objetos en línea), piezas rojas al frente, parallax, cortes y filas deslizables.">
 <link rel="stylesheet" href="styles.css"></head><body>
 <header class="hdr"><div class="wrap"><a class="brand" href="#inicio" aria-label="GameMaster, inicio"><img src="assets/logo/gamemaster-horizontal-oscuro.svg" alt="GameMaster" width="130" height="34"></a>
-<nav class="nav" aria-label="Secciones"><a href="#logo">Logo</a><a href="#paleta">Paleta</a><a href="#cromo">Cromo</a><a href="#parallax">Parallax</a><a href="#cortes">Cortes</a><a href="#filas">Filas</a><a href="#ej-catalogo">Ejemplo</a></nav>
+<nav class="nav" aria-label="Secciones"><a href="#logo">Logo</a><a href="#paleta">Paleta</a><a href="#cromo">Cromo</a><a href="#grabado">Grabado</a><a href="#parallax">Parallax</a><a href="#cortes">Cortes</a><a href="#filas">Filas</a><a href="#ej-catalogo">Ejemplo</a></nav>
 <a class="btn" href="https://wa.me/525527699426" rel="noopener">Cotizar</a></div></header>
 <main>
 
 <!-- EJEMPLO 1/3 · HERO -->
 <section class="field hero bg-azul scan" id="inicio" aria-labelledby="h1">
- <div class="fixbg" aria-hidden="true"><div class="fixin"><div class="art rejilla"></div></div></div>
+ <div class="fixbg" aria-hidden="true"><div class="fixin"><div class="art a-hero-f"></div><div class="art a-hero-o"></div></div></div>
  <div class="wrap">
   <div>
    <img class="logo-hero" src="assets/logo/gamemaster-completo-oscuro.svg" alt="GameMaster" width="600" height="420">
@@ -55,18 +55,18 @@
 
 <!-- 02 · PALETA Y TIPOS -->
 <section class="field bg-azul" id="paleta">
- <div class="art circuito"></div>
+ <div class="art a-paleta-f ly" data-speed=".05"></div><div class="art a-paleta-o ly" data-speed=".11"></div>
  <div class="wrap">
   <div class="sec-head"><span class="kicker">02 · Paleta y tipos</span><h2 class="disp">Neón sobre azul</h2><p class="lead">Los campos grandes usan un azul eléctrico suavizado. El cian y el magenta viven en el logo y en detalles pequeños. El rojo es solo para piezas al frente.</p></div>
   <div class="grid g4">
-   <div class="sw" style="background:var(--noche);color:var(--hielo)">Noche #05071F<br>separa</div>
-   <div class="sw" style="background:var(--prof);color:var(--hielo)">Azul profundo #1C2BB0<br>atrás</div>
-   <div class="sw" style="background:var(--azul2);color:var(--hielo)">Azul eléctrico #4A62FF<br>campo</div>
-   <div class="sw" style="background:var(--cian);color:var(--noche)">Cian neón #3FDCFF<br>logo</div>
-   <div class="sw r" style="background:var(--azul);color:var(--hielo)">Rojo #FF3322<br>adelante (piezas)</div>
-   <div class="sw" style="background:var(--magenta);color:var(--noche)">Magenta #FF3B7F<br>contorno logo</div>
-   <div class="sw" style="background:var(--hielo);color:var(--noche)">Hielo #EAF6FF<br>texto</div>
-   <div class="sw" style="background:var(--noche2);color:var(--hielo)">Azul noche #0A1148<br>placas</div>
+   <div class="sw" style="background:var(--noche);color:var(--hielo)"><span>Noche #05071F<br>separa</span></div>
+   <div class="sw" style="background:var(--prof);color:var(--hielo)"><span>Azul profundo #1C2BB0<br>atrás</span></div>
+   <div class="sw" style="background:var(--azul2);color:var(--hielo)"><span>Azul eléctrico #4A62FF<br>campo</span></div>
+   <div class="sw" style="background:var(--cian);color:var(--noche)"><span>Cian neón #3FDCFF<br>logo</span></div>
+   <div class="sw r" style="background:var(--azul);color:var(--hielo)"><span>Rojo #FF3322<br>adelante (piezas)</span></div>
+   <div class="sw" style="background:var(--magenta);color:var(--noche)"><span>Magenta #FF3B7F<br>contorno logo</span></div>
+   <div class="sw" style="background:var(--hielo);color:var(--noche)"><span>Hielo #EAF6FF<br>texto</span></div>
+   <div class="sw" style="background:var(--noche2);color:var(--hielo)"><span>Azul noche #0A1148<br>placas</span></div>
   </div>
   <div class="grid g3" style="margin-top:26px">
    <div class="panel"><span class="mono">Títulos · Bangers itálica</span><div class="specimen disp" style="margin-top:12px">Aa Ñ7</div><p>Mayúsculas, inclinadas, con sombra azul noche y contorno magenta. Solo en blanco/hielo.</p></div>
@@ -79,15 +79,16 @@
 
 <!-- 03 · CROMOESTEREOPSIS -->
 <section class="field bg-prof" id="cromo">
- <div class="art iso"></div>
+ <div class="art a-cromo-f ly" data-speed=".05"></div><div class="art a-cromo-o ly" data-speed=".11"></div>
  <div class="wrap">
   <div class="sec-head"><span class="kicker">03 · Sistema cromo</span><h2 class="disp">Rojo al frente, azul atrás</h2><p class="lead">Tres planos: el azul profundo queda atrás, el azul eléctrico en medio y las piezas rojas adelante. El negro solo separa con líneas finas, nunca es el fondo de lo rojo. Líneas finas y puntos de trama dan el grabado, como en tus referencias.</p></div>
   <div class="grid g2" style="align-items:center">
+   <div><ul class="plane-key"><li><i style="background:var(--prof)"></i>Plano 3 · atrás · azul profundo</li><li><i style="background:var(--azul2)"></i>Plano 2 · medio · azul eléctrico</li><li><i style="background:var(--rojo)"></i>Plano 1 · adelante · rojo</li></ul>
    <div class="planes" aria-hidden="true">
-    <div class="plane p1"><span class="t">Plano 3 · atrás · azul profundo</span></div>
-    <div class="plane p2"><span class="t">Plano 2 · medio · azul eléctrico</span></div>
-    <div class="pz" data-speed="0.1" style="left:12%;top:34%;width:52%;--r:-8deg;--d:0s;"><img src="assets/piezas/pieza-mando.svg" alt="" draggable="false"></div><div class="pz" data-speed="0.18" style="left:56%;top:4%;width:30%;--r:9deg;--d:0.8s;"><img src="assets/piezas/pieza-chip.svg" alt="" draggable="false"></div><div class="pz" data-speed="0.06" style="left:62%;top:48%;width:22%;--r:-6deg;--d:1.4s;"><img src="assets/piezas/pieza-cartucho.svg" alt="" draggable="false"></div>
-   </div>
+    <div class="plane p1"></div>
+    <div class="plane p2"></div>
+    <div class="pz" data-speed="0.1" style="left:12%;top:34%;width:52%;--r:-8deg;--d:0s;"><img src="assets/piezas/pieza-mando.svg" alt="" draggable="false"></div><div class="pz" data-speed="0.18" style="left:56%;top:16%;width:28%;--r:9deg;--d:0.8s;"><img src="assets/piezas/pieza-chip.svg" alt="" draggable="false"></div><div class="pz" data-speed="0.06" style="left:62%;top:60%;width:22%;--r:-6deg;--d:1.4s;"><img src="assets/piezas/pieza-cartucho.svg" alt="" draggable="false"></div>
+   </div></div>
    <div class="grid" style="gap:16px">
     <div class="panel rule si"><b>SÍ</b><p>Piezas rojas, figuras y contornos sobre campos azules. Texto en hielo o blanco, con sombra noche.</p></div>
     <div class="panel rule si"><b>SÍ</b><p>Negro en líneas de 3 px, placas de texto y cortes. Color suave en áreas grandes; efectos marcados solo en logo y piezas.</p></div>
@@ -101,15 +102,24 @@
   </div>
  </div>
 </section>
-<div data-cut="pixel" data-from="prof" data-to="azul"><span class="cut-tag">Corte · pixel</span></div>
+<div data-cut="scan" data-from="prof" data-to="noche"><span class="cut-tag">Corte · escaneo</span></div>
 
-<!-- 04 · PARALLAX -->
+<!-- 03b · GRABADO AZUL -->
+<section class="field bg-noche" id="grabado" style="padding-top:clamp(40px,5vw,70px)">
+ <div class="wrap">
+  <div class="sec-head"><span class="kicker">04 · Grabado azul</span><h2 class="disp">Un arte por apartado</h2><p class="lead">Los campos azules llevan grabado fino en dos capas (fondo y objetos en línea): curvas de nivel, placas isométricas, circuitos, retículas, guilloche y objetos gamer, de streaming y tech. Líneas de tono azul cercano al fondo: mucho detalle, poco ruido. Todo es vectorial.</p></div>
+  <div class="grid g2 tiles"><figure class="tile bg-azul"><div class="art a-hero-f"></div><div class="art a-hero-o"></div><figcaption><b>Curvas de nivel y horizonte</b><span>Inicio · terreno, órbitas y rejilla de horizonte</span></figcaption></figure><figure class="tile bg-azul"><div class="art a-paleta-f"></div><div class="art a-paleta-o"></div><figcaption><b>Plano técnico</b><span>Paleta · retícula, compás y guilloche</span></figcaption></figure><figure class="tile bg-prof"><div class="art a-cromo-f"></div><div class="art a-cromo-o"></div><figcaption><b>Placas isométricas</b><span>Sistema cromo · placas con relieve</span></figcaption></figure><figure class="tile bg-azul"><div class="art a-parallax-f"></div><div class="art a-parallax-o"></div><figcaption><b>Rosetas guilloche</b><span>Parallax · rosetas finas y estrellas</span></figcaption></figure><figure class="tile bg-azul"><div class="art a-filas-f"></div><div class="art a-filas-o"></div><figcaption><b>Circuitos</b><span>Filas · pistas y huellas de chip</span></figcaption></figure><figure class="tile bg-azul"><div class="art a-streaming-f"></div><div class="art a-streaming-o"></div><figcaption><b>Cintas y rayos</b><span>Streaming · película, claqueta y haz de luz</span></figcaption></figure><figure class="tile bg-prof"><div class="art a-ia-f"></div><div class="art a-ia-o"></div><figcaption><b>Red neuronal</b><span>IA y tecnología · nodos, nube y servidores</span></figcaption></figure><figure class="tile bg-prof"><div class="art a-catalogo-f"></div><div class="art a-catalogo-o"></div><figcaption><b>Montañas y cartuchos</b><span>Catálogo · placas, terreno y escalera pixel</span></figcaption></figure></div>
+ </div>
+</section>
+<div data-cut="pixel" data-from="noche" data-to="azul"><span class="cut-tag">Corte · pixel</span></div>
+
+<!-- 05 · PARALLAX -->
 <section class="field pxs bg-azul" id="parallax" aria-labelledby="hpx">
- <div class="fixbg" aria-hidden="true"><div class="fixin"><div class="art rosetas"></div></div></div>
+ <div class="fixbg" aria-hidden="true"><div class="fixin"><div class="art a-parallax-f"></div><div class="art a-parallax-o"></div></div></div>
  <div class="pz" data-speed=".5" style="left:60%;top:2%;width:min(34vw,300px);--r:6deg"><img src="assets/arte/arte-liston.svg" alt="" draggable="false" style="animation:none"></div>
  <div class="pz" data-speed="0.22" style="left:2%;top:64%;width:26%;--r:-10deg;--d:0.3s;"><img src="assets/piezas/pieza-mando.svg" alt="" draggable="false"></div><div class="pz" data-speed="0.32" style="left:38%;top:6%;width:20%;--r:9deg;--d:1s;"><img src="assets/piezas/pieza-audifonos.svg" alt="" draggable="false"></div><div class="pz" data-speed="0.14" style="left:40%;top:72%;width:13%;--r:-8deg;--d:0.7s;"><img src="assets/piezas/pieza-cartucho.svg" alt="" draggable="false"></div><div class="pz" data-speed="0.4" style="left:86%;top:12%;width:11%;--r:0deg;--d:1.6s;"><img src="assets/piezas/pieza-play.svg" alt="" draggable="false"></div>
  <div class="wrap">
-  <span class="kicker">04 · Parallax</span>
+  <span class="kicker">05 · Parallax</span>
   <div class="card"><h2 id="hpx" class="disp" style="font-size:clamp(36px,4vw,56px)">Fondo fijo</h2><p style="margin-top:12px">El fondo azul con rosetas se queda quieto. Las piezas rojas se mueven a distinta velocidad: la más cercana, más rápido. Con «reducir movimiento» todo se queda en su lugar.</p></div>
   <div class="card"><h3>Dos capas, tres velocidades</h3><p style="margin-top:10px">Listón rojo (rápido) · mando y audífonos (medio) · cartucho (lento). El texto va sobre placas noche para leerse siempre.</p></div>
  </div>
@@ -119,7 +129,7 @@
 <!-- 05 · CORTES -->
 <section class="field bg-noche" id="cortes" style="padding-bottom:40px">
  <div class="wrap">
-  <div class="sec-head"><span class="kicker">05 · Cortes de sección</span><h2 class="disp">Cinco cortes</h2><p class="lead">Cada apartado cambia de arte: pincelada curva, escaneo, glitch controlado (estático), pixel (el único) y cinta de película. Siempre usan el color de arriba y el de abajo, con una pieza roja al frente.</p></div>
+  <div class="sec-head"><span class="kicker">06 · Cortes de sección</span><h2 class="disp">Cinco cortes</h2><p class="lead">Cada apartado cambia de arte: pincelada curva, escaneo, glitch controlado (estático), pixel (el único) y cinta de película. Siempre usan el color de arriba y el de abajo. El rojo aparece solo cuando arriba y abajo son azul (nunca sobre negro); sobre negro usan cian y hielo.</p></div>
  </div>
 </section>
 <div class="cutdemo" aria-hidden="true">
@@ -136,9 +146,9 @@
 
 <!-- 06 · FILAS -->
 <section class="field bg-azul" id="filas" style="padding-top:clamp(40px,5vw,70px)">
- <div class="art circuito" style="opacity:.5"></div>
+ <div class="art a-filas-f ly" data-speed=".05"></div><div class="art a-filas-o ly" data-speed=".11"></div>
  <div class="wrap">
-  <div class="sec-head"><span class="kicker">06 · Filas deslizables</span><h2 class="disp">Estilo Netflix</h2><p class="lead">Deslizan con el dedo, con arrastre del mouse, con flechas o con las teclas ← →. Se detienen tarjeta por tarjeta. Las flechas van arriba de la fila para no tapar nada.</p></div>
+  <div class="sec-head"><span class="kicker">07 · Filas deslizables</span><h2 class="disp">Estilo Netflix</h2><p class="lead">Deslizan con el dedo, con arrastre del mouse, con flechas o con las teclas ← →. Se detienen tarjeta por tarjeta. Las flechas van arriba de la fila para no tapar nada.</p></div>
   <div data-row="plataformas" data-title="Consolas y PC"></div>
   <p class="hint">Precios: siempre «Consultar precio» · cotización por WhatsApp</p>
  </div>
@@ -147,7 +157,7 @@
 
 <!-- EJEMPLO 2/3 · CATÁLOGO -->
 <section class="field bg-prof" id="ej-catalogo">
- <div class="art iso"></div>
+ <div class="art a-catalogo-f ly" data-speed=".05"></div><div class="art a-catalogo-o ly" data-speed=".11"></div>
  <div class="pz" data-speed="0.16" style="left:74%;top:4%;width:24%;--r:8deg;--d:0.2s;z-index:1"><img src="assets/piezas/pieza-portatil.svg" alt="" draggable="false"></div>
  <div class="wrap">
   <div class="ex-title"><div><span class="kicker">Ejemplo · Catálogo</span><h2 class="disp">Nintendo Switch</h2></div></div>
@@ -158,8 +168,8 @@
 
 <!-- EJEMPLO 3/3 · STREAMING + IA -->
 <section class="field bg-azul" id="ej-streaming">
- <div class="art cinta"></div>
- <div class="pz" data-speed="0.14" style="left:80%;top:3%;width:20%;--r:6deg;--d:0.4s;"><img src="assets/piezas/pieza-pantalla.svg" alt="" draggable="false"></div>
+ <div class="art a-streaming-f ly" data-speed=".05"></div><div class="art a-streaming-o ly" data-speed=".11"></div>
+ <div class="pz" data-speed="0.14" style="left:80%;top:3%;width:20%;--r:6deg;--d:0.4s;"><img src="assets/piezas/pieza-claqueta.svg" alt="" draggable="false"></div>
  <div class="wrap">
   <div class="ex-title"><div><span class="kicker">Ejemplo · Suscripciones</span><h2 class="disp">Streaming</h2></div></div>
   <div data-row="streaming" data-title="Series, cine y música"></div>
@@ -167,8 +177,8 @@
 </section>
 <div data-cut="pixel" data-from="azul" data-to="prof"><span class="cut-tag">Corte · pixel</span></div>
 <section class="field bg-prof" id="ej-ia" style="padding-bottom:70px">
- <div class="art circuito"></div>
- <div class="pz" data-speed="0.18" style="left:78%;top:2%;width:19%;--r:-7deg;--d:0.5s;"><img src="assets/piezas/pieza-chip.svg" alt="" draggable="false"></div>
+ <div class="art a-ia-f ly" data-speed=".05"></div><div class="art a-ia-o ly" data-speed=".11"></div>
+ <div class="pz" data-speed="0.18" style="left:78%;top:2%;width:19%;--r:-7deg;--d:0.5s;"><img src="assets/piezas/pieza-chip.svg" alt="" draggable="false"></div><div class="pz" data-speed="0.12" style="left:56%;top:1%;width:16%;--r:6deg;--d:.8s;"><img src="assets/piezas/pieza-nube.svg" alt="" draggable="false"></div>
  <div class="wrap">
   <div class="ex-title"><div><span class="kicker">Ejemplo · IA y tecnología</span><h2 class="disp">Inteligencia artificial</h2></div></div>
   <div data-row="ia" data-title="Herramientas de IA"></div>
@@ -176,6 +186,6 @@
 </section>
 <div data-cut="pincel" data-from="prof" data-to="noche"><span class="cut-tag">Corte · pincelada</span></div>
 </main>
-<footer><img src="assets/logo/gamemaster-completo-oscuro.svg" alt="GameMaster"><p>Propuesta de identidad visual v2 · página estática, sin build ni CDN. Las marcas de terceros pertenecen a sus dueños. Precios siempre «Consultar precio».</p></footer>
+<footer><img src="assets/logo/gamemaster-completo-oscuro.svg" alt="GameMaster"><p>Propuesta de identidad visual v3 · página estática, sin build ni CDN. Las marcas de terceros pertenecen a sus dueños. Precios siempre «Consultar precio».</p></footer>
 <script src="app.js"></script>
 </body></html>

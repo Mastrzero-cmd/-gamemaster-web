@@ -13,10 +13,18 @@ SHADE = {
 }
 def svg(vb, body, name):
     x, y, w, h = [float(v) for v in vb.split()][0:4] if False else (0, 0, *[float(v) for v in vb.split()[2:]])
-    defs = ('<defs><pattern id="ht" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="4.5" cy="4.5" r="2" fill="#05071f"/></pattern>'
+    defs = ('<defs><pattern id="hc" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><path d="M0 0H5" stroke="#6e0903" stroke-width="1.3"/></pattern><pattern id="ht" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="4.5" cy="4.5" r="2" fill="#05071f"/></pattern>'
             f'<linearGradient id="fd" x1="0" y1="0" x2="0" y2="1"><stop offset=".45" stop-color="#000"/><stop offset="1" stop-color="#fff"/></linearGradient>'
             f'<mask id="mk"><rect width="{w}" height="{h}" fill="url(#fd)"/></mask></defs>')
     over = f'<path d="{SHADE[name]}" fill="url(#ht)" mask="url(#mk)" opacity=".55"/>' if name in SHADE else ''
+    if name in SHADE and name not in ('Audífonos', 'Consola portátil'):
+        cx, cy = w / 2, h / 2; sd = SHADE[name]
+        halo = f'<path d="{sd}" fill="none" stroke="#ff3b7f" stroke-width="3" stroke-linejoin="round" transform="translate(7 7)" opacity=".85"/>'
+        eng = f'<path d="{sd}" fill="url(#hc)" mask="url(#mk)" opacity=".5"/>'
+        for sc, op in ((.9, .5), (.8, .35)):
+            eng += f'<g transform="translate({cx} {cy}) scale({sc}) translate({-cx} {-cy})"><path d="{sd}" fill="none" stroke="#7a0a05" stroke-width="1.4" stroke-linejoin="round" opacity="{op}"/></g>'
+        eng += f'<path d="{sd}" fill="none" stroke="#ffd9d2" stroke-width="1.6" stroke-linejoin="round" opacity=".55" transform="translate(-2 -2)"/>'
+        body = halo + body + eng
     body = body + over
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb}" role="img" aria-label="{name}"><title>{name}</title>{defs}{body}</svg>'
 st = f'stroke="{RK}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"'
@@ -89,6 +97,21 @@ P['play'] = svg('0 0 240 240', f'''
 P['destello'] = svg('0 0 120 120', f'<path d="M60 4C64 40 80 56 116 60C80 64 64 80 60 116C56 80 40 64 4 60C40 56 56 40 60 4Z" fill="{CY}"/>', 'Destello')
 # anillo
 P['anillo'] = svg('0 0 300 300', f'<circle cx="150" cy="150" r="128" fill="none" stroke="{R}" stroke-width="26"/><circle cx="150" cy="150" r="128" fill="none" stroke="{RK}" stroke-width="5" opacity=".6"/><path d="M60 80A120 120 0 0 1 140 28" fill="none" stroke="{RL}" stroke-width="8" stroke-linecap="round"/>', 'Anillo')
+SHADE['Claqueta'] = 'M24 110H364V300H24Z'
+SHADE['Nube'] = 'M80 220C30 220 14 160 62 146C58 94 124 70 158 108C178 56 262 56 280 116C340 106 362 188 308 220Z'
+P['claqueta'] = svg('0 0 390 320', f'''
+<rect x="24" y="110" width="340" height="190" rx="10" fill="{R}" {st}/>
+<rect x="44" y="158" width="300" height="120" rx="6" fill="{NV}" stroke="{RK}" stroke-width="5"/>
+<path d="M44 196H344M44 232H344" stroke="{CY}" stroke-width="2" opacity=".28"/>
+<circle cx="194" cy="218" r="30" fill="{R}" stroke="{RL}" stroke-width="4"/><path d="M184 202l30 16-30 16z" fill="{RL}"/>
+<path d="M24 110L350 44L366 110Z" fill="{RD}" {st}/>
+''' + ''.join(f'<path d="M{24+k*52} 110l34 0l24 -32l-34 6z" fill="{RK if k%2==0 else RL}" opacity=".9"/>' for k in range(6)) + f'''
+<rect x="24" y="110" width="340" height="38" rx="6" fill="{R}" {st}/>
+''' + ''.join(f'<path d="M{24+k*52} 148l30 0l22 -38l-30 0z" fill="{RK if k%2==0 else RL}"/>' for k in range(7)), 'Claqueta')
+P['nube'] = svg('0 0 380 320', f'''
+<path d="M80 220C30 220 14 160 62 146C58 94 124 70 158 108C178 56 262 56 280 116C340 106 362 188 308 220Z" fill="{R}" {st}/>
+<path d="M100 200C60 200 50 160 78 150" fill="none" stroke="{RL}" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+''' + ''.join(f'<rect x="{x-22}" y="250" width="44" height="62" rx="5" fill="{RD}" {st}/><path d="M{x-12} 266h20M{x-12} 280h20M{x-12} 294h20" stroke="{RK}" stroke-width="4" stroke-linecap="round"/><circle cx="{x+13}" cy="266" r="3.5" fill="{RL}"/><path d="M{x} 222V250" stroke="{RK}" stroke-width="5"/>' for x in (130, 190, 250)), 'Nube')
 if __name__ == '__main__':
     out = sys.argv[1]; os.makedirs(out, exist_ok=True)
     for k, v in P.items(): open(os.path.join(out, f'pieza-{k}.svg'), 'w').write(v)

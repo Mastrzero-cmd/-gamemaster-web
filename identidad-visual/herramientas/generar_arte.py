@@ -79,5 +79,7 @@ def rosetas():
 A['rosetas'] = rosetas()
 if __name__ == '__main__':
     out = sys.argv[1]; os.makedirs(out, exist_ok=True)
-    for k, v in A.items(): open(os.path.join(out, f'arte-{k}.svg'), 'w').write(v)
+    for k, v in A.items():
+        if k != 'liston': continue  # v3: el resto del arte lo genera generar_arte_v3.py
+        open(os.path.join(out, f'arte-{k}.svg'), 'w').write(v)
     print(len(A), 'artes')

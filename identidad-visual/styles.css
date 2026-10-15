@@ -1,4 +1,4 @@
-/* GameMaster · Identidad visual v2 · neón cian/azul eléctrico, rojo ADELANTE del azul, negro solo separa */
+/* GameMaster · Identidad visual v3 · neón cian/azul eléctrico, rojo ADELANTE del azul, negro solo separa */
 @font-face{font-family:"Bangers";src:url(assets/fonts/Bangers-Regular.ttf) format("truetype");font-display:swap}
 @font-face{font-family:"Outfit";src:url(assets/fonts/Outfit.ttf) format("truetype");font-weight:100 900;font-display:swap}
 @font-face{font-family:"Space Mono";src:url(assets/fonts/SpaceMono-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
@@ -29,21 +29,35 @@ p.lead{max-width:60ch;font-size:clamp(17px,1.5vw,20px);color:var(--hielo)}
 
 /* ---- campos de color ---- */
 .field{position:relative;overflow:hidden;isolation:isolate;padding:clamp(70px,9vw,130px) 0}
-.bg-azul{background:linear-gradient(180deg,#3248e6 0%,#2b3fd6 100%)}
-.bg-prof{background:linear-gradient(180deg,#2434c4 0%,#1a28a2 100%)}
+.bg-azul{background:radial-gradient(70% 55% at 82% 12%,rgba(130,160,255,.30),transparent 70%),radial-gradient(80% 60% at 12% 100%,rgba(5,7,70,.38),transparent 70%),linear-gradient(180deg,#3248e6 0%,#2b3fd6 100%)}
+.bg-prof{background:radial-gradient(70% 55% at 18% 10%,rgba(110,140,255,.26),transparent 70%),radial-gradient(80% 60% at 88% 100%,rgba(5,7,70,.42),transparent 70%),linear-gradient(180deg,#2434c4 0%,#1a28a2 100%)}
 .bg-noche{background:var(--noche)}
-.art{position:absolute;inset:0;z-index:0;pointer-events:none;background-repeat:no-repeat;background-position:center bottom;background-size:cover;opacity:.85}
-.art.rejilla{background-image:url(assets/arte/arte-rejilla.svg)}
-.art.circuito{background-image:url(assets/arte/arte-circuito.svg)}
-.art.iso{background-image:url(assets/arte/arte-isometrico.svg);background-position:right center}
-.art.cinta{background-image:url(assets/arte/arte-cinta.svg);opacity:.55}
-.art.rosetas{background-image:url(assets/arte/arte-rosetas.svg);background-repeat:repeat;background-size:120px;opacity:.6}
+.art{position:absolute;inset:-50px 0;z-index:0;pointer-events:none;background-repeat:no-repeat;background-position:center;background-size:cover}
+.art.ly{will-change:transform;transform:translate3d(0,var(--py,0px),0)}
+.fixin .art,.tile .art{inset:0}
+@media(max-width:700px){.art{background-size:900px auto;background-repeat:repeat-y;background-position:50% 0}}
+.a-hero-f{background-image:url(assets/arte/campo-hero-fondo.svg)}
+.a-hero-o{background-image:url(assets/arte/campo-hero-objetos.svg)}
+.a-paleta-f{background-image:url(assets/arte/campo-paleta-fondo.svg)}
+.a-paleta-o{background-image:url(assets/arte/campo-paleta-objetos.svg)}
+.a-cromo-f{background-image:url(assets/arte/campo-cromo-fondo.svg)}
+.a-cromo-o{background-image:url(assets/arte/campo-cromo-objetos.svg)}
+.a-parallax-f{background-image:url(assets/arte/campo-parallax-fondo.svg)}
+.a-parallax-o{background-image:url(assets/arte/campo-parallax-objetos.svg)}
+.a-filas-f{background-image:url(assets/arte/campo-filas-fondo.svg)}
+.a-filas-o{background-image:url(assets/arte/campo-filas-objetos.svg)}
+.a-catalogo-f{background-image:url(assets/arte/campo-catalogo-fondo.svg)}
+.a-catalogo-o{background-image:url(assets/arte/campo-catalogo-objetos.svg)}
+.a-streaming-f{background-image:url(assets/arte/campo-streaming-fondo.svg)}
+.a-streaming-o{background-image:url(assets/arte/campo-streaming-objetos.svg)}
+.a-ia-f{background-image:url(assets/arte/campo-ia-fondo.svg)}
+.a-ia-o{background-image:url(assets/arte/campo-ia-objetos.svg)}
 .scan::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(5,7,31,.16) 0 2px,transparent 2px 6px)}
 
 /* fondo fijo (parallax): capa fija recortada por la sección; funciona también en iOS */
 .fixbg{position:absolute;inset:0;clip-path:inset(0);z-index:0}
 .fixbg>.fixin{position:fixed;inset:0;background:linear-gradient(180deg,#3a50ee 0%,#2b3fd6 55%,#1f2fb8 100%)}
-.fixin .art{opacity:.9;background-position:center bottom;background-size:cover}
+.fixin .art{background-position:center;background-size:cover}
 .reduce .fixbg>.fixin{position:absolute}
 
 /* ---- piezas rojas (adelante) ---- */
@@ -111,7 +125,7 @@ p.lead{max-width:60ch;font-size:clamp(17px,1.5vw,20px);color:var(--hielo)}
 .specimen{font-size:clamp(54px,8vw,112px);line-height:1}
 
 /* cromo diagrama */
-.planes{position:relative;height:420px;margin:10px 0}
+.planes{position:relative;height:380px;margin:46px 0 6px}
 .plane{position:absolute;left:8%;right:8%;height:220px;border:3px solid var(--noche);transform:skewY(-6deg)}
 .plane.p1{top:10px;background:var(--prof);box-shadow:0 0 0 3px var(--noche);opacity:.95}
 .plane.p2{top:90px;left:16%;right:0;background:var(--azul2);}
@@ -178,5 +192,18 @@ footer p{font-size:13px;opacity:.7;max-width:70ch;margin-inline:auto}
 .pxs .pz{z-index:1}
 .pxs .wrap{z-index:3}
 @media(max-width:620px){.variants{grid-template-columns:repeat(2,1fr)}.var{min-height:130px;padding:12px}.var small{font-size:9.5px}.planes{height:360px}}
-.fixin .art.rosetas{background-size:150px;background-repeat:repeat;background-position:center}
-.fixin .art.rosetas{opacity:.38}
+
+
+/* v3 · swatches con placa noche (contraste AA), leyenda de planos y mosaico de grabado */
+.sw{align-items:flex-end}
+.sw>span{background:var(--noche);color:var(--hielo);padding:7px 9px;line-height:1.35}
+.plane-key{list-style:none;padding:0;margin:0 0 6px;display:grid;gap:6px}
+.plane-key li{display:flex;align-items:center;gap:10px;font:700 12px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:var(--noche);color:var(--hielo);padding:8px 10px;width:max-content;max-width:100%}
+.plane-key i{display:block;width:18px;height:18px;border:3px solid var(--noche);outline:1px solid rgba(234,246,255,.35);flex:none}
+.tiles{gap:22px}
+.tile{position:relative;overflow:hidden;isolation:isolate;aspect-ratio:16/10;border:3px solid var(--noche);outline:2px solid rgba(234,246,255,.14);margin:0}
+.tile figcaption{position:absolute;left:0;bottom:0;z-index:3;background:var(--noche);color:var(--hielo);padding:9px 12px;max-width:88%}
+.tile figcaption b{display:block;font:400 22px/1 var(--f-disp);letter-spacing:.03em;text-transform:uppercase;transform:skewX(-8deg);transform-origin:left}
+.tile figcaption span{display:block;margin-top:5px;font:700 11px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+@media(max-width:620px){.tile{aspect-ratio:4/3}.tile .art{background-size:cover;background-repeat:no-repeat;background-position:center}}
+.reduce .art.ly{transform:none}

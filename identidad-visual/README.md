@@ -1,4 +1,4 @@
-# GameMaster · Identidad visual v2 (propuesta)
+# GameMaster · Identidad visual v3 (propuesta)
 
 Página estática aislada (HTML + CSS + JS vanilla, sin build, sin CDN). No toca la web, `main` ni el PR.
 
@@ -19,3 +19,8 @@ Regenerar: `python3 herramientas/generar_logo.py assets/logo` y `node herramient
 
 ## Otros
 `herramientas/generar_piezas.py` y `generar_arte.py` generan las piezas rojas y los fondos SVG. Fuentes libres autohospedadas: Bangers, Outfit, Space Mono. Portadas, logos de servicios y plataformas copiados del repo. Precios siempre «Consultar precio»; cotización por WhatsApp. Las marcas de terceros pertenecen a sus dueños.
+
+## v3 · grabado fino en los campos azules
+- `assets/arte/campo-<sección>-fondo.svg` y `-objetos.svg`: dos capas por sección (hero, paleta, cromo, parallax, filas, catálogo, streaming, IA), todo vectorial (~1 MB en total), con trazo fino de tono azul cercano al fondo (curvas de nivel, placas isométricas con relieve, circuitos y huellas de chip, retículas, guilloche, estrellas, cintas, red neuronal) y objetos gamer/streaming/tech en línea (mando, portátil, cartucho, pantalla, chip, audífonos, claqueta, play, nube, servidor, consola, disco). Las capas se mueven a distinta velocidad (profundidad) y respetan «reducir movimiento».
+- Generadores: `herramientas/arte_lib.py` + `generar_arte_v3.py` (`python3 herramientas/generar_arte_v3.py assets/arte`). Piezas rojas con grabado fino y halo magenta: `generar_piezas.py`. Logo: `generar_logo.py` + `exportar_png.mjs` (ajusta el viewBox al contenido + 3 % de margen; PNG con transparencia real).
+- Rojo solo sobre azul: en cortes sobre negro se usan cian/hielo. Capturas: `node herramientas/capturar.mjs capturas http://localhost:8000/index.html` (Playwright).
