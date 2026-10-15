@@ -60,7 +60,9 @@ export function DepthPlanes() {
     };
 
     const wake = () => {
-      if (reduce.matches || frame) return;
+      if (reduce.matches) return;
+      root.style.setProperty('--gm-scroll', String(Math.round(window.scrollY)));
+      if (frame) return;
       frame = window.requestAnimationFrame(tick);
     };
 
@@ -68,6 +70,7 @@ export function DepthPlanes() {
       if (frame) window.cancelAnimationFrame(frame);
       frame = 0;
       planes.forEach((plane) => plane.style.removeProperty('--gm-shift'));
+      root.style.removeProperty('--gm-scroll');
       root.style.removeProperty('--gm-pointer-x');
       root.style.removeProperty('--gm-pointer-y');
     };

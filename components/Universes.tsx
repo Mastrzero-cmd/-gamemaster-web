@@ -1,10 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import { ArrowUpRight, Check, Play, SendHorizontal } from 'lucide-react';
 import { aiServices, privacyServices, streamingServices, type Service } from '@/app/data/services';
 import { ServiceMark } from './ServiceMark';
 import { GiantType, Sprite } from './art/Sprite';
+import { ChipFront, ChipRear } from './art/VectorArt';
 import { useExperience } from './experience/useExperience';
 
 function ServiceButton({ service, selected, onSelect, className = 'serviceLogo' }: {
@@ -87,10 +87,10 @@ export function Universes() {
       <article className="universe universeAi" id="ia" aria-labelledby="ia-title" data-quote-bar-avoid>
         <div className="universeArt aiStage">
           <span className="aiChipRear depthPlane" aria-hidden="true">
-            <Image src="/art/cromo/panel-chip-rear.webp" alt="" width={864} height={1152} unoptimized />
+            <ChipRear />
           </span>
           <span className="aiChipFront depthPlane" aria-hidden="true">
-            <Image src="/art/cromo/panel-chip-front.webp" alt="" width={864} height={1152} unoptimized />
+            <ChipFront />
           </span>
           <Sprite name="keycap" className="aiSpriteKeycap" />
           <Sprite name="mouse" className="aiSpriteMouse" />

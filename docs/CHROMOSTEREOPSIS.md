@@ -286,3 +286,11 @@ For each experiment evaluate:
 Never present the website as scientifically guaranteed to create identical depth for every viewer. The source research explicitly notes individual differences, possible inversion and display-dependent results.
 
 The product goal is a **controlled chromostereoscopic art direction**, not an optical claim.
+
+## 5ª pasada: parallax real, cortes y arte vectorial (Claude)
+
+- Fondo fijo (`components/art/Backdrop.tsx`): azul suave sobre negro, casi inmóvil; las piezas rojas viajan más que el contenido (variables `--gm-depth-*`).
+- Cada sección tiene su propia placa con corte diagonal (`clip-path`) y se solapa con la anterior.
+- Objetos rojos y láminas en SVG (`components/art/VectorArt.tsx`); logos en PNG sin fondo en `public/brand/logos/`.
+- Colores grandes suaves (`--gm-blue` #3447aa); rojo vivo solo en piezas y botones; texto sobre azul siempre blanco; el acento rojo de títulos va en placa negra.
+- Con `prefers-reduced-motion` no hay parallax ni deriva del fondo.

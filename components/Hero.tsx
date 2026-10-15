@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { catalog } from '@/app/data/catalog';
 import { GENERAL_CONTACT_URL } from '@/lib/contact';
 import { GameCard } from './catalog/GameCard';
 import { GiantType, Sprite } from './art/Sprite';
+import { HeroFront, HeroRear } from './art/VectorArt';
 
 const switch2Games = catalog.filter((game) => game.platform === 'Nintendo Switch 2');
 
@@ -39,10 +39,10 @@ export function Hero() {
 
         <figure className="heroIcon" aria-hidden="true">
           <span className="heroIconRear depthPlane">
-            <Image src="/art/cromo/panel-consoles-rear.webp" alt="" width={864} height={1152} unoptimized priority />
+            <HeroRear />
           </span>
           <span className="heroIconFront depthPlane">
-            <Image src="/art/cromo/panel-consoles-front.webp" alt="" width={864} height={1152} unoptimized priority />
+            <HeroFront />
           </span>
           <figcaption className="pixelLabel">Lámina 01 · Consola, mandos y PC</figcaption>
         </figure>

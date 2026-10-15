@@ -3524,6 +3524,408 @@ main {
   }
 }
 
+/* ==========================================================================
+   5ª PASADA — parallax real, cortes diagonales por sección y arte vectorial
+   Autor: Claude (bot de Fernando). Colores grandes suaves; el rojo vivo solo
+   en piezas y acentos; sin parpadeos; todo el movimiento respeta reduced-motion.
+   ========================================================================== */
+
+:root {
+  --gm-blue: #3447aa;
+  --gm-blue-deep: #26338a;
+  --gm-blue-night: #141b52;
+  --gm-red-deep: #9c2a24;
+  --gm-field-desktop: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1600 700%22 preserveAspectRatio=%22none%22%3E%3Cdefs%3E%3ClinearGradient id=%22f%22 x1=%220%22 y1=%220%22 x2=%220%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23cfd6ff%22 stop-opacity=%220%22/%3E%3Cstop offset=%22.4%22 stop-color=%22%23cfd6ff%22 stop-opacity=%22.30%22/%3E%3Cstop offset=%221%22 stop-color=%22%23cfd6ff%22 stop-opacity=%22.16%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill=%22none%22 stroke=%22url%28%23f%29%22 stroke-width=%222%22%3E%3Cpath d=%22M-1020 260L-6480 700%22/%3E%3Cpath d=%22M-890 260L-5960 700%22/%3E%3Cpath d=%22M-760 260L-5440 700%22/%3E%3Cpath d=%22M-630 260L-4920 700%22/%3E%3Cpath d=%22M-500 260L-4400 700%22/%3E%3Cpath d=%22M-370 260L-3880 700%22/%3E%3Cpath d=%22M-240 260L-3360 700%22/%3E%3Cpath d=%22M-110 260L-2840 700%22/%3E%3Cpath d=%22M20 260L-2320 700%22/%3E%3Cpath d=%22M150 260L-1800 700%22/%3E%3Cpath d=%22M280 260L-1280 700%22/%3E%3Cpath d=%22M410 260L-760 700%22/%3E%3Cpath d=%22M540 260L-240 700%22/%3E%3Cpath d=%22M670 260L280 700%22/%3E%3Cpath d=%22M800 260L800 700%22/%3E%3Cpath d=%22M930 260L1320 700%22/%3E%3Cpath d=%22M1060 260L1840 700%22/%3E%3Cpath d=%22M1190 260L2360 700%22/%3E%3Cpath d=%22M1320 260L2880 700%22/%3E%3Cpath d=%22M1450 260L3400 700%22/%3E%3Cpath d=%22M1580 260L3920 700%22/%3E%3Cpath d=%22M1710 260L4440 700%22/%3E%3Cpath d=%22M1840 260L4960 700%22/%3E%3Cpath d=%22M1970 260L5480 700%22/%3E%3Cpath d=%22M2100 260L6000 700%22/%3E%3Cpath d=%22M2230 260L6520 700%22/%3E%3Cpath d=%22M2360 260L7040 700%22/%3E%3Cpath d=%22M2490 260L7560 700%22/%3E%3Cpath d=%22M2620 260L8080 700%22/%3E%3Cpath d=%22M0 266H1600%22/%3E%3Cpath d=%22M0 284H1600%22/%3E%3Cpath d=%22M0 313H1600%22/%3E%3Cpath d=%22M0 354H1600%22/%3E%3Cpath d=%22M0 408H1600%22/%3E%3Cpath d=%22M0 472H1600%22/%3E%3Cpath d=%22M0 549H1600%22/%3E%3Cpath d=%22M0 638H1600%22/%3E%3C/g%3E%3C/svg%3E");
+  --gm-field-mobile: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1600 700%22 preserveAspectRatio=%22none%22%3E%3Cdefs%3E%3ClinearGradient id=%22f%22 x1=%220%22 y1=%220%22 x2=%220%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23cfd6ff%22 stop-opacity=%220%22/%3E%3Cstop offset=%22.4%22 stop-color=%22%23cfd6ff%22 stop-opacity=%22.30%22/%3E%3Cstop offset=%221%22 stop-color=%22%23cfd6ff%22 stop-opacity=%22.16%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill=%22none%22 stroke=%22url%28%23f%29%22 stroke-width=%222%22%3E%3Cpath d=%22M-1020 260L-6480 700%22/%3E%3Cpath d=%22M-890 260L-5960 700%22/%3E%3Cpath d=%22M-760 260L-5440 700%22/%3E%3Cpath d=%22M-630 260L-4920 700%22/%3E%3Cpath d=%22M-500 260L-4400 700%22/%3E%3Cpath d=%22M-370 260L-3880 700%22/%3E%3Cpath d=%22M-240 260L-3360 700%22/%3E%3Cpath d=%22M-110 260L-2840 700%22/%3E%3Cpath d=%22M20 260L-2320 700%22/%3E%3Cpath d=%22M150 260L-1800 700%22/%3E%3Cpath d=%22M280 260L-1280 700%22/%3E%3Cpath d=%22M410 260L-760 700%22/%3E%3Cpath d=%22M540 260L-240 700%22/%3E%3Cpath d=%22M670 260L280 700%22/%3E%3Cpath d=%22M800 260L800 700%22/%3E%3Cpath d=%22M930 260L1320 700%22/%3E%3Cpath d=%22M1060 260L1840 700%22/%3E%3Cpath d=%22M1190 260L2360 700%22/%3E%3Cpath d=%22M1320 260L2880 700%22/%3E%3Cpath d=%22M1450 260L3400 700%22/%3E%3Cpath d=%22M1580 260L3920 700%22/%3E%3Cpath d=%22M1710 260L4440 700%22/%3E%3Cpath d=%22M1840 260L4960 700%22/%3E%3Cpath d=%22M1970 260L5480 700%22/%3E%3Cpath d=%22M2100 260L6000 700%22/%3E%3Cpath d=%22M2230 260L6520 700%22/%3E%3Cpath d=%22M2360 260L7040 700%22/%3E%3Cpath d=%22M2490 260L7560 700%22/%3E%3Cpath d=%22M2620 260L8080 700%22/%3E%3Cpath d=%22M0 266H1600%22/%3E%3Cpath d=%22M0 284H1600%22/%3E%3Cpath d=%22M0 313H1600%22/%3E%3Cpath d=%22M0 354H1600%22/%3E%3Cpath d=%22M0 408H1600%22/%3E%3Cpath d=%22M0 472H1600%22/%3E%3Cpath d=%22M0 549H1600%22/%3E%3Cpath d=%22M0 638H1600%22/%3E%3C/g%3E%3C/svg%3E");
+  --gm-field-hero: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1600 700%22 preserveAspectRatio=%22none%22%3E%3Cdefs%3E%3ClinearGradient id=%22f%22 x1=%220%22 y1=%220%22 x2=%220%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23cfd6ff%22 stop-opacity=%220%22/%3E%3Cstop offset=%22.4%22 stop-color=%22%23cfd6ff%22 stop-opacity=%22.30%22/%3E%3Cstop offset=%221%22 stop-color=%22%23cfd6ff%22 stop-opacity=%22.16%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill=%22none%22 stroke=%22url%28%23f%29%22 stroke-width=%222%22%3E%3Cpath d=%22M-1020 260L-6480 700%22/%3E%3Cpath d=%22M-890 260L-5960 700%22/%3E%3Cpath d=%22M-760 260L-5440 700%22/%3E%3Cpath d=%22M-630 260L-4920 700%22/%3E%3Cpath d=%22M-500 260L-4400 700%22/%3E%3Cpath d=%22M-370 260L-3880 700%22/%3E%3Cpath d=%22M-240 260L-3360 700%22/%3E%3Cpath d=%22M-110 260L-2840 700%22/%3E%3Cpath d=%22M20 260L-2320 700%22/%3E%3Cpath d=%22M150 260L-1800 700%22/%3E%3Cpath d=%22M280 260L-1280 700%22/%3E%3Cpath d=%22M410 260L-760 700%22/%3E%3Cpath d=%22M540 260L-240 700%22/%3E%3Cpath d=%22M670 260L280 700%22/%3E%3Cpath d=%22M800 260L800 700%22/%3E%3Cpath d=%22M930 260L1320 700%22/%3E%3Cpath d=%22M1060 260L1840 700%22/%3E%3Cpath d=%22M1190 260L2360 700%22/%3E%3Cpath d=%22M1320 260L2880 700%22/%3E%3Cpath d=%22M1450 260L3400 700%22/%3E%3Cpath d=%22M1580 260L3920 700%22/%3E%3Cpath d=%22M1710 260L4440 700%22/%3E%3Cpath d=%22M1840 260L4960 700%22/%3E%3Cpath d=%22M1970 260L5480 700%22/%3E%3Cpath d=%22M2100 260L6000 700%22/%3E%3Cpath d=%22M2230 260L6520 700%22/%3E%3Cpath d=%22M2360 260L7040 700%22/%3E%3Cpath d=%22M2490 260L7560 700%22/%3E%3Cpath d=%22M2620 260L8080 700%22/%3E%3Cpath d=%22M0 266H1600%22/%3E%3Cpath d=%22M0 284H1600%22/%3E%3Cpath d=%22M0 313H1600%22/%3E%3Cpath d=%22M0 354H1600%22/%3E%3Cpath d=%22M0 408H1600%22/%3E%3Cpath d=%22M0 472H1600%22/%3E%3Cpath d=%22M0 549H1600%22/%3E%3Cpath d=%22M0 638H1600%22/%3E%3C/g%3E%3C/svg%3E");
+  --gm-cut: clamp(28px, 5.5vw, 88px);
+
+  /* parallax más marcado: las piezas rojas viajan mucho más que el contenido */
+  --gm-depth-sprite-near: -260;
+  --gm-depth-sprite-mid: -160;
+  --gm-depth-sprite-far: 120;
+  --gm-depth-field: 120;
+  --gm-depth-icon-rear: 60;
+  --gm-depth-icon-front: -80;
+  --gm-depth-blade: -140;
+  --gm-depth-type: 150;
+  --gm-depth-band: 90;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --gm-cut: clamp(22px, 7vw, 40px);
+    --gm-depth-sprite-near: -130;
+    --gm-depth-sprite-mid: -90;
+    --gm-depth-sprite-far: 50;
+    --gm-depth-field: 50;
+    --gm-depth-icon-rear: 22;
+    --gm-depth-icon-front: -30;
+    --gm-depth-blade: -50;
+    --gm-depth-type: 60;
+    --gm-depth-band: 30;
+  }
+}
+
+/* ---------- fondo fijo ---------- */
+
+body {
+  background: transparent;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(120% 90% at 78% 10%, #101a4d 0%, #090d28 55%, #05060f 100%);
+}
+
+.backdropFar,
+.backdropNear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 900px);
+  will-change: transform;
+}
+
+.backdropFar {
+  opacity: 0.22;
+  transform: translate3d(0, calc(var(--gm-scroll, 0) * -0.03px), 0);
+}
+
+.backdropNear {
+  opacity: 0.5;
+  transform: translate3d(0, calc(var(--gm-scroll, 0) * -0.075px), 0);
+}
+
+/* ---------- placas con corte diagonal (cada sección corta a la anterior) ---------- */
+
+.catalogInterlude,
+.universes,
+.modesSection,
+.quoteSection,
+.faqSection,
+.siteFooter {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  background: none;
+}
+
+.catalogInterlude::before,
+.universes::before,
+.modesSection::before,
+.quoteSection::before,
+.faqSection::before,
+.siteFooter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background: var(--slab);
+  clip-path: var(--cut);
+  pointer-events: none;
+}
+
+.hero::before {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--gm-cut)), 0 100%);
+  background: linear-gradient(180deg, #2c3d9a 0%, var(--gm-blue) 100%);
+}
+
+.heroField {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--gm-cut)), 0 100%);
+  background: var(--gm-field-hero) center bottom / cover no-repeat;
+}
+
+.catalogInterlude {
+  --slab: linear-gradient(100deg, var(--gm-blue-deep), var(--gm-blue));
+  --cut: polygon(0 var(--gm-cut), 100% 0, 100% calc(100% - var(--gm-cut)), 0 100%);
+  margin-block: calc(var(--gm-cut) * -0.2);
+  padding-block: var(--gm-cut);
+}
+
+.interludeField {
+  clip-path: polygon(0 var(--gm-cut), 100% 0, 100% calc(100% - var(--gm-cut)), 0 100%);
+  background: var(--gm-field-desktop) center 72% / cover no-repeat;
+}
+
+.universes {
+  --slab: linear-gradient(180deg, var(--gm-blue) 0%, #2b3b94 100%);
+  --cut: polygon(0 0, 100% var(--gm-cut), 100% 100%, 0 calc(100% - var(--gm-cut)));
+  margin-top: calc(var(--gm-cut) * -0.6);
+  padding-top: calc(clamp(72px, 8vw, 128px) + var(--gm-cut));
+  padding-bottom: calc(clamp(56px, 6vw, 96px) + var(--gm-cut));
+}
+
+.universe {
+  position: relative;
+  isolation: isolate;
+}
+
+.universe::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--gm-cut) * -0.9) calc(var(--gm-pad-x) * -1);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.universeStreaming::before {
+  background: linear-gradient(90deg, #18205f, #212d7c);
+  clip-path: polygon(0 calc(var(--gm-cut) * 0.7), 100% 0, 100% calc(100% - var(--gm-cut) * 0.7), 0 100%);
+}
+
+.universeAi::before {
+  background: linear-gradient(90deg, #3a4fb8, #2f43a6);
+  clip-path: polygon(0 0, 100% calc(var(--gm-cut) * 0.7), 100% 100%, 0 calc(100% - var(--gm-cut) * 0.7));
+}
+
+.universeStreaming,
+.universeAi {
+  padding-block: calc(var(--gm-cut) * 0.6);
+  margin-bottom: clamp(36px, 5vw, 72px);
+}
+
+.modesSection {
+  --slab: linear-gradient(180deg, #0c1033 0%, #131a4c 100%);
+  --cut: polygon(0 var(--gm-cut), 100% 0, 100% calc(100% - var(--gm-cut)), 0 100%);
+  margin-block: calc(var(--gm-cut) * -0.5);
+  padding-block: calc(clamp(72px, 8vw, 128px) + var(--gm-cut));
+}
+
+.quoteSection {
+  --slab: linear-gradient(180deg, #0a0d26, #0d1235);
+  --cut: polygon(0 0, 100% var(--gm-cut), 100% 100%, 0 calc(100% - var(--gm-cut)));
+  border-top: 0;
+  padding-block: calc(clamp(72px, 8vw, 128px) + var(--gm-cut));
+}
+
+.faqSection {
+  --slab: linear-gradient(180deg, #1a2262 0%, #252f80 100%);
+  --cut: polygon(0 var(--gm-cut), 100% 0, 100% calc(100% - var(--gm-cut)), 0 100%);
+  margin-block: calc(var(--gm-cut) * -0.5);
+  padding-block: calc(clamp(72px, 8vw, 128px) + var(--gm-cut));
+}
+
+.siteFooter {
+  --slab: linear-gradient(180deg, var(--gm-blue) 0%, #2b3b94 100%);
+  --cut: polygon(0 var(--gm-cut), 100% 0, 100% 100%, 0 100%);
+  margin-top: calc(var(--gm-cut) * -0.8);
+  padding-top: calc(clamp(56px, 6vw, 96px) + var(--gm-cut));
+}
+
+/* ---------- franja de plataformas (logos PNG sin fondo) ---------- */
+
+.platformBand {
+  position: relative;
+  z-index: 4;
+  margin-top: calc(var(--gm-cut) * -0.35);
+  margin-bottom: calc(var(--gm-cut) * 0.2);
+}
+
+.platformBand::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 0;
+  background: linear-gradient(90deg, #05060f, #0b1034);
+  clip-path: polygon(0 0, 100% calc(var(--gm-cut) * 0.45), 100% 100%, 0 calc(100% - var(--gm-cut) * 0.45));
+}
+
+.platformBand::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: calc(var(--gm-cut) * 0.1);
+  width: min(32vw, 420px);
+  height: 8px;
+  background: var(--gm-red);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+}
+
+.platformPlate {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px clamp(20px, 4vw, 64px);
+  padding-block: calc(var(--gm-cut) * 0.9) calc(var(--gm-cut) * 0.9);
+}
+
+.platformEmblem {
+  width: clamp(54px, 6vw, 84px);
+  height: auto;
+}
+
+.platformCaption {
+  color: var(--gm-white);
+}
+
+.platformLogos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px clamp(24px, 4.5vw, 72px);
+  margin-left: auto;
+}
+
+.platformLogos img {
+  width: auto;
+  height: clamp(30px, 3.4vw, 48px);
+}
+
+.platformLogos li:nth-child(2) img {
+  height: clamp(20px, 2.4vw, 32px);
+}
+
+/* ---------- marca en cabecera ---------- */
+
+.brandEmblem {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+/* ---------- arte vectorial: piezas rojas ---------- */
+
+.sprite svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.heroIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.aiChipRear svg,
+.aiChipFront svg {
+  width: 100%;
+  height: 100%;
+}
+
+.heroIconRear svg {
+  opacity: 0.9;
+}
+
+/* El rojo grande se queda en objetos; las letras gigantes del fondo son tonales */
+.giantType {
+  color: rgba(120, 140, 255, 0.2);
+  mix-blend-mode: normal;
+}
+
+/* Texto rojo solo sobre negro: el acento rojo de los títulos va en placa negra. */
+.modesSection .sectionHeading h2 em,
+.faqSection h2 em {
+  display: inline-block;
+  padding: 0.04em 0.16em 0;
+  background: var(--gm-ink);
+  color: var(--gm-red);
+}
+
+.modesSection .sectionHeading .pixelLabel,
+.faqSection .pixelLabel,
+.universes .pixelLabel {
+  color: var(--gm-white);
+}
+
+.faqList details[open] summary .pixelLabel {
+  color: var(--gm-white);
+}
+
+/* Sobre azul, el texto es blanco (nunca negro ni rojo). */
+.universes h2,
+.universes h3,
+.universes .universesLedger dt,
+.universes .universesLedger dd,
+.universes .universeCopy,
+.universes .universePrivacy,
+.universes .universesDisclaimer {
+  color: var(--gm-white);
+}
+
+.universes h2 em {
+  display: inline-block;
+  padding: 0.04em 0.16em 0;
+  background: var(--gm-ink);
+  color: var(--gm-red);
+}
+
+.siteFooter {
+  overflow-x: clip;
+}
+
+html {
+  overflow-x: clip;
+}
+
+/* Cotización: texto blanco sobre el rojo apagado */
+.quoteSection .quoteCopy h2,
+.quoteSection .quoteCopy .pixelLabel {
+  color: var(--gm-white);
+}
+
+.quoteSlab {
+  background: #8a2a25;
+}
+
+@media (max-width: 760px) {
+  /* La torre roja va a la izquierda: ya no choca con la palabra JUEGA (derecha) */
+  .modesSpriteTower {
+    top: 6px;
+    right: auto;
+    left: 4vw;
+    width: 13vw;
+  }
+}
+
+/* ---------- pie: palabra GAMEMASTER legible, objetos fuera de las letras ---------- */
+
+.footerWordmark {
+  position: relative;
+  z-index: 2;
+  color: var(--gm-ink);
+  line-height: 0.8;
+  margin-top: clamp(40px, 5vw, 80px);
+}
+
+.footerSpriteGamepad {
+  top: calc(var(--gm-cut) * -0.1);
+  right: 6vw;
+  bottom: auto;
+  left: auto;
+  width: clamp(110px, 11vw, 190px);
+}
+
+.footerSpriteHeadset {
+  top: auto;
+  bottom: calc(100% - var(--gm-cut) * 0.4 - clamp(60px, 7vw, 110px));
+  left: 7vw;
+  width: clamp(56px, 6vw, 96px);
+}
+
+.footerSpriteCartridge {
+  top: auto;
+  bottom: auto;
+  top: calc(var(--gm-cut) * 0.1);
+  left: 44vw;
+  width: clamp(48px, 5vw, 82px);
+}
+
+/* ---------- movimiento reducido: sin parallax ni deriva ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .backdropFar,
+  .backdropNear {
+    transform: none !important;
+  }
+}
+
 /* ---------- movimiento reducido ---------- */
 
 @media (prefers-reduced-motion: reduce) {

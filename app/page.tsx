@@ -1,3 +1,4 @@
+import { Backdrop } from '@/components/art/Backdrop';
 import { DepthPlanes } from '@/components/art/DepthPlanes';
 import { Catalog } from '@/components/catalog/Catalog';
 import { FAQ } from '@/components/FAQ';
@@ -6,6 +7,7 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { MobileQuoteBar } from '@/components/MobileQuoteBar';
 import { ProductPreviewModal } from '@/components/ProductPreviewModal';
+import { PlatformBand } from '@/components/PlatformBand';
 import { PurchaseModes } from '@/components/PurchaseModes';
 import { QuoteBuilder } from '@/components/QuoteBuilder';
 import { Universes } from '@/components/Universes';
@@ -13,10 +15,12 @@ import { Universes } from '@/components/Universes';
 export default function HomePage() {
   return (
     <>
+      <Backdrop />
       <DepthPlanes />
       <Header />
       <main>
         <Hero />
+        <PlatformBand />
         <Catalog />
         <Universes />
         <PurchaseModes />
