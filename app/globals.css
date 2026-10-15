@@ -41,8 +41,9 @@
   --gm-rail-amplitude-desktop: 72;
   --gm-rail-amplitude-mobile: 20;
 
-  --gm-field-desktop: url('/art/cromo/field-pillars-desktop.webp');
-  --gm-field-mobile: url('/art/cromo/field-pillars-mobile.webp');
+  --gm-field-desktop: url('/art/cromo/field-gaming-desktop.webp');
+  --gm-field-mobile: url('/art/cromo/field-gaming-mobile.webp');
+  --gm-field-hero: url('/art/cromo/field-floor-desktop.webp');
 }
 
 @media (max-width: 760px) {
@@ -443,7 +444,7 @@ h1 em {
   position: absolute;
   inset: -40px 0 var(--gm-hero-tail);
   z-index: -2;
-  background: var(--gm-blue) var(--gm-field-desktop) center bottom / cover no-repeat;
+  background: var(--gm-blue) var(--gm-field-hero) center bottom / cover no-repeat;
 }
 
 .heroStage {
@@ -1418,15 +1419,9 @@ h1 em {
 }
 
 .universeArt {
-  --gm-depth: var(--gm-depth-panel);
   grid-area: art;
   justify-self: center;
   width: min(100%, 560px);
-}
-
-.universeArt img {
-  width: 100%;
-  height: auto;
 }
 
 .universeCopy {
@@ -1546,6 +1541,301 @@ h1 em {
 .universesDisclaimer {
   margin-top: 28px;
   font-size: 13px;
+}
+
+/* ---------- streaming: pantalla negra (neutra), tarjetas azules (traseras), foco rojo (frontal) ---------- */
+
+.streamStage {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 640px);
+  padding-bottom: 40px;
+}
+
+.streamSignal {
+  --gm-depth: var(--gm-depth-panel);
+  position: absolute;
+  z-index: -1;
+  inset: 14% -10% 26% -18%;
+  background: repeating-linear-gradient(to bottom, var(--gm-ink) 0 6px, transparent 6px 22px);
+  clip-path: polygon(0 0, 78% 0, 78% 22%, 100% 22%, 100% 100%, 12% 100%, 12% 64%, 0 64%);
+  transform: translate3d(0, var(--gm-shift, 0px), 0);
+}
+
+.streamScreen {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: clamp(14px, 1.6vw, 22px);
+  background: var(--gm-ink);
+}
+
+.streamBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 16px;
+  color: var(--gm-muted);
+  font-family: var(--font-pixel), monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.streamBar span:nth-child(2) {
+  color: var(--gm-white);
+}
+
+.streamBrand {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 22px;
+  background: var(--gm-red);
+  color: var(--gm-ink) !important;
+}
+
+.streamFeature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 12px 18px;
+  min-height: clamp(150px, 15vw, 210px);
+  padding: clamp(16px, 1.8vw, 24px);
+  background: var(--gm-red);
+  color: var(--gm-ink);
+}
+
+.streamFeature .pixelLabel {
+  grid-column: 1 / -1;
+  align-self: start;
+}
+
+.streamFeature strong {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(30px, 3vw, 48px);
+  font-weight: 400;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.streamPlay {
+  display: grid;
+  place-items: center;
+  width: clamp(52px, 5vw, 72px);
+  aspect-ratio: 1;
+  background: var(--gm-ink);
+  color: var(--gm-red);
+}
+
+.streamPlay svg {
+  width: 46%;
+  height: 46%;
+  fill: currentColor;
+}
+
+.streamProgress {
+  grid-column: 1 / -1;
+  display: block;
+  height: 6px;
+  background: var(--gm-ink);
+}
+
+.streamProgress i {
+  display: block;
+  width: 38%;
+  height: 100%;
+  background: var(--gm-white);
+}
+
+.streamRowLabel {
+  color: var(--gm-muted);
+}
+
+.streamTiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.streamTile {
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 8px;
+  aspect-ratio: 16 / 11;
+  padding: 10px 8px;
+  background: var(--gm-blue);
+  color: var(--gm-ink);
+  transition: background-color var(--gm-fast) var(--gm-ease);
+}
+
+.streamTile:hover {
+  background: var(--gm-white);
+}
+
+.streamTile.isSelected {
+  background: var(--gm-red);
+}
+
+.streamTile .serviceMark {
+  width: 72%;
+  height: 26px;
+}
+
+.streamTile .serviceName {
+  font-size: 11px;
+}
+
+.streamStand {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 34%;
+  height: 40px;
+  background: var(--gm-ink);
+  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+  transform: translateX(-50%);
+}
+
+/* ---------- IA: placa de circuito azul (trasera), núcleo rojo (frontal), ventana de chat neutra ---------- */
+
+.aiStage {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 600px);
+}
+
+.aiStage::before {
+  content: "";
+  display: block;
+  aspect-ratio: 3 / 4;
+}
+
+.aiChipRear,
+.aiChipFront {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  aspect-ratio: 3 / 4;
+}
+
+.aiChipRear {
+  --gm-depth: var(--gm-depth-icon-rear);
+  transform: translate3d(0, var(--gm-shift, 0px), 0);
+}
+
+.aiChipFront {
+  --gm-depth: var(--gm-depth-icon-front);
+  transform: translate3d(0, var(--gm-shift, 0px), 0);
+}
+
+.aiChipRear img,
+.aiChipFront img {
+  width: 100%;
+  height: 100%;
+}
+
+.aiChat {
+  position: absolute;
+  z-index: 2;
+  right: 14%;
+  bottom: 5%;
+  left: -8%;
+  display: grid;
+  gap: 14px;
+  padding: clamp(14px, 1.6vw, 20px);
+  background: var(--gm-ink);
+  color: var(--gm-white);
+}
+
+.aiTabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.aiTab {
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 6px;
+  min-height: 64px;
+  padding: 10px 12px;
+  background: var(--gm-surface-raised);
+  color: var(--gm-white);
+  transition: background-color var(--gm-fast) var(--gm-ease);
+}
+
+.aiTab:hover {
+  background: var(--gm-blue);
+}
+
+.aiTab.isSelected {
+  background: var(--gm-red);
+  color: var(--gm-ink);
+}
+
+.aiTab .serviceMark {
+  width: 60%;
+  max-width: 110px;
+  height: 22px;
+}
+
+.aiTab .serviceName {
+  font-size: 12px;
+}
+
+.aiThread {
+  display: grid;
+  gap: 14px;
+}
+
+.aiPrompt {
+  justify-self: end;
+  max-width: 82%;
+  padding: 10px 14px;
+  background: var(--gm-red);
+  color: var(--gm-ink);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.aiReply {
+  display: grid;
+  gap: 8px;
+}
+
+.aiReply i {
+  display: block;
+  height: 8px;
+  background: var(--gm-white);
+}
+
+.aiReply b {
+  display: block;
+  width: 10px;
+  height: 16px;
+  background: var(--gm-blue);
+}
+
+.aiInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--gm-line-strong);
+  color: var(--gm-muted);
+  font-size: 13px;
+}
+
+.aiInput svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gm-red);
 }
 
 /* ==========================================================================
@@ -2607,16 +2897,40 @@ h1 em {
   }
 
   .universeArt {
-    width: calc(100% + var(--gm-pad-x));
-    max-width: 440px;
+    width: 100%;
+    max-width: 520px;
     justify-self: start;
-    margin-left: calc(var(--gm-pad-x) * -1);
   }
 
-  .universeAi .universeArt {
-    justify-self: end;
-    margin-left: 0;
-    margin-right: calc(var(--gm-pad-x) * -1);
+  .streamTiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .streamTile {
+    aspect-ratio: auto;
+    min-height: 68px;
+  }
+
+  .streamSignal {
+    inset: 10% calc(var(--gm-pad-x) * -1) 30% calc(var(--gm-pad-x) * -1);
+  }
+
+  .aiStage::before {
+    width: 86%;
+    margin-left: auto;
+  }
+
+  .aiChipRear,
+  .aiChipFront {
+    left: 14%;
+  }
+
+  .aiChat {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin-top: -42%;
   }
 
   .serviceLogoGrid {

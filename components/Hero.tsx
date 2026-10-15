@@ -34,12 +34,12 @@ export function Hero() {
 
         <figure className="heroIcon" aria-hidden="true">
           <span className="heroIconRear depthPlane">
-            <Image src="/art/cromo/panel-oracle-rear.webp" alt="" width={864} height={1152} unoptimized priority />
+            <Image src="/art/cromo/panel-consoles-rear.webp" alt="" width={864} height={1152} unoptimized priority />
           </span>
           <span className="heroIconFront depthPlane">
-            <Image src="/art/cromo/panel-oracle-front.webp" alt="" width={864} height={1152} unoptimized priority />
+            <Image src="/art/cromo/panel-consoles-front.webp" alt="" width={864} height={1152} unoptimized priority />
           </span>
-          <figcaption className="pixelLabel">Lámina 01 · El maestro del juego</figcaption>
+          <figcaption className="pixelLabel">Lámina 01 · Consola, mandos y PC</figcaption>
         </figure>
       </div>
 
