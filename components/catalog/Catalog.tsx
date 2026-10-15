@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import { ArrowRight, ChevronDown, Compass, Search } from 'lucide-react';
+import { Fragment, useMemo, useState } from 'react';
+import { ArrowRight, ChevronDown, Compass, MessageCircle, Search } from 'lucide-react';
 import { catalog, exploreCatalogShelves, homepageCatalogShelves } from '@/app/data/catalog';
 import { toWhatsApp } from '@/lib/contact';
 import { CatalogShelf } from './CatalogShelf';
+import { GiantType, Sprite } from '../art/Sprite';
 import { Filters, type CatalogFilterState } from './Filters';
 import { GameCard } from './GameCard';
 
@@ -21,6 +22,27 @@ const initialFilters: CatalogFilterState = {
   worlds: [],
   collections: [],
 };
+
+const INTERLUDE_AFTER = 2;
+
+const missingGameUrl = toWhatsApp('Hola, busco un juego de Nintendo Switch que no aparece en el catálogo. ¿Me ayudan a revisarlo?');
+
+function CatalogInterlude() {
+  return (
+    <aside className="catalogInterlude" aria-labelledby="interlude-title">
+      <div className="interludeField depthPlane" aria-hidden="true" />
+      <Sprite name="handheld" className="interludeSpriteHandheld" />
+      <Sprite name="cartridge" className="interludeSpriteCartridge" />
+      <Sprite name="memory-card" className="interludeSpriteCard" />
+      <div className="interludeCopy">
+        <p className="pixelLabel">✢ Pedido especial</p>
+        <h3 id="interlude-title">¿No ves tu juego?</h3>
+        <p>El catálogo crece con lo que nos piden. Escríbenos el título y revisamos precio y disponibilidad contigo.</p>
+        <a className="buttonBlack" href={missingGameUrl} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Preguntar por un título</a>
+      </div>
+    </aside>
+  );
+}
 
 export function Catalog() {
   const [query, setQuery] = useState('');
@@ -44,7 +66,7 @@ export function Catalog() {
     || filters.platform !== 'Todas'
     || filters.genres.length > 0
     || filters.worlds.length > 0
-    || filters.collections.length > 0
+    || filters.collections.length > 0;
 
   const toggleFacet = (facet: 'genres' | 'worlds' | 'collections', value: string) => {
     setFilters((current) => ({
@@ -60,73 +82,74 @@ export function Catalog() {
     setFilters(initialFilters);
   };
 
-  const freeSearchUrl = toWhatsApp(
-    query.trim()
-      ? `Hola, busco ${query.trim()} para Nintendo Switch. ¿Me ayudan a revisar precio y disponibilidad?`
-      : 'Hola, busco un juego de Nintendo Switch que no aparece en el catálogo. ¿Me ayudan a revisarlo?',
-  );
+  const freeSearchUrl = query.trim()
+    ? toWhatsApp(`Hola, busco ${query.trim()} para Nintendo Switch. ¿Me ayudan a revisar precio y disponibilidad?`)
+    : missingGameUrl;
 
   return (
-    <section className="catalogSection sectionShell" id="catalogo" aria-labelledby="catalog-title">
-      <div className="catalogDepthArt" aria-hidden="true">
-        <span data-gm-depth="0.035" /><span data-gm-depth="-0.075" /><i />
-      </div>
-      <div className="splitHeading catalogHeading">
-        <div>
-          <p className="eyebrow"><span /> BIBLIOTECA NINTENDO DIGITAL</p>
-          <h2 id="catalog-title">Encuentra tu<br /><em>próxima partida.</em></h2>
-        </div>
-        <p>Busca por título o combina plataforma, género, franquicia, colección y destacados. La categoría original de los {catalog.length} registros se conserva intacta.</p>
+    <section className="catalogSection" id="catalogo" aria-labelledby="catalog-title" data-quote-bar-avoid>
+      <div className="catalogHeading sectionShell">
+        <GiantType className="catalogType">Gaming</GiantType>
+        <Sprite name="gamepad" className="catalogSpriteGamepad" />
+        <Sprite name="side-controller" className="catalogSpriteSide" />
+        <p className="pixelLabel">✢ Capítulo 01 · Gaming</p>
+        <h2 id="catalog-title">Encuentra tu <em>próxima partida.</em></h2>
+        <p>Busca por título o combina plataforma, género, franquicia y colección. Agrega con <strong>+</strong> los juegos que quieras y cotízalos juntos.</p>
       </div>
 
-      <Filters
-        query={query}
-        filters={filters}
-        resultsCount={results.length}
-        filtersOpen={filtersOpen}
-        onQueryChange={setQuery}
-        onPlatformChange={(platform) => setFilters((current) => ({ ...current, platform }))}
-        onFacetToggle={toggleFacet}
-        onFiltersOpenChange={setFiltersOpen}
-        onClear={clearFilters}
-      />
+      <div className="sectionShell">
+        <Filters
+          query={query}
+          filters={filters}
+          resultsCount={results.length}
+          filtersOpen={filtersOpen}
+          onQueryChange={setQuery}
+          onPlatformChange={(platform) => setFilters((current) => ({ ...current, platform }))}
+          onFacetToggle={toggleFacet}
+          onFiltersOpenChange={setFiltersOpen}
+          onClear={clearFilters}
+        />
+      </div>
 
       {isExploring ? (
         results.length ? (
-          <div className="catalogResults">
-            <div className="resultsHeading"><strong>{results.length} {results.length === 1 ? 'resultado' : 'resultados'}</strong><span>Filtros combinados</span></div>
+          <div className="catalogResults sectionShell">
+            <div className="resultsHeading"><strong>{results.length} {results.length === 1 ? 'resultado' : 'resultados'}</strong><button type="button" onClick={clearFilters}>Limpiar filtros</button></div>
             <div className="gameGrid">
               {results.map((game, index) => <GameCard game={game} index={index} key={game.id} />)}
             </div>
           </div>
         ) : (
-          <div className="emptyResults" role="status">
+          <div className="emptyResults sectionShell" role="status">
             <Search aria-hidden="true" />
-            <p className="eyebrow">BÚSQUEDA SIN COINCIDENCIAS</p>
+            <p className="pixelLabel">Búsqueda sin coincidencias</p>
             <h3>No aparece en esta selección</h3>
-            <p>Prueba otra combinación o consúltanos el título. Nada se presenta como disponible hasta confirmarlo.</p>
-            <div><button type="button" onClick={clearFilters}>Limpiar filtros</button><a href={freeSearchUrl} target="_blank" rel="noreferrer">Consultar por WhatsApp <ArrowRight aria-hidden="true" /></a></div>
+            <p>Prueba otra combinación o pregúntanos por el título. Nada se presenta como disponible hasta confirmarlo.</p>
+            <div>
+              <button type="button" className="buttonGhost" onClick={clearFilters}>Limpiar filtros</button>
+              <a className="buttonRed" href={freeSearchUrl} target="_blank" rel="noreferrer">Consultar por WhatsApp <ArrowRight aria-hidden="true" /></a>
+            </div>
           </div>
         )
       ) : (
         <div className="catalogShelves">
-          {homepageCatalogShelves.map((shelf) => <CatalogShelf {...shelf} key={shelf.id} />)}
-          <div className="exploreMoreControl">
+          {homepageCatalogShelves.map((shelf, index) => (
+            <Fragment key={shelf.id}>
+              <CatalogShelf {...shelf} position={index} />
+              {index === INTERLUDE_AFTER && <CatalogInterlude />}
+            </Fragment>
+          ))}
+          <div className="exploreMoreControl sectionShell">
             <div><Compass aria-hidden="true" /><span><strong>Explorar más géneros</strong><small>Estrategia, pelea, carreras, terror, puzzle, mundo abierto y más.</small></span></div>
-            <button type="button" aria-expanded={showExploreMore} aria-controls="explore-more-shelves" onClick={() => setShowExploreMore((current) => !current)}>
-              {showExploreMore ? 'Mostrar menos' : 'Abrir más rails'} <ChevronDown aria-hidden="true" />
+            <button type="button" className="buttonGhost" aria-expanded={showExploreMore} aria-controls="explore-more-shelves" onClick={() => setShowExploreMore((current) => !current)}>
+              {showExploreMore ? 'Mostrar menos' : 'Abrir más carruseles'} <ChevronDown aria-hidden="true" />
             </button>
           </div>
           {showExploreMore && (
             <div className="exploreMoreShelves" id="explore-more-shelves">
-              {exploreCatalogShelves.map((shelf) => <CatalogShelf {...shelf} key={shelf.id} />)}
+              {exploreCatalogShelves.map((shelf, index) => <CatalogShelf {...shelf} position={homepageCatalogShelves.length + index} key={shelf.id} />)}
             </div>
           )}
-          <div className="catalogOutro" aria-hidden="true">
-            <span>GM / ARCHIVO ABIERTO</span>
-            <strong>ELIGE <i /> AGRUPA <b /> COTIZA</strong>
-            <small>DEL CATÁLOGO A TU CONSOLA</small>
-          </div>
         </div>
       )}
     </section>

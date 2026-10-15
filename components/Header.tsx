@@ -6,21 +6,27 @@ import { BrandMark } from './BrandMark';
 import { useExperience } from './experience/useExperience';
 
 const navigation = [
-  ['Inicio', '#inicio'],
-  ['Gaming', '#catalogo'],
+  ['Catálogo', '#catalogo'],
   ['Streaming', '#streaming'],
   ['IA', '#ia'],
   ['Privacidad', '#privacidad'],
   ['Cómo funciona', '#modalidades'],
   ['FAQ', '#preguntas'],
-  ['Contacto', '#cotizar'],
 ];
 
 export function Header({ homePath = '' }: { homePath?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const { selectedCount } = useExperience();
+
+  useEffect(() => {
+    const sync = () => setScrolled(window.scrollY > 24);
+    sync();
+    window.addEventListener('scroll', sync, { passive: true });
+    return () => window.removeEventListener('scroll', sync);
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -31,28 +37,29 @@ export function Header({ homePath = '' }: { homePath?: string }) {
       }
     };
     window.addEventListener('keydown', closeOnEscape);
-    return () => window.removeEventListener('keydown', closeOnEscape);
-  }, [menuOpen]);
-
-  useEffect(() => {
-    if (!menuOpen) return;
     window.requestAnimationFrame(() => navRef.current?.querySelector<HTMLAnchorElement>('a')?.focus());
+    return () => window.removeEventListener('keydown', closeOnEscape);
   }, [menuOpen]);
 
   const resolveHref = (hash: string) => `${homePath}${hash}`;
 
   return (
-    <header className="siteHeader">
+    <header className={`siteHeader ${scrolled || menuOpen ? 'isSolid' : ''}`}>
       <a className="brandLink" href={resolveHref('#inicio')} aria-label="GameMaster, ir al inicio">
         <BrandMark />
       </a>
       <nav ref={navRef} id="primary-navigation" className={menuOpen ? 'isOpen' : ''} aria-label="Navegación principal">
-        {navigation.map(([label, href]) => (
-          <a href={resolveHref(href)} onClick={() => setMenuOpen(false)} key={href}>{label}</a>
+        {navigation.map(([label, href], index) => (
+          <a href={resolveHref(href)} onClick={() => setMenuOpen(false)} key={href}>
+            <small aria-hidden="true">{String(index + 1).padStart(2, '0')}</small>{label}
+          </a>
         ))}
+        <a className="navContact" href={resolveHref('#cotizar')} onClick={() => setMenuOpen(false)}>
+          <small aria-hidden="true">07</small>Contacto
+        </a>
       </nav>
       <a className="headerCta" href={resolveHref('#cotizar')}>
-        {selectedCount ? `Cotización · ${selectedCount}` : 'Cotizar ahora'} <ArrowUpRight aria-hidden="true" />
+        <span>{selectedCount ? `Cotización · ${selectedCount}` : 'Cotizar'}</span> <ArrowUpRight aria-hidden="true" />
       </a>
       <button
         ref={menuButtonRef}

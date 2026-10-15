@@ -1,3 +1,5 @@
+import { GiantType, Sprite } from './art/Sprite';
+
 const questions = [
   ['¿Qué plataformas de Gaming ofrece GameMaster?', 'La oferta comercial visible actual se limita a juegos digitales para Nintendo Switch y Nintendo Switch 2. No presentamos otras plataformas sin una fuente canónica.'],
   ['¿Cuánto cuesta cada juego?', 'El precio y la disponibilidad se confirman al momento para cada título. La web no publica importes exactos cuando no existe un valor canónico vigente.'],
@@ -10,15 +12,18 @@ const questions = [
 
 export function FAQ() {
   return (
-    <section className="faqSection sectionShell" id="preguntas" aria-labelledby="faq-title">
-      <div className="faqHeading">
-        <p className="eyebrow"><span /> RESPUESTAS CLARAS</p>
-        <h2 id="faq-title">Preguntas<br /><em>frecuentes.</em></h2>
+    <section className="faqSection sectionShell" id="preguntas" aria-labelledby="faq-title" data-quote-bar-avoid>
+      <GiantType className="faqType">¿?</GiantType>
+      <Sprite name="handheld" className="faqSpriteHandheld" />
+      <Sprite name="keycap" className="faqSpriteKeycap" />
+      <div className="sectionHeading faqHeading">
+        <p className="pixelLabel">✢ Capítulo 05 · Respuestas claras</p>
+        <h2 id="faq-title">Preguntas <em>frecuentes.</em></h2>
       </div>
       <div className="faqList">
         {questions.map(([question, answer], index) => (
           <details key={question}>
-            <summary><span>{String(index + 1).padStart(2, '0')}</span><strong>{question}</strong><i aria-hidden="true">+</i></summary>
+            <summary><span className="pixelLabel">{String(index + 1).padStart(2, '0')}</span><strong>{question}</strong><i aria-hidden="true" /></summary>
             <p>{answer}</p>
           </details>
         ))}

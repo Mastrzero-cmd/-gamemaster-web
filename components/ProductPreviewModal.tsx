@@ -80,7 +80,7 @@ export function ProductPreviewModal() {
             <button type="button" onClick={() => toggleGame(game)} aria-pressed={selected}>{selected ? <Check aria-hidden="true" /> : <Plus aria-hidden="true" />} {selected ? 'Agregado a tu solicitud' : 'Agregar a tu solicitud'}</button>
             <a href={toWhatsApp(gameQuoteMessage(game.title, game.platform))} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Cotizar por WhatsApp</a>
           </div>
-          <Link className="modalDetailLink" href={`/juegos/${game.slug}`} onClick={closePreview}>Ver ficha compartible <ArrowUpRight aria-hidden="true" /></Link>
+          <Link className="modalDetailLink" href={`/juegos/${game.slug}`} onClick={closePreview}>Ver ficha <ArrowUpRight aria-hidden="true" /></Link>
           <small className="modalNote">GameMaster es un negocio independiente. La portada se muestra como referencia del título.</small>
         </div>
       </section>

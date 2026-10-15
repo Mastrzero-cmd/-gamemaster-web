@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Check, MessageCircle, UserRound, UsersRound, Wifi } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, MessageCircle, UserRound, Wifi } from 'lucide-react';
 import { catalog, getGameBySlug, getRelatedGames } from '@/app/data/catalog';
+import { DepthPlanes } from '@/components/art/DepthPlanes';
+import { Sprite } from '@/components/art/Sprite';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
-import { SiteArt } from '@/components/SiteArt';
 import { gameQuoteMessage, toWhatsApp } from '@/lib/contact';
 import { getSiteUrl } from '@/lib/site';
 
@@ -59,50 +60,60 @@ export default async function GamePage({ params }: GamePageProps) {
 
   return (
     <>
-      <SiteArt />
+      <DepthPlanes />
       <Header homePath="/" />
       <main className="gameDetailPage" id="inicio">
-        <section className="gameDetailHero sectionShell" aria-labelledby="game-title">
-          <div className="gameDetailArt">
-            <div className="gameDetailRearField" aria-hidden="true"><span /><span /><span /><span /></div>
-            <div className="gameDetailCover">
-              <Image src={game.image} alt={`Portada de ${game.title}`} fill sizes="(max-width: 760px) 82vw, 430px" priority />
+        <section className="gameDetailHero" aria-labelledby="game-title">
+          <div className="gameDetailField depthPlane" aria-hidden="true" />
+          <div className="gameDetailInner sectionShell">
+            <div className="gameDetailArt">
+              <div className="gameDetailBlade depthPlane" aria-hidden="true" />
+              <Sprite name="cartridge" className="detailSpriteCartridge" />
+              <Sprite name="memory-card" className="detailSpriteCard" />
+              <div className="gameDetailCover">
+                <Image src={game.image} alt={`Portada de ${game.title}`} fill sizes="(max-width: 760px) 78vw, 430px" priority />
+              </div>
             </div>
-            <div className="gameDetailFrontPlane" aria-hidden="true"><span>GM</span><strong>{game.platform === 'Nintendo Switch 2' ? '02' : '01'}</strong></div>
-          </div>
 
-          <div className="gameDetailCopy">
-            <Link className="backLink" href="/#catalogo"><ArrowLeft aria-hidden="true" /> Volver al catálogo</Link>
-            <p className="gameDetailKicker">{game.platform} · Categoría fuente: {game.sourceCategory}</p>
-            <h1 id="game-title">{game.title}</h1>
-            {metadataTags.length > 0 && <div className="gameDetailTags">{metadataTags.map((tag) => <span key={tag}>{tag}</span>)}</div>}
-            <p className="gameDetailDescription">Título digital registrado en el catálogo de GameMaster para {game.platform}. La ficha usa únicamente metadatos disponibles; precio, modalidad y disponibilidad se verifican contigo.</p>
-            <dl className="gameDetailStatus">
-              <div><dt>PRECIO</dt><dd>Consultar precio</dd></div>
-              <div><dt>ESTADO</dt><dd>Consultar disponibilidad</dd></div>
-            </dl>
-            <a className="gameDetailWhatsapp" href={quoteUrl} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Cotizar este juego <ArrowUpRight aria-hidden="true" /></a>
-            <small>GameMaster es un negocio independiente. La portada pertenece a su respectivo titular y se muestra como referencia.</small>
+            <div className="gameDetailCopy">
+              <Link className="backLink" href="/#catalogo"><ArrowLeft aria-hidden="true" /> Volver al catálogo</Link>
+              <p className="pixelLabel gameDetailKicker">{game.platform} · Categoría fuente: {game.sourceCategory}</p>
+              <h1 id="game-title">{game.title}</h1>
+              {metadataTags.length > 0 && <div className="gameDetailTags">{metadataTags.map((tag) => <span key={tag}>{tag}</span>)}</div>}
+              <p className="gameDetailDescription">Título digital registrado en el catálogo de GameMaster para {game.platform}. La ficha usa únicamente metadatos disponibles; precio, modalidad y disponibilidad se verifican contigo.</p>
+              <dl className="gameDetailStatus">
+                <div><dt>Precio</dt><dd>Consultar precio</dd></div>
+                <div><dt>Estado</dt><dd>Consultar disponibilidad</dd></div>
+              </dl>
+              <a className="buttonRed" href={quoteUrl} target="_blank" rel="noreferrer"><MessageCircle aria-hidden="true" /> Cotizar este juego <ArrowUpRight aria-hidden="true" /></a>
+              <small>GameMaster es un negocio independiente. La portada pertenece a su respectivo titular y se muestra como referencia.</small>
+            </div>
           </div>
         </section>
 
         <section className="detailModes" aria-labelledby="detail-modes-title">
           <div className="sectionShell">
-            <div className="detailModesHeading">
-              <p className="eyebrow"><span /> MODALIDADES DE ACCESO</p>
-              <h2 id="detail-modes-title">Principal o Secundaria</h2>
+            <div className="sectionHeading">
+              <p className="pixelLabel">✢ Modalidades de acceso</p>
+              <h2 id="detail-modes-title">Principal o <em>Secundaria</em></h2>
               <p>La opción aplicable se confirma antes de comprar.</p>
             </div>
-            <div className="detailModeGrid">
-              <article><UserRound aria-hidden="true" /><span>01</span><h3>Cuenta Principal</h3><p>Permite jugar con cualquier perfil de la consola y puede abrirse sin conexión a internet.</p><Check aria-hidden="true" /></article>
-              <article><UsersRound aria-hidden="true" /><span>02</span><h3>Cuenta Secundaria</h3><p>Se usa desde el perfil proporcionado y necesita una conexión breve para verificar al abrir.</p><Wifi aria-hidden="true" /></article>
+            <div className="modeGrid">
+              <article className="modeCard modePrincipal">
+                <header><span className="pixelLabel">Opción 01</span><h3>Cuenta Principal</h3></header>
+                <ul><li><UserRound aria-hidden="true" /><span>Permite jugar con cualquier perfil de la consola y puede abrirse sin conexión a internet.</span></li></ul>
+              </article>
+              <article className="modeCard modeSecondary">
+                <header><span className="pixelLabel">Opción 02</span><h3>Cuenta Secundaria</h3></header>
+                <ul><li><Wifi aria-hidden="true" /><span>Se usa desde el perfil proporcionado y necesita una conexión breve para verificar al abrir.</span></li></ul>
+              </article>
             </div>
           </div>
         </section>
 
         <section className="relatedSection sectionShell" aria-labelledby="related-title">
-          <div className="relatedHeading"><div><p className="eyebrow"><span /> SIGUE EXPLORANDO</p><h2 id="related-title">Juegos relacionados</h2></div><Link href="/#catalogo">Ver catálogo completo <ArrowRight aria-hidden="true" /></Link></div>
-          <div className="relatedRail" tabIndex={0} aria-label="Juegos relacionados. Desplázate horizontalmente para ver más.">
+          <div className="relatedHeading"><div><p className="pixelLabel">✢ Sigue explorando</p><h2 id="related-title">Juegos relacionados</h2></div><Link href="/#catalogo">Ver catálogo completo <ArrowRight aria-hidden="true" /></Link></div>
+          <div className="relatedRail" tabIndex={0} role="region" aria-label="Juegos relacionados. Desplázate horizontalmente para ver más.">
             {relatedGames.map((related) => (
               <Link className="relatedCard" href={`/juegos/${related.slug}`} key={related.id}>
                 <span><Image src={related.image} alt={`Portada de ${related.title}`} fill sizes="(max-width: 720px) 64vw, 210px" /></span>
