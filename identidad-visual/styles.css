@@ -207,3 +207,65 @@ footer p{font-size:13px;opacity:.7;max-width:70ch;margin-inline:auto}
 .tile figcaption span{display:block;margin-top:5px;font:700 11px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;opacity:.9}
 @media(max-width:620px){.tile{aspect-ratio:4/3}.tile .art{background-size:cover;background-repeat:no-repeat;background-position:center}}
 .reduce .art.ly{transform:none}
+
+/* v4 · capas de negro */
+.a-hero-n{background-image:url(assets/arte/campo-hero-negro.svg)}
+.a-paleta-n{background-image:url(assets/arte/campo-paleta-negro.svg)}
+.a-cromo-n{background-image:url(assets/arte/campo-cromo-negro.svg)}
+.a-parallax-n{background-image:url(assets/arte/campo-parallax-negro.svg)}
+.a-filas-n{background-image:url(assets/arte/campo-filas-negro.svg)}
+.a-catalogo-n{background-image:url(assets/arte/campo-catalogo-negro.svg)}
+.a-streaming-n{background-image:url(assets/arte/campo-streaming-negro.svg)}
+.a-ia-n{background-image:url(assets/arte/campo-ia-negro.svg)}
+.a-hero-s{background-image:url(assets/arte/campo-hero-sombra.svg)}
+.a-cromo-s{background-image:url(assets/arte/campo-cromo-sombra.svg)}
+.a-catalogo-s{background-image:url(assets/arte/campo-catalogo-sombra.svg)}
+:root{--k:#05071f}
+/* sombra dura de los objetos en línea (silueta negra detrás) */
+.art[class*="-o"]{filter:drop-shadow(6px 8px 0 var(--k))}
+/* piezas rojas: contorno negro duro + sombra de capa (como panel-consoles-front de referencia); siempre sobre azul */
+.pz img{filter:drop-shadow(3px 0 0 var(--k)) drop-shadow(-3px 0 0 var(--k)) drop-shadow(0 3px 0 var(--k)) drop-shadow(0 -3px 0 var(--k)) drop-shadow(10px 12px 0 var(--k))}
+/* cuchilla negra arriba y abajo de cada campo + marco con esquinas */
+.field.bg-azul::before,.field.bg-prof::before{content:"";position:absolute;left:0;right:0;top:0;height:clamp(12px,1.6vw,22px);background:var(--k);clip-path:polygon(0 0,100% 0,100% 30%,0 100%);z-index:2;pointer-events:none}
+.field.bg-azul::after,.field.bg-prof::after{content:"";position:absolute;left:0;right:0;bottom:0;height:clamp(12px,1.6vw,22px);background:var(--k);clip-path:polygon(0 0,100% 70%,100% 100%,0 100%);z-index:2;pointer-events:none}
+.field.scan.bg-azul::after{inset:0;height:auto;clip-path:none;background:repeating-linear-gradient(0deg,rgba(5,7,31,.16) 0 2px,transparent 2px 6px)}
+.hero.field::before{display:none}
+.fx-frame{position:absolute;inset:clamp(14px,2vw,28px);z-index:2;pointer-events:none;
+  --c:var(--k);background:
+  linear-gradient(var(--c),var(--c)) 0 0/34px 4px,linear-gradient(var(--c),var(--c)) 0 0/4px 34px,
+  linear-gradient(var(--c),var(--c)) 100% 0/34px 4px,linear-gradient(var(--c),var(--c)) 100% 0/4px 34px,
+  linear-gradient(var(--c),var(--c)) 0 100%/34px 4px,linear-gradient(var(--c),var(--c)) 0 100%/4px 34px,
+  linear-gradient(var(--c),var(--c)) 100% 100%/34px 4px,linear-gradient(var(--c),var(--c)) 100% 100%/4px 34px;background-repeat:no-repeat}
+/* placas negras para títulos y entradillas sobre azul */
+.field:not(.bg-noche) h2.disp,.field:not(.bg-noche) .hero h1 .disp,.hero h1 .disp{background:var(--k);padding:.1em .32em .16em;box-shadow:8px 8px 0 var(--azul2),8px 8px 0 3px var(--k);text-shadow:3px 3px 0 var(--noche2),5px 5px 0 var(--magenta)}
+.field:not(.bg-noche) .sec-head p.lead,.hero p.lead{background:var(--k);padding:14px 18px;border-left:6px solid var(--cian);width:fit-content;max-width:62ch}
+.field:not(.bg-noche) .sec-head h2.disp{margin-left:8px}
+.row-head h3{background:var(--k);padding:.12em .4em .16em;box-shadow:6px 6px 0 var(--azul2),6px 6px 0 3px var(--k)}
+.hint{background:var(--k);width:fit-content;padding:6px 10px}
+/* tarjetas: sombra roja al frente con borde negro duro */
+.card-g .cover{box-shadow:9px 9px 0 var(--rojo),13px 13px 0 var(--k)}
+.card-s{box-shadow:8px 8px 0 var(--k)}
+.card-s .plate::after{box-shadow:3px 3px 0 var(--k)}
+/* riel negro bajo cada fila */
+.row::after{content:"";display:block;height:12px;margin-top:-4px;background:var(--k);clip-path:polygon(0 0,100% 0,99% 100%,0 100%)}
+/* marcos con esquinas negras sobre tarjetas y muestras */
+.tile,.sample,.panel,.logo-stage{--c:var(--k)}
+.tile::after,.sample::after{content:"";position:absolute;inset:7px;z-index:4;pointer-events:none;background:
+  linear-gradient(var(--c),var(--c)) 0 0/22px 3px,linear-gradient(var(--c),var(--c)) 0 0/3px 22px,
+  linear-gradient(var(--c),var(--c)) 100% 0/22px 3px,linear-gradient(var(--c),var(--c)) 100% 0/3px 22px,
+  linear-gradient(var(--c),var(--c)) 0 100%/22px 3px,linear-gradient(var(--c),var(--c)) 0 100%/3px 22px,
+  linear-gradient(var(--c),var(--c)) 100% 100%/22px 3px,linear-gradient(var(--c),var(--c)) 100% 100%/3px 22px;background-repeat:no-repeat}
+.tile,.sample{box-shadow:8px 8px 0 var(--k)}
+.panel{box-shadow:6px 6px 0 rgba(5,7,31,.9)}
+.plane.p1,.plane.p2{box-shadow:10px 12px 0 var(--k)}
+.pxs .card{box-shadow:9px 9px 0 var(--azul2),9px 9px 0 3px var(--k)}
+.sw{box-shadow:6px 6px 0 var(--k)}
+.btn.ghost{background:var(--k)}
+/* bloques escalonados negros en esquinas (CSS: no dependen del recorte del arte) */
+.fx-frame::before,.fx-frame::after{content:"";position:absolute;width:clamp(110px,17vw,280px);height:clamp(64px,10vw,170px);background:var(--k);
+  clip-path:polygon(0 100%,0 0,22% 0,22% 30%,44% 30%,44% 58%,66% 58%,66% 82%,88% 82%,88% 100%)}
+.fx-frame::before{left:calc(-1*clamp(14px,2vw,28px));bottom:calc(-1*clamp(14px,2vw,28px))}
+.fx-frame::after{right:calc(-1*clamp(14px,2vw,28px));top:calc(-1*clamp(14px,2vw,28px));transform:scale(-1,-1);width:clamp(80px,12vw,200px);height:clamp(48px,7vw,120px)}
+.field:nth-of-type(even) .fx-frame::before{left:auto;right:calc(-1*clamp(14px,2vw,28px));transform:scaleX(-1)}
+.field:nth-of-type(even) .fx-frame::after{right:auto;left:calc(-1*clamp(14px,2vw,28px));transform:scaleY(-1)}
+.hero .fx-frame::after{display:none}

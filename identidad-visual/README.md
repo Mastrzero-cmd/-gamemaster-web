@@ -1,4 +1,4 @@
-# GameMaster · Identidad visual v3 (propuesta)
+# GameMaster · Identidad visual v4 (propuesta)
 
 Página estática aislada (HTML + CSS + JS vanilla, sin build, sin CDN). No toca la web, `main` ni el PR.
 
@@ -24,3 +24,16 @@ Regenerar: `python3 herramientas/generar_logo.py assets/logo` y `node herramient
 - `assets/arte/campo-<sección>-fondo.svg` y `-objetos.svg`: dos capas por sección (hero, paleta, cromo, parallax, filas, catálogo, streaming, IA), todo vectorial (~1 MB en total), con trazo fino de tono azul cercano al fondo (curvas de nivel, placas isométricas con relieve, circuitos y huellas de chip, retículas, guilloche, estrellas, cintas, red neuronal) y objetos gamer/streaming/tech en línea (mando, portátil, cartucho, pantalla, chip, audífonos, claqueta, play, nube, servidor, consola, disco). Las capas se mueven a distinta velocidad (profundidad) y respetan «reducir movimiento».
 - Generadores: `herramientas/arte_lib.py` + `generar_arte_v3.py` (`python3 herramientas/generar_arte_v3.py assets/arte`). Piezas rojas con grabado fino y halo magenta: `generar_piezas.py`. Logo: `generar_logo.py` + `exportar_png.mjs` (ajusta el viewBox al contenido + 3 % de margen; PNG con transparencia real).
 - Rojo solo sobre azul: en cortes sobre negro se usan cian/hielo. Capturas: `node herramientas/capturar.mjs capturas http://localhost:8000/index.html` (Playwright).
+
+## v4 · negro como refuerzo (como public/art/* y public/art/cromo/* del repo)
+Lo que se observó en las referencias: campo azul eléctrico saturado con el negro como segunda tinta (aprox. 25–35 % del área): trazos gruesos de circuito y un bloque-chip negro (panel-chip-rear), contorno negro duro y sombra de capa en cada pieza roja (panel-consoles-front), rejilla de piso negra en perspectiva, estrellas negras de 4 puntas, siluetas de torres/objetos con grabado oscuro, bloques y tramas de puntos (field-gaming, gm-blue-world). El rojo siempre queda sobre azul con borde/sombra negra.
+Qué se agregó (`herramientas/generar_negro_v4.py` → `assets/arte/campo-<sección>-negro.svg` y `-sombra.svg`, más CSS):
+- Todas las secciones: cuchilla negra arriba y abajo, marco con esquinas, bloques escalonados en esquinas opuestas, placas negras para títulos y entradillas, sombra dura bajo los objetos en línea, contorno negro + sombra dura en piezas rojas, riel negro bajo cada fila, esquinas negras en tarjetas y muestras.
+- Hero: rejilla de piso negra, siluetas escalonadas en el horizonte, estrellas negras, tramas de puntos, volumen negro de las placas.
+- Paleta: chip negro con pistas gruesas, circuitos pequeños, marcas de registro, trama.
+- Cromo: volumen negro de las placas isométricas, pilares escalonados, trazos de rayado, estrellas.
+- Parallax: planetas negros con anillo, estrellas negras de varios tamaños, bloques flotantes, trama.
+- Filas: chips negros con pistas, bits cuadrados, vías.
+- Catálogo: escalera pixel negra gruesa, placas con volumen, cartuchos-silueta, trama.
+- Streaming: haz de rayos negros, perforaciones de cinta, estrellas.
+- IA: red neuronal negra, chip negro con pistas, matriz binaria en bloques.
