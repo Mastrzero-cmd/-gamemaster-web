@@ -1,4 +1,4 @@
-# GameMaster · Identidad visual v4 (propuesta)
+# GameMaster · Identidad visual v5 (propuesta)
 
 Página estática aislada (HTML + CSS + JS vanilla, sin build, sin CDN). No toca la web, `main` ni el PR.
 
@@ -37,3 +37,10 @@ Qué se agregó (`herramientas/generar_negro_v4.py` → `assets/arte/campo-<secc
 - Catálogo: escalera pixel negra gruesa, placas con volumen, cartuchos-silueta, trama.
 - Streaming: haz de rayos negros, perforaciones de cinta, estrellas.
 - IA: red neuronal negra, chip negro con pistas, matriz binaria en bloques.
+
+## v5 · más rojo al frente (cantidad y variedad), sin saturar
+- **17 piezas rojas nuevas** (SVG, 45 KB en total, sin texto dentro): consola de sobremesa, joystick arcade, teclado, ratón, tarjeta gráfica, disco, bocina, servidor, cursor, flecha, etiqueta, sello/insignia, estrella de 4 puntas, botón arcade, control remoto, micrófono y cinta. Todas con contorno negro duro, sombra de capa azul noche, halo magenta fino y grabado fino rojo oscuro (`herramientas/generar_rojo_v5.py`). Más **cintillos** en HTML/CSS (texto blanco sobre rojo oscuro #B3120A, contraste 6.98:1).
+- **Colocación** (`herramientas/colocar_v5.py`, idempotente): 91 piezas/cintillos en 8 secciones azules + 1 en cada mosaico del grabado, en 4 capas de parallax (.05 · .12 · .22 · .36). Las del frente van en zonas sin texto; las de «atrás» asoman por detrás de tarjetas y placas. Móvil: bandas arriba y abajo y tiras en el flujo (no tapan nada), parallax a la mitad.
+- Rojo siempre sobre azul; sin parpadeo; con «reducir movimiento» todo queda quieto.
+- **Pendientes de v4 resueltos:** planetas negros solo en los bordes (ya no rozan piezas rojas), rayos de streaming al 55 % de opacidad y más delgados.
+- **Verificación:** `node herramientas/solape.mjs 1440|390` (piezas del frente vs. texto/controles al barrer el scroll → 0 solapes), `node herramientas/contraste.mjs` (contrastes WCAG), `python3 herramientas/medir_rojo.py <v4> <v5>` (% de rojo por captura), `node herramientas/capturar.mjs`.

@@ -1,4 +1,4 @@
-/* GameMaster · Identidad visual v3 · JS vanilla (cortes, filas, parallax) */
+/* GameMaster · Identidad visual v5 · JS vanilla (cortes, filas, parallax) */
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || /[?&]reduce/.test(location.search);
   if (reduced) document.documentElement.classList.add('reduce');
@@ -99,7 +99,7 @@
       items.forEach(el => {
         const host = el.closest('section,.cut,.planes') || el.parentElement, b = host.getBoundingClientRect();
         if (b.bottom < -200 || b.top > vh + 200) return;
-        el.style.setProperty('--py', ((b.top + b.height / 2 - vh / 2) * -parseFloat(el.dataset.speed)).toFixed(1) + 'px');
+        el.style.setProperty('--py', ((b.top + b.height / 2 - vh / 2) * -parseFloat(el.dataset.speed) * (innerWidth < 700 ? .5 : 1)).toFixed(1) + 'px');
       });
     };
     addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true }); addEventListener('resize', run); run();

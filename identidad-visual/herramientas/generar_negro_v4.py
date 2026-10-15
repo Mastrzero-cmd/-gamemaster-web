@@ -128,7 +128,7 @@ def cromo():
 # ================= PARALLAX: planetas negros con anillo, estrellas negras grandes, bloques flotantes =================
 def parallax():
     r = random.Random(104); b = stars(r, 60, (20, 20, W - 20, H - 20), (4, 6, 9, 14, 20))
-    for (cx, cy, rad) in ((1350, 650, 74), (760, 560, 42), (70, 390, 38)):
+    for (cx, cy, rad) in ((1556, 800, 44), (46, 200, 34)):  # v5: planetas solo en los bordes, lejos de las piezas rojas
         b += C(cx, cy, rad) + P(f'M{cx - rad * 1.9} {cy + 10}A{rad * 1.9} {rad * .42} -14 0 0 {cx + rad * 1.9} {cy - 10}', 'kt') + P(f'M{cx - rad * 2.2} {cy + 18}A{rad * 2.2} {rad * .5} -14 0 0 {cx + rad * 2.2} {cy - 18}', 'kl')
     for (x, y, w, h) in ((0, 220, 90, 90), (1500, 520, 100, 60), (1450, 580, 150, 50), (0, 700, 70, 70)): b += R(x, y, w, h)
     b += steps('bl', 4, 40) + steps('tr', 5, 44)
@@ -164,10 +164,12 @@ def catalogo():
 def streaming():
     r = random.Random(107); b = ''
     cx, cy = 1250, 260
+    b += '<g opacity=".55">'  # v5: rayos más suaves
     for k in range(18):
-        a0 = k * 20 + 4; a1 = a0 + 5
+        a0 = k * 20 + 4; a1 = a0 + 3.6
         p = lambda a, rr: (cx + math.cos(math.radians(a)) * rr, cy + math.sin(math.radians(a)) * rr)
         b += poly([p(a0, 230), p(a0, 1500), p(a1, 1500), p(a1, 230)])
+    b += '</g>'
     for y in (60, 410, 690):
         b += R(0, y, W, 16) + R(0, y + 134, W, 16) if False else ''
     for k in range(16): b += R(-10 + k * 108, 40 if k % 2 else 820, 72, 22)
