@@ -156,6 +156,18 @@ Large typography may use:
 
 Do **not** use duplicated red/blue text shadows or pseudo-element copies to fake depth.
 
+### Text colour on chromatic fields (hard rule)
+
+**Nunca texto rojo sobre azul; el texto rojo siempre va sobre negro.** Never set red text on a blue field. Red text (`--gm-red`) is only allowed on black/near-black (`--gm-black` / `--gm-ink`). Red-on-blue text vibrates at the colour boundary and is hard to read.
+
+Text on electric blue (`--gm-blue`, #2438ff):
+
+- small text (body copy, labels, buttons, metadata — anything under 24px, or under 18.66px bold) uses off-white (`--gm-white`), about 6:1;
+- black text on #2438ff is only about 3.1:1, so black is reserved for large display titles;
+- if a small label needs a darker look, place it on `--gm-blue-deep` with off-white text, or on a black plate.
+
+When a decorative blue band can pass behind small text (rails, step lists, card bodies), give that text block a solid black background so the rule holds at every width.
+
 ## Cards
 
 Cards should feel layered through composition, not ghosting.
