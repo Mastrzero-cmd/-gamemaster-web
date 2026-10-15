@@ -5,9 +5,9 @@ only the optimized output is versioned). Output goes to
 `public/art/cromo/` as lossless WebP so every pixel is exactly blue, black or
 red: no intermediate tones, no purple blends, no anti-aliased fringes.
 
-The hero oracle is also split into two planes for parallax:
-- `*-front.webp`: the red figure with its own black line details (transparent elsewhere);
-- `*-rear.webp`: frame, aperture and halo, with the figure area filled from its neighbours.
+The hero hardware and the AI chip are also split into two planes for parallax:
+- `*-front.webp`: the red objects with their own black details (transparent elsewhere);
+- `*-rear.webp`: everything else, with the red area continued as the surface it sits on.
 Both planes come from the same single drawing, so nothing is duplicated.
 
 Requires: python3, Pillow, numpy.
@@ -81,20 +81,6 @@ def fill_holes(mask: np.ndarray) -> np.ndarray:
         outside = grown
 
 
-def inpaint(labels: np.ndarray, hole: np.ndarray) -> np.ndarray:
-    """Fill `hole` with the nearest known labels so the rear plane continues behind the figure."""
-    labels = labels.copy()
-    known = ~hole
-    while not known.all():
-        for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
-            shifted_known = np.roll(known, (dy, dx), axis=(0, 1))
-            shifted_labels = np.roll(labels, (dy, dx), axis=(0, 1))
-            take = ~known & shifted_known
-            labels[take] = shifted_labels[take]
-            known = known | take
-    return labels
-
-
 def save(array: np.ndarray, name: str, scale: int = 1) -> None:
     mode = "RGBA" if array.shape[-1] == 4 else "RGB"
     img = Image.fromarray(array, mode)
@@ -115,29 +101,43 @@ def build_panel(source: str, name: str) -> None:
     save(paint(labels), name, scale=UPSCALE)
 
 
-def build_split_panel(source: str, name: str) -> None:
+def build_split_panel(source: str, name: str, rear_fill: int = 1, shadow_reach: int = 21, thick: int = 15, open_field: bool = False) -> None:
     labels = classify(Image.open(SRC / source), allow_red=True)
     red = labels == 2
     figure = fill_holes(morph(morph(red, 9, grow=True), 9, grow=False)) | red
+    # The black outline belongs to the front object; otherwise the rear keeps a
+    # black silhouette of the same contour that peeks out when the planes move.
+    black = labels == 0
+    thick_black = morph(morph(black, thick, grow=False), thick, grow=True)
+    figure = morph(figure, 7, grow=True) | (morph(figure, shadow_reach, grow=True) & black & ~thick_black)
 
-    save(paint(labels), name, scale=UPSCALE)
 
     front = np.zeros(labels.shape + (4,), dtype=np.uint8)
     front[..., :3] = paint(labels)
     front[..., 3] = np.where(figure, 255, 0)
     save(front, f"{name}-front", scale=UPSCALE)
 
-    rear_labels = inpaint(np.where(labels == 2, 0, labels), figure)
-    save(paint(rear_labels), f"{name}-rear", scale=UPSCALE)
+    # `rear_fill` is the label the red objects sit on: open blue field (1) or a black body (0).
+    rear_labels = np.where(figure, rear_fill, labels).astype(np.uint8)
+    if open_field:
+        # Blue reachable from the border is the open field: make it transparent so the
+        # page field shows through. Blue enclosed by black (screens) stays opaque.
+        outside = ~fill_holes(rear_labels != 1)
+        rear = np.zeros(labels.shape + (4,), dtype=np.uint8)
+        rear[..., :3] = paint(rear_labels)
+        rear[..., 3] = np.where(outside, 0, 255)
+        save(rear, f"{name}-rear", scale=UPSCALE)
+    else:
+        save(paint(rear_labels), f"{name}-rear", scale=UPSCALE)
 
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    build_field("gm-raw-hero-field-desktop.jpg", "field-pillars-desktop")
-    build_field("gm-raw-hero-field-mobile.jpg", "field-pillars-mobile")
-    build_split_panel("gm-raw-hero-oracle.jpg", "panel-oracle")
-    build_panel("gm-raw-streaming.jpg", "panel-streaming")
-    build_panel("gm-raw-ia.jpg", "panel-ia")
+    build_field("gm-raw-field-gaming-desktop.jpg", "field-gaming-desktop")
+    build_field("gm-raw-field-gaming-mobile.jpg", "field-gaming-mobile")
+    build_field("gm-raw-field-floor-desktop.jpg", "field-floor-desktop")
+    build_split_panel("gm-raw-hero-consoles.jpg", "panel-consoles", shadow_reach=45, thick=27, open_field=True)
+    build_split_panel("gm-raw-ia-chip.jpg", "panel-chip", rear_fill=0)
 
 
 if __name__ == "__main__":
