@@ -754,6 +754,7 @@ h1 em {
 
 .gameCardBody {
   padding: 10px 2px 0;
+  background: var(--gm-black);
 }
 
 .gameCardBody .pixelLabel {
@@ -1689,7 +1690,13 @@ h1 em {
 }
 
 .streamTile .serviceName {
+  color: var(--gm-white);
   font-size: 11px;
+}
+
+.streamTile:hover .serviceName,
+.streamTile.isSelected .serviceName {
+  color: var(--gm-ink);
 }
 
 .streamStand {
@@ -1951,6 +1958,7 @@ h1 em {
 .purchaseSteps li {
   padding-top: 16px;
   border-top: 1px solid var(--gm-line-strong);
+  background: var(--gm-black);
 }
 
 .purchaseSteps .pixelLabel {
@@ -2341,6 +2349,14 @@ h1 em {
   .mobileQuoteBar svg {
     width: 20px;
     height: 20px;
+  }
+
+  /* Franja vacía al final: el único sitio donde la barra aparece sin tapar texto. */
+  .siteFooter::after {
+    content: '';
+    display: block;
+    height: calc(136px + env(safe-area-inset-bottom));
+    background: var(--gm-ink);
   }
 }
 
@@ -3083,8 +3099,8 @@ main {
 .heroSpriteKeycap {
   --gm-depth: var(--gm-depth-sprite-near);
   --sprite-pointer: -14px;
-  bottom: 4%;
-  left: 44%;
+  top: 52%;
+  left: 45%;
   width: clamp(56px, 6.6vw, 108px);
 }
 
@@ -3228,9 +3244,9 @@ main {
 
 .modesSpriteCard {
   --gm-depth: var(--gm-depth-sprite-far);
-  bottom: 6%;
-  right: 3vw;
-  width: clamp(54px, 5.6vw, 92px);
+  top: 64%;
+  right: 2vw;
+  width: clamp(44px, 4.4vw, 80px);
 }
 
 /* cotización */
@@ -3327,7 +3343,18 @@ main {
 
 @media (max-width: 1080px) {
   .modesSpriteSide,
-  .faqSpriteKeycap {
+  .faqSpriteKeycap,
+  .footerSpriteHeadset {
+    display: none;
+  }
+
+}
+
+@media (min-width: 761px) and (max-width: 1080px) {
+  .modesSpriteTower,
+  .heroSpriteKeycap,
+  .catalogSpriteGamepad,
+  .faqSpriteHandheld {
     display: none;
   }
 }
@@ -3420,8 +3447,8 @@ main {
 
   .streamSpriteRemote {
     right: 2vw;
-    bottom: 0;
-    width: 9vw;
+    bottom: -20px;
+    width: 7vw;
   }
 
   .aiSpriteKeycap {
@@ -3481,7 +3508,7 @@ main {
 
   .footerSpriteGamepad {
     right: 4vw;
-    bottom: 186px;
+    bottom: calc(318px + env(safe-area-inset-bottom));
     width: 22vw;
   }
 

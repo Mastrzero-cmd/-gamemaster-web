@@ -9,7 +9,7 @@ export function Footer() {
       <Sprite name="gamepad" className="footerSpriteGamepad" />
       <Sprite name="headset" className="footerSpriteHeadset" />
       <Sprite name="cartridge" className="footerSpriteCartridge" />
-      <div className="sectionShell footerTop">
+      <div className="sectionShell footerTop" data-quote-bar-avoid>
         <p className="pixelLabel">✢ GameMaster · Entretenimiento digital · México ✢</p>
         <p className="footerLede">Gaming Nintendo digital, streaming, IA y privacidad, con atención directa de una persona.</p>
         <div className="footerContact">
@@ -17,8 +17,8 @@ export function Footer() {
           <a className="buttonBlack" href={FACEBOOK_URL} target="_blank" rel="noreferrer">Facebook <ArrowUpRight aria-hidden="true" /></a>
         </div>
       </div>
-      <p className="footerWordmark" aria-hidden="true">GameMaster</p>
-      <div className="sectionShell footerBottom">
+      <p className="footerWordmark" aria-hidden="true" data-quote-bar-avoid>GameMaster</p>
+      <div className="sectionShell footerBottom" data-quote-bar-avoid>
         <span className="pixelLabel">© {new Date().getFullYear()} GameMaster</span>
         <p>Negocio independiente. Las marcas y artes mostradas pertenecen a sus respectivos titulares; no implican afiliación ni patrocinio.</p>
       </div>

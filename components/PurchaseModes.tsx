@@ -10,7 +10,7 @@ const steps = [
 
 export function PurchaseModes() {
   return (
-    <section className="modesSection" id="modalidades" aria-labelledby="modes-title">
+    <section className="modesSection" id="modalidades" aria-labelledby="modes-title" data-quote-bar-avoid>
       <div className="modesRearBand depthPlane" aria-hidden="true" />
       <GiantType className="modesType">Juega</GiantType>
       <Sprite name="console-tower" className="modesSpriteTower" />

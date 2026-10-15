@@ -26,7 +26,7 @@ export function QuoteBuilder() {
   };
 
   return (
-    <section className="quoteSection" id="cotizar" aria-labelledby="quote-title">
+    <section className="quoteSection" id="cotizar" aria-labelledby="quote-title" data-quote-bar-avoid>
       <div className="quoteSlab depthPlane" aria-hidden="true" />
       <Sprite name="cartridge" className="quoteSpriteCartridge" />
       <Sprite name="memory-card" className="quoteSpriteCard" />

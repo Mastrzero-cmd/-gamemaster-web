@@ -12,7 +12,7 @@ const questions = [
 
 export function FAQ() {
   return (
-    <section className="faqSection sectionShell" id="preguntas" aria-labelledby="faq-title">
+    <section className="faqSection sectionShell" id="preguntas" aria-labelledby="faq-title" data-quote-bar-avoid>
       <GiantType className="faqType">¿?</GiantType>
       <Sprite name="handheld" className="faqSpriteHandheld" />
       <Sprite name="keycap" className="faqSpriteKeycap" />

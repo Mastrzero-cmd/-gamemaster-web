@@ -28,7 +28,7 @@ export function Universes() {
   const aiInterest = aiServices.some((service) => service.name === interest) ? interest : 'ChatGPT';
 
   return (
-    <section className="universes" id="servicios" aria-labelledby="universes-title">
+    <section className="universes" id="servicios" aria-labelledby="universes-title" data-quote-bar-avoid>
       <GiantType className="universesType">Stream</GiantType>
       <Sprite name="headphones" className="universesSpriteHeadphones" />
       <div className="universesHeading sectionShell">
@@ -41,7 +41,7 @@ export function Universes() {
         </dl>
       </div>
 
-      <article className="universe universeStreaming" id="streaming" aria-labelledby="streaming-title">
+      <article className="universe universeStreaming" id="streaming" aria-labelledby="streaming-title" data-quote-bar-avoid>
         <div className="universeArt streamStage">
           <span className="streamSignal depthPlane" aria-hidden="true" />
           <Sprite name="clapperboard" className="streamSpriteClapper" />
@@ -84,7 +84,7 @@ export function Universes() {
         </div>
       </article>
 
-      <article className="universe universeAi" id="ia" aria-labelledby="ia-title">
+      <article className="universe universeAi" id="ia" aria-labelledby="ia-title" data-quote-bar-avoid>
         <div className="universeArt aiStage">
           <span className="aiChipRear depthPlane" aria-hidden="true">
             <Image src="/art/cromo/panel-chip-rear.webp" alt="" width={864} height={1152} unoptimized />
