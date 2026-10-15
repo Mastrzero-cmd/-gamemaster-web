@@ -1,20 +1,19 @@
-/* GameMaster · Identidad visual v6 · JS vanilla (cortes, filas, parallax) */
+/* GameMaster · Identidad visual v7 · JS vanilla (cortes, filas, parallax) */
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || /[?&]reduce/.test(location.search);
   if (reduced) document.documentElement.classList.add('reduce');
-  const C = { azul: '#2d41dc', prof: '#1e2eb6', noche: '#05071f' };
+  const C = { k0: '#050505', k1: '#0a0a0d' }, LINE = '#2a3cff', LINE2 = '#1a26a8';
   const W = 1440, H = 90;
-  const hair = (a, b) => (a === 'noche' || b === 'noche') ? 'rgba(234,246,255,.38)' : '#05071f';
-  /* 3 cortes limpios y precisos: diagonal fina, escalón, línea con muescas */
+  /* 3 cortes: un trazo azul sólido sobre negro (sin rojo, sin mezclas, sin transparencias) */
   const cuts = {
-    diag: (to, hl) => `<path d="M0 ${H}L${W} 26V${H}Z" fill="${to}"/><path d="M0 ${H}L${W} 26" stroke="${hl}" stroke-width="3" fill="none"/>`,
-    step: (to, hl) => `<path d="M0 66H520V46H980V26H${W}V${H}H0Z" fill="${to}"/><path d="M0 66H520V46H980V26H${W}" stroke="${hl}" stroke-width="3" fill="none"/>`,
-    notch: (to, hl) => { let d = `M0 46`; for (let x = 0; x < W; x += 120) d += `H${x + 48}L${x + 60} 60L${x + 72} 46`; d += `H${W}`; return `<path d="${d}V${H}H0Z" fill="${to}"/><path d="${d}" stroke="${hl}" stroke-width="3" fill="none"/><path d="M0 36H${W}" stroke="${hl}" stroke-width="1.5" fill="none" opacity=".6"/>`; }
+    diag: to => `<path d="M0 ${H}L${W} 26V${H}Z" fill="${to}"/><path d="M0 ${H}L${W} 26" stroke="${LINE}" stroke-width="3" fill="none"/><path d="M0 ${H - 14}L${W} 12" stroke="${LINE2}" stroke-width="1.5" fill="none"/>`,
+    step: to => `<path d="M0 66H520V46H980V26H${W}V${H}H0Z" fill="${to}"/><path d="M0 66H520V46H980V26H${W}" stroke="${LINE}" stroke-width="3" fill="none"/><rect x="500" y="40" width="20" height="6" fill="${LINE}"/><rect x="960" y="20" width="20" height="6" fill="${LINE}"/><path d="M0 76H500V56H960V36H${W}" stroke="${LINE2}" stroke-width="1.5" fill="none"/>`,
+    notch: to => { let d = `M0 46`; for (let x = 0; x < W; x += 120) d += `H${x + 48}L${x + 60} 60L${x + 72} 46`; d += `H${W}`; return `<path d="${d}V${H}H0Z" fill="${to}"/><path d="${d}" stroke="${LINE}" stroke-width="3" fill="none"/><path d="M0 36H${W}" stroke="${LINE2}" stroke-width="1.5" fill="none"/>`; }
   };
   document.querySelectorAll('[data-cut]').forEach(el => {
-    const t = el.dataset.cut, from = el.dataset.from || 'azul', to = el.dataset.to || 'noche';
+    const t = el.dataset.cut, from = el.dataset.from || 'k0', to = el.dataset.to || 'k1';
     el.classList.add('cut'); el.style.background = C[from]; el.setAttribute('aria-hidden', 'true');
-    el.insertAdjacentHTML('afterbegin', `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${cuts[t](C[to], hair(from, to))}</svg>`);
+    el.insertAdjacentHTML('afterbegin', `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${cuts[t](C[to])}</svg>`);
   });
 
   /* ---------- FILAS TIPO NETFLIX ---------- */
@@ -49,8 +48,8 @@
 
   /* ---------- PARALLAX: fondo fijo, piezas al frente se mueven (suave, con tope) ---------- */
   if (!reduced) {
-    const items = [...document.querySelectorAll('.pz[data-speed],.ly[data-speed]')]; let tick = false;
-    const lim = el => el.classList.contains('ly') ? 70 : (el.classList.contains('hero') ? 44 : 60);
+    const items = [...document.querySelectorAll('.pz[data-speed],.bp[data-speed]')]; let tick = false;
+    const lim = el => el.classList.contains('bp') ? 36 : (el.classList.contains('hero') ? 44 : 60);
     const run = () => {
       tick = false; const vh = innerHeight, k = innerWidth < 700 ? .5 : 1;
       items.forEach(el => {

@@ -1,0 +1,16 @@
+AUDITORÍA v7 · archivos revisados: 34 (index.html, styles.css, app.js + SVG de heroes/piezas/placas/planos)
+  R1 blur/filter                     0
+  R2 text-shadow                     0
+  R2 box-shadow con blur             0
+  R3 gradiente/máscara               0
+  R4 opacidad<1                      0
+  R4 alfa<1                          0
+  R4 alfa<1 (hex8)                   0
+  R6 rojo+azul en el mismo SVG       0
+  R6 rojo+azul en una regla CSS      0
+  R6 rojo+azul en un style=""        0
+  R7 texto rojo                      0
+  R8 palabra prohibida               0
+  R5 magenta/púrpura/otros           0
+Exentos (logo propio, solo informativo): gamemaster-compacto-claro.svg:azul/magenta/púrpura/otro(206°)/rojo, gamemaster-compacto-mono-blanco.svg:neutro, gamemaster-compacto-mono-noche.svg:azul, gamemaster-compacto-oscuro.svg:azul/magenta/púrpura/otro(185°)/otro(189°)/otro(190°)/rojo …
+TOTAL HALLAZGOS FUERA DEL LOGO: 0
