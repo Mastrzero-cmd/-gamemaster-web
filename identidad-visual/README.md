@@ -1,4 +1,4 @@
-# GameMaster · Identidad visual v5 (propuesta)
+# GameMaster · Identidad visual v6 (propuesta)
 
 Página estática aislada (HTML + CSS + JS vanilla, sin build, sin CDN). No toca la web, `main` ni el PR.
 
@@ -44,3 +44,16 @@ Qué se agregó (`herramientas/generar_negro_v4.py` → `assets/arte/campo-<secc
 - Rojo siempre sobre azul; sin parpadeo; con «reducir movimiento» todo queda quieto.
 - **Pendientes de v4 resueltos:** planetas negros solo en los bordes (ya no rozan piezas rojas), rayos de streaming al 55 % de opacidad y más delgados.
 - **Verificación:** `node herramientas/solape.mjs 1440|390` (piezas del frente vs. texto/controles al barrer el scroll → 0 solapes), `node herramientas/contraste.mjs` (contrastes WCAG), `python3 herramientas/medir_rojo.py <v4> <v5>` (% de rojo por captura), `node herramientas/capturar.mjs`.
+
+
+## v6 · mínima, limpia y artística (edición tipo galería)
+Fernando pidió bajar la densidad de v5. `index.html` ahora se genera con `python3 herramientas/construir_v6.py index.html`.
+- **Una pieza héroe roja por sección + 2–3 de apoyo** (máx. 4; v5 tenía 11–13). Héroes dibujados a mano en SVG con volumen en 3 tonos de rojo, grabado fino, contorno negro duro y sombra de capa (`herramientas/generar_heroes_v6.py` → `assets/heroes/`): mando (inicio), consola portátil (paleta), chip isométrico sobre placas (cromo), audífonos (parallax), pantalla con catálogo (filas), joystick arcade (catálogo), claqueta (streaming), tarjeta gráfica (IA).
+- **Parallax en 3 capas suaves:** fondo fijo/grabado (.04), héroe (.08, tope ±44 px) y apoyo (.14–.26, tope ±60 px) con `tanh` para que el movimiento sea lento y deliberado. Móvil a la mitad. `?reduce` o «reducir movimiento» lo apaga.
+- **Retícula editorial:** 12 columnas, guías de 6 columnas casi invisibles, cabecera de lámina (número, nombre, filete, «NN / 10»), etiqueta negra y pie «Lámina NN · héroe» sobre un marco fino con esquinas.
+- **Tipografía:** display Instrument Serif (regular + cursiva, OFL, autohospedada; sustituye a Bangers fuera del logo), texto Outfit, etiquetas Space Mono. Títulos en hielo, nunca rojos.
+- **Arte azul y negro sutil:** una sola capa de grabado por sección (opacidad .5, con máscara que despeja el lado del texto) y el negro solo como acento: etiqueta, esquinas del marco, un bloque escalonado en la esquina, la sombra dura del héroe y las tarjetas de las filas.
+- **Cortes:** 3 (diagonal fina, escalón, línea con muescas), con una línea de precisión.
+- **Filas Netflix:** igual (flechas, arrastre, táctil, teclado); tarjetas con sombra negra y «Cotizar →» como enlace para que el rojo se concentre en el héroe.
+- **Verificación:** `node herramientas/solape.mjs 1440|390` (0 solapes), `node herramientas/contraste.mjs`, `python3 herramientas/medir_rojo.py capturas`, `node herramientas/capturar.mjs capturas http://localhost:8766/index.html`.
+- Los assets de v3–v5 que ya no se usan (`campo-*-negro/sombra/objetos.svg`, piezas pequeñas sobrantes) se dejan en `assets/` sin borrar.

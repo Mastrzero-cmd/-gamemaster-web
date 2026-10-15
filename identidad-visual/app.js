@@ -1,64 +1,20 @@
-/* GameMaster · Identidad visual v5 · JS vanilla (cortes, filas, parallax) */
+/* GameMaster · Identidad visual v6 · JS vanilla (cortes, filas, parallax) */
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || /[?&]reduce/.test(location.search);
   if (reduced) document.documentElement.classList.add('reduce');
-  const C = { azul: '#2d41dc', prof: '#1e2eb6', noche: '#05071f', azul2: '#4a62ff' };
-  const blue = k => k === 'azul' || k === 'prof'; const K = '#05071f', RED0 = '#ff3322', ICE = '#eaf6ff', CY = '#3fdcff', MG = '#ff3b7f';
-  let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  const W = 1440, H = 170;
-  const R = (x, y, w, h, f, ex = '') => `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" fill="${f}" ${ex}/>`;
-
-  /* ---------- CORTES: cada uno con arte distinto ---------- */
+  const C = { azul: '#2d41dc', prof: '#1e2eb6', noche: '#05071f' };
+  const W = 1440, H = 90;
+  const hair = (a, b) => (a === 'noche' || b === 'noche') ? 'rgba(234,246,255,.38)' : '#05071f';
+  /* 3 cortes limpios y precisos: diagonal fina, escalón, línea con muescas */
   const cuts = {
-    // pincelada curva con extremo seco + trazo rojo adelante (como la pincelada del logo)
-    pincel: (to, RED) => {
-      let s = `<path d="M0 118C220 62 430 150 710 96S1190 44 1440 104V${H}H0Z" fill="${to}"/>`;
-      for (let i = 0; i < 9; i++) { const y = 70 + i * 6 + rnd() * 3, l = 60 + rnd() * 260; s += R(0, y, l, 2 + rnd() * 3, to); }
-      s += `<path d="M0 118C220 62 430 150 710 96S1190 44 1440 104" fill="none" stroke="${K}" stroke-width="4"/>`;
-      s += `<path d="M-10 92C260 24 560 118 880 56S1300 20 1450 40L1450 62C1300 44 1000 100 880 86C560 148 260 56 -10 112Z" fill="${RED}" stroke="${K}" stroke-width="3"/>`;
-      s += `<path d="M-10 124C260 70 560 160 880 100S1300 64 1450 82" fill="none" stroke="${CY}" stroke-width="3" opacity=".8"/>`;
-      return s;
-    },
-    // scanlines que engruesan (TV / señal)
-    scan: (to, RED) => {
-      let s = '';
-      for (let i = 0; i < 12; i++) s += R(0, 10 + i * 13.4, W, 1.5 + i * 1.15, to);
-      s += R(0, 164, W, 6, to);
-      for (let i = 0; i < 7; i++) { const y = 18 + rnd() * 120; s += R(rnd() * (W - 300), y, 80 + rnd() * 220, 4, i % 2 ? RED : ICE); }
-      return s;
-    },
-    // glitch horizontal controlado (rebanadas desplazadas, estático)
-    glitch: (to, RED) => {
-      let s = R(0, 112, W, 60, to);
-      for (let i = 0; i < 8; i++) { const y = 76 + i * 5, off = (rnd() - .5) * 260; s += R(off + 100, y, 320 + rnd() * 600, 5, to); }
-      s += R(0, 106, W, 5, K);
-      [[120, 40, 230, RED], [520, 56, 340, ICE], [980, 36, 280, RED], [300, 82, 150, CY], [1180, 70, 180, ICE], [760, 94, 200, RED]].forEach(([x, y, w, c]) => { s += R(x, y, w, 5, c); });
-      s += R(40, 118, 180, 5, MG) + R(1060, 124, 220, 5, CY);
-      return s;
-    },
-    // escalera pixel (la única pieza pixel) con bloques rojos al frente
-    pixel: (to, RED) => {
-      const u = 30; let y = 5, s = '', ys = [];
-      for (let x = 0; x < W + u; x += u) { y = Math.max(2, Math.min(7, y + [-1, 0, 1][Math.floor(rnd() * 3)])); ys.push(y); s += R(x, 40 + y * 12 - 4, u + .5, 5, K) + R(x, 40 + y * 12, u + .5, H, to); }
-      ys.forEach((v, i) => { if (i % 6 === 2) s += R(i * u + 3, 40 + v * 12 - u + 3, u - 6, u - 6, RED, `stroke="${K}" stroke-width="3"`); });
-      s += R(0, 40 + ys[0] * 12 - 3, W, 0, K);
-      return s;
-    },
-    // cinta de película en diagonal
-    cinta: (to, RED) => {
-      let s = R(0, 122, W, 60, to) + `<g transform="rotate(-2.2 720 80)">${R(-60, 40, W + 120, 92, K)}`;
-      for (let x = -40; x < W + 60; x += 34) s += R(x, 48, 16, 11, ICE, 'rx="2"') + R(x, 113, 16, 11, ICE, 'rx="2"');
-      for (let x = -30, i = 0; x < W + 60; x += 118, i++) {
-        const c = i % 3 === 1 ? CY : i % 3 === 2 ? C.azul2 : '#1a2a9a'; // nunca rojo sobre el negro de la cinta
-        s += R(x, 66, 96, 42, c) + `<path d="M${x + 40} ${76}l20 11l-20 11z" fill="${K}" opacity=".8"/>`;
-      }
-      return s + '</g>';
-    }
+    diag: (to, hl) => `<path d="M0 ${H}L${W} 26V${H}Z" fill="${to}"/><path d="M0 ${H}L${W} 26" stroke="${hl}" stroke-width="3" fill="none"/>`,
+    step: (to, hl) => `<path d="M0 66H520V46H980V26H${W}V${H}H0Z" fill="${to}"/><path d="M0 66H520V46H980V26H${W}" stroke="${hl}" stroke-width="3" fill="none"/>`,
+    notch: (to, hl) => { let d = `M0 46`; for (let x = 0; x < W; x += 120) d += `H${x + 48}L${x + 60} 60L${x + 72} 46`; d += `H${W}`; return `<path d="${d}V${H}H0Z" fill="${to}"/><path d="${d}" stroke="${hl}" stroke-width="3" fill="none"/><path d="M0 36H${W}" stroke="${hl}" stroke-width="1.5" fill="none" opacity=".6"/>`; }
   };
   document.querySelectorAll('[data-cut]').forEach(el => {
     const t = el.dataset.cut, from = el.dataset.from || 'azul', to = el.dataset.to || 'noche';
     el.classList.add('cut'); el.style.background = C[from]; el.setAttribute('aria-hidden', 'true');
-    el.insertAdjacentHTML('afterbegin', `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${cuts[t](C[to], blue(from) && blue(to) ? RED0 : CY)}</svg>`);
+    el.insertAdjacentHTML('afterbegin', `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">${cuts[t](C[to], hair(from, to))}</svg>`);
   });
 
   /* ---------- FILAS TIPO NETFLIX ---------- */
@@ -91,15 +47,17 @@
     addEventListener('pointerup', () => { if (!down) return; down = false; tr.classList.remove('drag'); if (moved > 5) { const near = Math.round(tr.scrollLeft / (tr.firstElementChild.offsetWidth + 18)) * (tr.firstElementChild.offsetWidth + 18); tr.scrollTo({ left: near, behavior: 'smooth' }); } });
   });
 
-  /* ---------- PARALLAX: fondo fijo, piezas al frente se mueven ---------- */
+  /* ---------- PARALLAX: fondo fijo, piezas al frente se mueven (suave, con tope) ---------- */
   if (!reduced) {
     const items = [...document.querySelectorAll('.pz[data-speed],.ly[data-speed]')]; let tick = false;
+    const lim = el => el.classList.contains('ly') ? 70 : (el.classList.contains('hero') ? 44 : 60);
     const run = () => {
-      tick = false; const vh = innerHeight;
+      tick = false; const vh = innerHeight, k = innerWidth < 700 ? .5 : 1;
       items.forEach(el => {
-        const host = el.closest('section,.cut,.planes') || el.parentElement, b = host.getBoundingClientRect();
+        const host = el.closest('section,.cut') || el.parentElement, b = host.getBoundingClientRect();
         if (b.bottom < -200 || b.top > vh + 200) return;
-        el.style.setProperty('--py', ((b.top + b.height / 2 - vh / 2) * -parseFloat(el.dataset.speed) * (innerWidth < 700 ? .5 : 1)).toFixed(1) + 'px');
+        const raw = (b.top + b.height / 2 - vh / 2) * -parseFloat(el.dataset.speed) * k, L = lim(el);
+        el.style.setProperty('--py', (L * Math.tanh(raw / L)).toFixed(1) + 'px');
       });
     };
     addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true }); addEventListener('resize', run); run();
