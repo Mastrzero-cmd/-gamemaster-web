@@ -41,4 +41,4 @@ Los personajes ya no se dibujan: son 19 `span.slot[data-slot="personaje-…"]` c
 Palabra prohibida construida partida en `auditar.py`, portadas de una sola tinta, borde negro separador, contornos gruesos, filas con flechas, `index.html` estático sin CDN.
 
 ## Proporción de color medida (capturas con logos y portadas ocultos)
-Ver README.md (se actualiza con cada ronda).
+1440: rojo 9.9 %, azul 13.4 %, negro 72.7 %. 390: rojo 7.3 %, azul 13.6 %. Mezcla ≤0.006 %.
