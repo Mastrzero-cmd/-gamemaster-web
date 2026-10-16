@@ -1,0 +1,194 @@
+{
+ "inicio": {
+  "fr": [
+   {
+    "name": "personaje-mario-hongo",
+    "x": 720,
+    "y": 440,
+    "size": 784,
+    "rot": 8,
+    "forma": "blob"
+   }
+  ],
+  "pc": [
+   {
+    "name": "personaje-mario-estrella",
+    "x": 1170,
+    "y": 320,
+    "size": 238,
+    "rot": 15,
+    "forma": "estrella"
+   },
+   {
+    "name": "personaje-sonic-anillo-mini",
+    "x": 1130,
+    "y": 760,
+    "size": 294,
+    "rot": -10,
+    "forma": "anillo"
+   }
+  ]
+ },
+ "juegos": {
+  "fr": [
+   {
+    "name": "personaje-zelda-trifuerza",
+    "x": 300,
+    "y": 470,
+    "size": 868,
+    "rot": -4,
+    "forma": "triangulo"
+   },
+   {
+    "name": "personaje-pikachu",
+    "x": 900,
+    "y": 600,
+    "size": 602,
+    "rot": 6,
+    "forma": "blob"
+   }
+  ],
+  "pc": [
+   {
+    "name": "personaje-mario-hongo-mini",
+    "x": 200,
+    "y": 760,
+    "size": 280,
+    "rot": -10,
+    "forma": "blob"
+   }
+  ]
+ },
+ "marcas": {
+  "fr": [
+   {
+    "name": "personaje-sonic-anillo",
+    "x": 240,
+    "y": 450,
+    "size": 658,
+    "rot": -14,
+    "forma": "anillo"
+   }
+  ],
+  "pc": [
+   {
+    "name": "personaje-kirby",
+    "x": 1450,
+    "y": 980,
+    "size": 448,
+    "rot": 8,
+    "forma": "blob"
+   },
+   {
+    "name": "personaje-mario-estrella-b",
+    "x": 330,
+    "y": 60,
+    "size": 154,
+    "rot": -10,
+    "forma": "estrella"
+   }
+  ]
+ },
+ "streaming": {
+  "fr": [],
+  "pc": [
+   {
+    "name": "personaje-pacman",
+    "x": 1250,
+    "y": 190,
+    "size": 322,
+    "rot": -8,
+    "forma": "blob"
+   },
+   {
+    "name": "personaje-fantasma",
+    "x": 1290,
+    "y": 770,
+    "size": 266,
+    "rot": 6,
+    "forma": "fantasma"
+   },
+   {
+    "name": "personaje-amongus",
+    "x": 740,
+    "y": 800,
+    "size": 238,
+    "rot": -6,
+    "forma": "fantasma"
+   }
+  ]
+ },
+ "ia": {
+  "fr": [],
+  "pc": [
+   {
+    "name": "personaje-invasor",
+    "x": 1130,
+    "y": 130,
+    "size": 308,
+    "rot": 0,
+    "forma": "cuadro"
+   },
+   {
+    "name": "personaje-mario-bloque",
+    "x": 860,
+    "y": 790,
+    "size": 252,
+    "rot": 12,
+    "forma": "cuadro"
+   }
+  ]
+ },
+ "logo": {
+  "fr": [
+   {
+    "name": "personaje-creeper",
+    "x": 1180,
+    "y": 640,
+    "size": 504,
+    "rot": 8,
+    "forma": "cuadro"
+   }
+  ],
+  "pc": [
+   {
+    "name": "personaje-mario-estrella-c",
+    "x": 1350,
+    "y": 880,
+    "size": 238,
+    "rot": -10,
+    "forma": "estrella"
+   }
+  ]
+ },
+ "contacto": {
+  "fr": [
+   {
+    "name": "personaje-pikachu-contacto",
+    "x": 500,
+    "y": 450,
+    "size": 300,
+    "rot": 0,
+    "forma": "blob"
+   }
+  ],
+  "pc": [
+   {
+    "name": "personaje-pacman-contacto",
+    "x": 1070,
+    "y": 740,
+    "size": 280,
+    "rot": -8,
+    "forma": "blob"
+   },
+   {
+    "name": "personaje-mario-estrella-d",
+    "x": 1390,
+    "y": 90,
+    "size": 210,
+    "rot": 12,
+    "forma": "estrella"
+   }
+  ]
+ }
+}
