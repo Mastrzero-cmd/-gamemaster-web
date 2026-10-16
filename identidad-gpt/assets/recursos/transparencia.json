@@ -1,0 +1,30 @@
+{
+  "rojo_joystick.png": {
+    "modo": "RGBA",
+    "tamano": [
+      1333,
+      1180
+    ],
+    "alfa_min_max": [
+      0,
+      255
+    ],
+    "pixeles_transparentes": 1199811,
+    "pixeles_totales": 1572940,
+    "uso": "Biblioteca local; no se utiliza en la composición."
+  },
+  "azul_joystick.png": {
+    "modo": "RGBA",
+    "tamano": [
+      1333,
+      1180
+    ],
+    "alfa_min_max": [
+      0,
+      255
+    ],
+    "pixeles_transparentes": 1358769,
+    "pixeles_totales": 1572940,
+    "uso": "Biblioteca local; no se utiliza en la composición."
+  }
+}
