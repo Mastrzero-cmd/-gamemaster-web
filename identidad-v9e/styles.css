@@ -69,7 +69,7 @@ h1 { max-width: 800px; font-size: var(--hero-size); font-weight: 600; letter-spa
 .hero-foot > p { margin-left: 90px; margin-right: auto; font-size: 13px; letter-spacing: 0; line-height: 1.5; }
 .orbit-sign { font-size: 10px; writing-mode: vertical-rl; }
 .shore { position: relative; pointer-events: none; overflow: clip; }
-.shore img { width: 100%; height: 100%; }
+.shore img { width: 100%; height: 100%; object-fit: fill; }
 .shore-games { height: 150px; margin-top: -30px; }
 .dark-section { background: var(--black); }
 .gaming, .ai, .how { position: relative; padding: 30px var(--page-gutter) 0; }

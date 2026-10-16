@@ -9,8 +9,9 @@ RED = '#FF3028'
 
 
 def svg(name, width, height, content, folder='arte'):
+    par = ' preserveAspectRatio="none"' if name.startswith('rive-') else ''
     (ROOT / folder / f'{name}.svg').write_text(
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}">'
+        f'<svg xmlns="http://www.w3.org/2000/svg"{par} viewBox="0 0 {width} {height}">'
         f'{content}</svg>\n', encoding='utf-8')
 
 

@@ -2,5 +2,5 @@
   "pruebas": [],
   "capturas": [],
   "ok": false,
-  "error": "No se pudo iniciar python3 -m http.server en 127.0.0.1:8765."
+  "error": "La página local no terminó de cargar."
 }

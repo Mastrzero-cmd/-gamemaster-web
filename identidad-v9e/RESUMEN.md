@@ -10,5 +10,6 @@
 
 **Avisos honestos:**
 - Los íconos (hongo, Triforce, Pokéball, etc.) son símbolos simples dibujados por nosotros, sin personajes, pero evocan marcas de Nintendo/Pokémon: pueden tener derechos de marca. Úsalos solo con criterio y sin dar a entender aval.
-- Las portadas de juegos de las filas son arte de terceros con sus propios colores (incluye rojo y azul); no son parte del sistema.
+- Las portadas de juegos son arte de terceros, pero ya están convertidas a UNA sola tinta plana (rojo y negro, 3 tonos sin degradados, sin azul), con `herramientas/planas.py`. Ninguna portada mezcla rojo y azul. Siguen siendo derechos de sus dueños y evocan el original, no es el arte oficial a color.
+- Corregido: la forma negra de la primera sección se veía cortada con lados rectos; era el SVG que no se estiraba al ancho. Ahora llega de borde a borde con curva suave (`preserveAspectRatio="none"`).
 - Logos de terceros: derechos de sus dueños, solo para identificar el servicio.

@@ -74,11 +74,19 @@
       "ok": true
     },
     {
+      "regla": "Término restringido ausente: RESUMEN.md",
+      "ok": true
+    },
+    {
       "regla": "Término restringido ausente: herramientas/dibujar.py",
       "ok": true
     },
     {
       "regla": "Término restringido ausente: herramientas/navegador.json",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: herramientas/planas.py",
       "ok": true
     },
     {
