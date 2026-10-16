@@ -1,0 +1,1156 @@
+{
+  "contrastes": [
+    {
+      "nombre": "Texto hielo sobre azul",
+      "texto": "#eaf6ff",
+      "fondo": "#1919e8",
+      "ratio": 8.15,
+      "minimo": 4.5
+    },
+    {
+      "nombre": "Texto hielo sobre negro",
+      "texto": "#eaf6ff",
+      "fondo": "#080808",
+      "ratio": 18.24,
+      "minimo": 4.5
+    },
+    {
+      "nombre": "Texto secundario sobre negro",
+      "texto": "#aeb5c0",
+      "fondo": "#080808",
+      "ratio": 9.7,
+      "minimo": 4.5
+    },
+    {
+      "nombre": "Texto rojo sobre negro",
+      "texto": "#ff3028",
+      "fondo": "#080808",
+      "ratio": 5.44,
+      "minimo": 4.5
+    },
+    {
+      "nombre": "Texto negro sobre hielo",
+      "texto": "#080808",
+      "fondo": "#eaf6ff",
+      "ratio": 18.24,
+      "minimo": 4.5
+    },
+    {
+      "nombre": "Logo blanco sobre negro",
+      "texto": "#ffffff",
+      "fondo": "#080808",
+      "ratio": 20.03,
+      "minimo": 4.5
+    }
+  ],
+  "png": [
+    {
+      "archivo": "assets/logos/gamemaster-blanco.png",
+      "modo": "RGBA",
+      "tamano": [
+        512,
+        138
+      ],
+      "alfa": true,
+      "min": 0,
+      "max": 255
+    }
+  ],
+  "comprobaciones": [
+    {
+      "regla": "Término restringido ausente: index.html",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: styles.css",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: app.js",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: README.md",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: herramientas/dibujar.py",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: herramientas/navegador.json",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: herramientas/contrastes.json",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: herramientas/verificar.py",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: herramientas/verificacion.json",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: herramientas/capturar.py",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: capturas/LEEME.md",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/arte/atlas-hero.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/arte/atlas-mobile.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/arte/rive-jeux.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/arte/rive-signal.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/arte/rive-ia.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/arte/paysage-signal.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/arte/jardin-neural.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/arte/courant-final.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/hongo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/estrella.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/triforce.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/espada.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/moneda.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/pokeball.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/rayo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/mando.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/play.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/audio.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/antena.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/destello.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/disco.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/iconos/botones.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/netflix_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/spotify_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/max_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/disneyplus_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/primevideo_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/appletv_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/crunchyroll_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/youtubemusic_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/chatgpt_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/claude_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/protonvpn_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/nintendoswitch_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Término restringido ausente: assets/logos/gamemaster-hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: index.html",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: index.html",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: styles.css",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: styles.css",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: app.js",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: app.js",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/arte/atlas-hero.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/arte/atlas-hero.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/arte/atlas-mobile.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/arte/atlas-mobile.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/arte/rive-jeux.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/arte/rive-jeux.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/arte/rive-signal.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/arte/rive-signal.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/arte/rive-ia.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/arte/rive-ia.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/arte/paysage-signal.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/arte/paysage-signal.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/arte/jardin-neural.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/arte/jardin-neural.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/arte/courant-final.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/arte/courant-final.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/hongo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/hongo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/estrella.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/estrella.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/triforce.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/triforce.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/espada.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/espada.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/moneda.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/moneda.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/pokeball.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/pokeball.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/rayo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/rayo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/mando.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/mando.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/play.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/play.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/audio.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/audio.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/antena.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/antena.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/destello.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/destello.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/disco.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/disco.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/iconos/botones.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/iconos/botones.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/netflix_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/netflix_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/spotify_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/spotify_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/max_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/max_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/disneyplus_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/disneyplus_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/primevideo_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/primevideo_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/appletv_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/appletv_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/crunchyroll_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/crunchyroll_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/youtubemusic_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/youtubemusic_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/chatgpt_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/chatgpt_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/claude_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/claude_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/protonvpn_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/protonvpn_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/nintendoswitch_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/nintendoswitch_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Rellenos sólidos: assets/logos/gamemaster-hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Sin efectos de difusión ni sombras: assets/logos/gamemaster-hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/estrella.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: styles.css",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: app.js",
+      "ok": true
+    },
+    {
+      "regla": "Destino interno existente: #gaming",
+      "ok": true
+    },
+    {
+      "regla": "Destino interno existente: #inicio",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/gamemaster-hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Destino interno existente: #gaming",
+      "ok": true
+    },
+    {
+      "regla": "Destino interno existente: #streaming",
+      "ok": true
+    },
+    {
+      "regla": "Destino interno existente: #ia",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/arte/atlas-mobile.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/arte/atlas-hero.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/hongo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/estrella.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/triforce.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/espada.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/moneda.svg",
+      "ok": true
+    },
+    {
+      "regla": "Destino interno existente: #gaming",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/arte/rive-jeux.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/nintendoswitch_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/mario-kart-world.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/zelda-totk.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/mario-wonder.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/pokemon-scarlet.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/donkey-kong-bananza.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/mario-odyssey.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/hollow-knight.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/hades.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/animal-crossing-new-horizons.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/metroid-dread.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/kirby-and-the-forgotten-land.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/zelda-botw.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/celeste.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/portadas/cuphead.webp",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/botones.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/arte/rive-signal.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/arte/paysage-signal.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/pokeball.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/audio.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/play.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/antena.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/netflix_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/spotify_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/max_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/disneyplus_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/primevideo_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/appletv_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/crunchyroll_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/youtubemusic_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/arte/rive-ia.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/arte/jardin-neural.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/destello.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/chatgpt_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/claude_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/protonvpn_mono_hielo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/arte/courant-final.svg",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/iconos/mando.svg",
+      "ok": true
+    },
+    {
+      "regla": "Único enlace externo permitido: https://wa.me/525527699426",
+      "ok": true
+    },
+    {
+      "regla": "Destino interno existente: #inicio",
+      "ok": true
+    },
+    {
+      "regla": "Recurso local existente: assets/logos/gamemaster-blanco.png",
+      "ok": true
+    },
+    {
+      "regla": "Destino interno existente: #inicio",
+      "ok": true
+    },
+    {
+      "regla": "WhatsApp presente con número exacto",
+      "ok": true
+    },
+    {
+      "regla": "Todas las imágenes tienen atributo alternativo",
+      "ok": true
+    },
+    {
+      "regla": "Todas las imágenes declaran dimensiones",
+      "ok": true
+    },
+    {
+      "regla": "Movimiento reducido previsto en CSS y JS",
+      "ok": true
+    },
+    {
+      "regla": "CSS sin recursos remotos",
+      "ok": true
+    },
+    {
+      "regla": "Contraste WCAG: Texto hielo sobre azul (8.15:1)",
+      "ok": true
+    },
+    {
+      "regla": "Contraste WCAG: Texto hielo sobre negro (18.24:1)",
+      "ok": true
+    },
+    {
+      "regla": "Contraste WCAG: Texto secundario sobre negro (9.70:1)",
+      "ok": true
+    },
+    {
+      "regla": "Contraste WCAG: Texto rojo sobre negro (5.44:1)",
+      "ok": true
+    },
+    {
+      "regla": "Contraste WCAG: Texto negro sobre hielo (18.24:1)",
+      "ok": true
+    },
+    {
+      "regla": "Contraste WCAG: Logo blanco sobre negro (20.03:1)",
+      "ok": true
+    },
+    {
+      "regla": "PNG con transparencia útil: gamemaster-blanco.png",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: antena.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: antena.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: audio.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: audio.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: botones.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: botones.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: destello.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: destello.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: disco.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: disco.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: espada.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: espada.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: estrella.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: estrella.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: hongo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: hongo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: mando.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: mando.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: moneda.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: moneda.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: play.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: play.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: pokeball.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: pokeball.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: rayo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: rayo.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo con un solo relleno rojo: triforce.svg",
+      "ok": true
+    },
+    {
+      "regla": "Símbolo sin contornos ni efectos: triforce.svg",
+      "ok": true
+    }
+  ],
+  "ok": true,
+  "errores": [],
+  "alcance": "Revisión estática. No sustituye la revisión de la página en navegador."
+}

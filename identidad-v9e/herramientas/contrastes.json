@@ -1,0 +1,8 @@
+[
+  {"nombre": "Texto hielo sobre azul", "frente": "--ice", "fondo": "--blue", "minimo": 4.5},
+  {"nombre": "Texto hielo sobre negro", "frente": "--ice", "fondo": "--black", "minimo": 4.5},
+  {"nombre": "Texto secundario sobre negro", "frente": "--muted", "fondo": "--black", "minimo": 4.5},
+  {"nombre": "Texto rojo sobre negro", "frente": "--red", "fondo": "--black", "minimo": 4.5},
+  {"nombre": "Texto negro sobre hielo", "frente": "--black", "fondo": "--ice", "minimo": 4.5},
+  {"nombre": "Logo blanco sobre negro", "frente": "--white", "fondo": "--black", "minimo": 4.5}
+]
