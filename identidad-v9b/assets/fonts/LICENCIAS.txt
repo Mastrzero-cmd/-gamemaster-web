@@ -1,0 +1,14 @@
+== silkscreen ==
+Copyright 2001 The Silkscreen Project Authors (https://github.com/googlefonts/silkscreen) Silkscreen-Bold.ttf: Copyright 2001 The Silkscreen Project Authors (https://github.com/googlefonts/silkscreen)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+== pixelify-sans ==
+Copyright 2021 The Pixelify Sans Project Authors (https://github.com/eifetx/Pixelify-Sans)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+== vt323 ==
+Copyright 2011, The VT323 Project Authors (peter.hull@oikoi.com)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+
+Licencia: SIL Open Font License 1.1 (texto completo en https://openfontlicense.org)
