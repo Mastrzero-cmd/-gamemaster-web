@@ -27,14 +27,21 @@ def pokebola():
             + rect(8, 90, 184, 20, K) + circ(100, 100, 30, K) + circ(100, 100, 21, R) + circ(100, 100, 10, K)
             + f'<path d="M44 66A62 62 0 0 1 82 38" fill="none" stroke="{K}" stroke-width="8" stroke-linecap="round"/>')
 def pikachu():
-    head = 'M100 44C150 44 176 80 176 116C176 152 144 178 100 178C56 178 24 152 24 116C24 80 50 44 100 44Z'
-    el = 'M64 62L36 8L20 14C20 20 24 26 28 32L52 82Z'  # oreja izquierda
-    er = 'M136 62L164 8L180 14C180 20 176 26 172 32L148 82Z'
-    return (mass(el) + mass(er) + mass(head)
-            + f'<path d="M36 8L20 14C20 20 24 26 28 32L38 50L46 28Z" fill="{K}"/>' + f'<path d="M164 8L180 14C180 20 176 26 172 32L162 50L154 28Z" fill="{K}"/>'
-            + circ(68, 104, 9, K) + circ(132, 104, 9, K) + circ(71, 101, 3, R) + circ(135, 101, 3, R)
-            + circ(40, 138, 17, K) + circ(160, 138, 17, K) + circ(40, 138, 9, R) + circ(160, 138, 9, R)
-            + line('M88 128Q100 140 112 128', 7) + P('M96 118L104 118L100 124Z', K))
+    def oreja(sx):  # sx=-1 izquierda, 1 derecha; hoja larga con punta negra
+        def X(x): return 100 + sx * (x - 100)
+        d = f'M{X(66)} 84C{X(50)} 60 {X(40)} 30 {X(40)} 6C{X(60)} 10 {X(84)} 40 {X(94)} 74Z'
+        tip = f'M{X(40)} 6C{X(52)} 8 {X(66)} 20 {X(74)} 36L{X(52)} 38C{X(44)} 28 {X(40)} 18 {X(40)} 6Z'
+        return d, tip
+    out = ''; tips = ''
+    for sx in (-1, 1):
+        d, t = oreja(sx); out += mass(d); tips += f'<path d="{t}" fill="{K}"/>'
+    tail = 'M168 156L192 128L178 122L204 88L184 84L206 52L160 108L178 114Z'
+    head = 'M100 62C150 62 184 90 184 126C184 160 148 184 100 184C52 184 16 160 16 126C16 90 50 62 100 62Z'
+    return (mass(tail) + out + mass(head) + tips
+            + circ(66, 112, 12, K) + circ(134, 112, 12, K) + circ(70, 107, 4.5, R) + circ(138, 107, 4.5, R)
+            + circ(34, 148, 17, K) + circ(166, 148, 17, K) + circ(34, 148, 8, R) + circ(166, 148, 8, R)
+            + P('M92 128L108 128L100 138Z', K) + f'<path d="M80 144Q100 168 120 144Z" fill="{K}"/>' + line('M100 138L100 146', 5))
+
 def corazon():
     d = 'M100 178C40 134 14 100 14 66C14 38 34 22 58 22C78 22 92 34 100 50C108 34 122 22 142 22C166 22 186 38 186 66C186 100 160 134 100 178Z'
     return mass(d) + line('M40 62Q44 46 60 44', 9)
@@ -81,9 +88,16 @@ def creeper():
     out = mass('M12 12L188 12L188 188L12 188Z').replace('stroke-width="16"', 'stroke-width="12"')
     return out + ''.join(rect(ox + x * s, oy + y * s, s, s, K) for x, y in cells)
 def anillo():
-    return (f'<ellipse cx="100" cy="100" rx="80" ry="80" fill="{K}" stroke="{K}" stroke-width="16"/>'
-            + f'<circle cx="100" cy="100" r="80" fill="{R}"/><circle cx="100" cy="100" r="46" fill="{K}"/>'
-            + line('M56 60A62 62 0 0 1 100 38', 9) + line('M150 150A62 62 0 0 1 130 164', 7))
+    def ep(cx, cy, rx, ry, rot, fill, extra=''):
+        return f'<ellipse cx="{cx}" cy="{cy}" rx="{rx}" ry="{ry}" transform="rotate({rot} {cx} {cy})" fill="{fill}" {extra}/>'
+    out = ep(100, 104, 84, 72, -28, K, f'stroke="{K}" stroke-width="16"') + ep(100, 104, 84, 72, -28, R)
+    out += ep(108, 98, 48, 36, -28, K)                       # agujero
+    out += ep(100, 112, 70, 56, -28, 'none', f'stroke="{K}" stroke-width="6"')  # borde interior que da grosor
+    out += line('M44 80A66 56 -28 0 1 82 46', 9) + line('M92 38L114 34', 7)  # brillo
+    for (x, y, s) in [(176, 36, 18), (24, 168, 13)]:  # destellos de cuatro puntas
+        out += f'<path d="M{x} {y-s}L{x+s*.28} {y-s*.28}L{x+s} {y}L{x+s*.28} {y+s*.28}L{x} {y+s}L{x-s*.28} {y+s*.28}L{x-s} {y}L{x-s*.28} {y-s*.28}Z" fill="{R}" stroke="{K}" stroke-width="5" stroke-linejoin="round"/>'
+    return out
+
 def kirby():
     return (mass('M10 150C10 128 34 120 48 134L48 168L10 168Z').replace('', '') if False else
             f'<ellipse cx="42" cy="176" rx="38" ry="18" fill="{K}" stroke="{K}" stroke-width="12"/><ellipse cx="158" cy="176" rx="38" ry="18" fill="{K}" stroke="{K}" stroke-width="12"/>'
@@ -99,10 +113,13 @@ def rupia():
     d = 'M100 8L162 70L162 130L100 192L38 130L38 70Z'
     return mass(d) + line('M100 8L100 192M38 70L162 70M38 130L162 130', 6)
 def ocarina():
-    d = 'M20 150C20 110 52 70 100 70C148 70 176 100 176 126C176 156 150 176 116 176C80 176 20 190 20 150Z'
-    tube = 'M100 74L116 20L146 28L132 82Z'
-    return (mass(tube) + mass(d) + circ(80, 128, 9, K) + circ(112, 120, 9, K) + circ(138, 140, 9, K) + circ(98, 154, 9, K)
-            + P('M50 118L66 100L66 120Z', K))
+    out = line('M70 104L30 50', 54, K) + line('M70 104L30 50', 36, R) + line('M30 50L24 42', 12, K)
+    out += f'<ellipse cx="116" cy="124" rx="82" ry="58" transform="rotate(-8 116 124)" fill="{K}" stroke="{K}" stroke-width="16"/>' + f'<ellipse cx="116" cy="124" rx="82" ry="58" transform="rotate(-8 116 124)" fill="{R}"/>'
+    out += line('M52 94L64 108', 6, R)
+    for (x, y, r) in [(86, 104, 8), (112, 100, 8), (138, 102, 8), (162, 112, 8), (96, 128, 6), (146, 134, 6)]: out += circ(x, y, r, K)
+    out += P('M118 134L108 152L128 152Z', K) + P('M108 152L98 170L118 170Z', K) + P('M128 152L118 170L138 170Z', K)
+    return out
+
 def tv_play():  # tecnología: pantalla con play
     return (mass('M14 30L186 30L186 150L14 150Z') + f'<path d="M26 42L174 42L174 138L26 138Z" fill="{K}"/>'
             + P('M82 64L82 118L128 91Z', R) + mass('M70 172L130 172L130 164L70 164Z').replace('stroke-width="16"', 'stroke-width="8"'))

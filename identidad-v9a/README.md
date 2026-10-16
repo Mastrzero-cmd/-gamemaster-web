@@ -23,7 +23,7 @@ Zelda: Trifuerza, espada, corazón, rupia, ocarina. Mario: hongo, bloque «?», 
 - Sin blur, glow, sombras, degradados, opacidades, morado ni copias desplazadas (`herramientas/auditar.py`: 0 hallazgos fuera del logo).
 - Texto en hielo; nunca rojo sobre azul.
 - Parallax: azul 0.03 (más lento), rojo 0.10, piezas 0.22, con tope en píxeles; `prefers-reduced-motion` lo deja todo quieto.
-- La página se lee negra (en capturas ≈ 84 % negro, 5 % rojo, 6 % azul).
+- La página se lee negra (ronda 2, medido en capturas: ≈ 79 % negro, 10 % rojo, 5–8 % azul).
 - Logo de Fernando solo dentro de su placa (hero, sección Logo); en la barra se usa la versión monocroma blanca.
 
 ## Archivos
@@ -31,3 +31,8 @@ Zelda: Trifuerza, espada, corazón, rupia, ocarina. Mario: hongo, bloque «?», 
 
 ## Cómo verlo
 Abrir `identidad-v9a/index.html` con un servidor estático (por ejemplo `python3 -m http.server` en la carpeta). Regenerar arte: `python3 herramientas/arte.py && python3 herramientas/construir.py`.
+
+## Ronda 2
+- Rojo ≈ 10 %: sellos y piezas más grandes, bisel rojo más grueso, cinta roja de serie (texto negro) bajo cada titular y filete rojo sobre cada fila.
+- Íconos rediseñados: ocarina (boquilla + 6 agujeros + Trifuerza), anillo (aro en perspectiva con brillo y destellos), cabeza tipo Pikachu (orejas largas con punta negra, mejillas, cola de rayo).
+- Portadas de juegos en una sola tinta (grises); logo SVG ligero de v8 (≈ 43 KB); separación negra entre los picos azules y el anillo rojo del medallón; sin box-shadow (se usa outline nítido).

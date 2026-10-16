@@ -51,9 +51,9 @@ img{display:block;max-width:100%}a{color:inherit}
 .nm{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--h)}
 /* sellos */
 .sellos{overflow:hidden}.rosa{position:absolute;inset:0;overflow:hidden;z-index:0}.rosa .ly{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform;transform:translate3d(0,var(--py,0px),0)}
-.seals{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-.seal{width:150px;height:150px;border-radius:50%;background:var(--k);border:2px solid var(--k);outline:2px solid var(--h);outline-offset:-2px;display:grid;place-items:center;position:relative}
-.seal img{width:96px;height:96px}
+.seals{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+.seal{width:176px;height:176px;border-radius:50%;background:var(--k);border:2px solid var(--k);outline:2px solid var(--h);outline-offset:-2px;display:grid;place-items:center;position:relative}
+.seal img{width:130px;height:130px}
 .sellos .nm{background:var(--k);padding:4px 8px}
 /* cortes */
 .corte{height:96px;background-repeat:repeat-x;background-position:center;background-color:var(--k);width:100%}
@@ -61,7 +61,7 @@ img{display:block;max-width:100%}a{color:inherit}
 .cutdemo{display:grid;gap:26px;margin-top:20px}.cutdemo figure{border:1px solid var(--b)}.cutdemo figcaption{padding:10px 14px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--m)}.cutdemo figcaption b{color:var(--h)}
 /* filas tipo Netflix */
 .row{margin-top:clamp(28px,4vw,52px)}
-.row-head{display:flex;align-items:center;gap:18px;border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:10px 0;margin-bottom:18px}
+.row-head{position:relative;display:flex;align-items:center;gap:18px;border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:10px 0;margin-bottom:18px}
 .row-head h3{font-family:var(--serif);font-size:clamp(22px,2.6vw,34px);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
 .cnt{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--m);margin-left:auto}
 .row-ctl{display:flex;gap:8px}.row-ctl button{width:48px;height:48px;border-radius:50%;background:var(--k);color:var(--h);border:2px solid var(--h);font-size:20px;cursor:pointer}.row-ctl button:hover:not(:disabled){background:var(--r);color:var(--k);border-color:var(--k)}.row-ctl button:disabled{color:var(--m);border-color:var(--m);cursor:default}
@@ -109,3 +109,11 @@ img{display:block;max-width:100%}a{color:inherit}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.estampa .ly,.rosa .ly{transform:none!important}}
 .sellos .lead{background:var(--k);padding:10px 16px;position:relative;z-index:2;width:fit-content}
+
+/* cinta roja de serie (texto negro sobre rojo, nunca rojo sobre azul) */
+.cinta{display:flex;justify-content:space-between;align-items:center;gap:14px;background:var(--r);color:var(--k);height:clamp(44px,4.6vw,66px);padding:0 clamp(12px,2vw,28px);margin:0 0 clamp(14px,2vw,26px);border:3px solid var(--k);outline:2px solid var(--r);outline-offset:0;font-family:var(--mono);font-size:clamp(11px,1.05vw,15px);letter-spacing:.2em;text-transform:uppercase;overflow:hidden;white-space:nowrap}
+.cinta i{flex:0 0 10px;height:10px;background:var(--k);transform:rotate(45deg)}
+.banda{margin-bottom:clamp(14px,2vw,26px)}
+@media(max-width:900px){.cinta span:nth-of-type(n+3),.cinta i:nth-of-type(n+2){display:none}.cinta{justify-content:space-around}}
+.row-head::before{content:"";position:absolute;left:0;right:0;top:-16px;height:8px;background:var(--r)}
+.row{padding-top:16px}

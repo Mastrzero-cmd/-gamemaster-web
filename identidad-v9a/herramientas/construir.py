@@ -14,9 +14,13 @@ def estampa(n, txt, cls=''):
     return (f'<figure class="estampa {cls}" aria-hidden="true"><img class="ly bk" data-speed=".03" src="assets/planos/{n}.svg" alt="" draggable="false">'
             f'<img class="ly fr" data-speed=".10" src="assets/heroes/{n}.svg" alt="" draggable="false">{ring_svg(txt, n)}'
             f'<img class="ly pc" data-speed=".22" src="assets/piezas/{n}.svg" alt="" draggable="false"></figure>')
+CINTAS = ['VIDEOJUEGOS|STREAMING|INTELIGENCIA ARTIFICIAL|COTIZA POR WHATSAPP', 'NETFLIX Y MÁS|17 LOGOS|UNA SOLA TINTA|SIN FONDO', 'CONSOLAS|JUEGOS|ACCESORIOS|CUENTAS', 'SERIES|CINE|MÚSICA|ANIME', 'CHATBOTS|ASISTENTES|PRIVACIDAD|NODOS', '23 SELLOS|ROJO AL FRENTE|NEGRO AL MEDIO|AZUL ATRÁS', 'PINCEL|CIAN A AZUL|SOLO EN SU PLACA|SVG Y PNG', 'FRENTE 15 %|MEDIO 60 %|FONDO 25 %|SIN MEZCLA', 'CINCO GRABADOS|ONDAS|ABANICO|CUERDA', 'COTIZA|CONSULTA EL PRECIO|55 2769 9426|WHATSAPP']
+def cinta(i):
+    a = CINTAS[i].split('|')
+    return '<p class="cinta" aria-hidden="true">' + '<i></i>'.join(f'<span>{x}</span>' for x in a) + '</p>'
 def banda(i, etiqueta, l1, l2='', hid='', h='h2'):
     return (f'<header class="enc"><p class="num"><span>N.º {ROM[i]}</span><i></i><span>{etiqueta}</span></p>'
-            f'<{h} class="banda" id="{hid}"><b>{l1}</b>' + (f'<em>{l2}</em>' if l2 else '') + f'</{h}></header>')
+            f'<{h} class="banda" id="{hid}"><b>{l1}</b>' + (f'<em>{l2}</em>' if l2 else '') + f'</{h}>' + cinta(i + 1) + '</header>')
 def corte(t): return f'<div class="corte c-{t}" role="presentation" aria-hidden="true"></div>'
 MARCAS = [('Netflix', 'netflix'), ('HBO Max', 'hbomax'), ('Max', 'max'), ('Spotify', 'spotify'), ('YouTube', 'youtube'), ('YouTube Music', 'youtubemusic'), ('Crunchyroll', 'crunchyroll'), ('Apple TV', 'appletv'), ('PlayStation', 'playstation'), ('Steam', 'steam'), ('Claude', 'claude'), ('Anthropic', 'anthropic'), ('Google Gemini', 'googlegemini'), ('Proton', 'proton'), ('Proton VPN', 'protonvpn'), ('Twitch', 'twitch'), ('Discord', 'discord')]
 tiles = ''.join(f'<li><span class="roundel"><img src="assets/logos-mono/{f}_mono_hielo.svg" alt="" width="44" height="44" loading="lazy" draggable="false"></span><span class="nm">{n}</span></li>' for n, f in MARCAS)
@@ -37,7 +41,7 @@ H = f'''<!doctype html>
 
 <section class="sec hero" id="inicio" aria-labelledby="h1">
  <header class="enc"><p class="num"><span>Serie A · N.º 001</span><i></i><span>Videojuegos · Streaming · IA</span></p>
- <h1 class="banda" id="h1"><b>Todo tu universo</b><em>digital</em></h1></header>
+ <h1 class="banda" id="h1"><b>Todo tu universo</b><em>digital</em></h1>{cinta(0)}</header>
  {estampa('inicio', T('GAMEMASTER · VIDEOJUEGOS · STREAMING · IA'), 'hero-st')}
  <div class="tres">
   <div class="plate logoplate"><img src="assets/logo/gamemaster-completo-oscuro.svg" alt="GameMaster" width="320" height="224"></div>
@@ -58,7 +62,7 @@ H = f'''<!doctype html>
 <section class="sec" id="catalogo" aria-labelledby="h-cat">
  {banda(1, 'Catálogo', 'Consolas', 'y juegos', 'h-cat')}
  {estampa('catalogo', T('CONSOLAS · JUEGOS · ACCESORIOS · CUENTAS'))}
- <p class="lead c">Portadas originales, tal cual. El rojo y el azul quedan alrededor, nunca encima. El precio siempre dice «Consultar precio».</p>
+ <p class="lead c">Portadas en una sola tinta (escala de grises), para que el rojo y el azul queden alrededor, nunca mezclados con la imagen. El precio siempre dice «Consultar precio».</p>
  <div data-row="plataformas" data-title="Consolas y PC"></div>
  <div data-row="juegos" data-title="Aventura y plataformas"></div>
 </section>
@@ -119,8 +123,8 @@ H = f'''<!doctype html>
   <div><b>IV</b><p>Texto en hielo o negro; nunca rojo sobre azul.</p></div>
  </div>
  <div class="swatches">
-  <div class="sw" style="background:#050505;color:#F4F4EF;box-shadow:inset 0 0 0 1px #1616FF"><span>Negro<br>#050505</span></div>
-  <div class="sw" style="background:#0B0B0D;color:#F4F4EF;box-shadow:inset 0 0 0 1px #1616FF"><span>Casi negro<br>#0B0B0D</span></div>
+  <div class="sw" style="background:#050505;color:#F4F4EF;outline:1px solid #1616FF;outline-offset:-1px"><span>Negro<br>#050505</span></div>
+  <div class="sw" style="background:#0B0B0D;color:#F4F4EF;outline:1px solid #1616FF;outline-offset:-1px"><span>Casi negro<br>#0B0B0D</span></div>
   <div class="sw" style="background:#1616FF;color:#F4F4EF"><span>Azul<br>#1616FF</span></div>
   <div class="sw" style="background:#FF1A1A;color:#050505"><span>Rojo<br>#FF1A1A</span></div>
   <div class="sw" style="background:#F4F4EF;color:#050505"><span>Hielo<br>#F4F4EF</span></div>

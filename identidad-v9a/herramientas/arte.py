@@ -4,7 +4,7 @@ Uso: python3 arte.py  → escribe assets/{planos,heroes,piezas,cortes,sellos}/*.
 import math, random, os
 from iconos import ICONOS, g, svg_icono, R, K
 BL = '#1616FF'
-W, H, CX, CY, HOLE = 1440, 760, 720, 380, 338
+W, H, CX, CY, HOLE = 1440, 760, 720, 380, 358
 OUT = os.path.join(os.path.dirname(__file__), '..', 'assets')
 def wr(sub, name, s):
     os.makedirs(os.path.join(OUT, sub), exist_ok=True); open(os.path.join(OUT, sub, name), 'w').write(s)
@@ -122,21 +122,21 @@ def plano_inicio():
     c = Lienzo(seed=3)
     c.guilloche(CX, CY, 700, 13, .15, 26, w=.8, n=300)
     c.guilloche(CX, CY, 520, 17, .09, 24, w=.8, rot0=.1, n=260)
-    c.wedge(CX, CY, 346, 410, 90, half=.022)
-    for r in (342, 350, 358): c.ring(CX, CY, r, 1.2 if r < 358 else .8)
+    c.wedge(CX, CY, 392, 450, 90, half=.022)
+    for r in (366, 374, 382): c.ring(CX, CY, r, 1.2 if r < 382 else .8)
     c.stars(26, w=1.0, zone=lambda x, y: math.hypot(x - CX, y - CY) > 360)
     return c.svg()
 def plano_marcas():
     c = Lienzo(seed=5)
     c.contour(CX, CY, 350, 880, 34, [(16, 3, .5), (10, 5, 1.7), (6, 9, .2), (4, 13, 2.2)], w=1.0)
     for (x, y) in [(120, 110), (1320, 110), (120, 650), (1320, 650)]: c.guilloche(x, y, 100, 9, .14, 12, w=.9, n=110); c.ring(x, y, 112, 1.2, n=90)
-    for r in (342, 349): c.ring(CX, CY, r, 1.2)
+    for r in (366, 373): c.ring(CX, CY, r, 1.2)
     return c.svg()
 def plano_catalogo():
     c = Lienzo(seed=7)
     c.waves(40, 34, 22, 22, .011, w=.9, ph=.5)
-    c.wedge(CX, CY, 346, 900, 130, half=.0095)
-    for r in (342, 350): c.ring(CX, CY, r, 1.3)
+    c.wedge(CX, CY, 380, 900, 130, half=.0095)
+    for r in (366, 374): c.ring(CX, CY, r, 1.3)
     c.guilloche(150, 130, 90, 11, .15, 14, w=.9, n=150); c.guilloche(1290, 640, 100, 11, .15, 14, w=.9, n=150)
     return c.svg()
 def plano_streaming():
@@ -147,7 +147,7 @@ def plano_streaming():
     c.waves(H - 90, 6, 12, 26, .017, x0=330, x1=1110, w=1.0, ph=.8)
     c.guilloche(150, CY, 105, 12, .16, 14, w=.9, n=120); c.guilloche(1290, CY, 105, 12, .16, 14, w=.9, n=120)
     c.stars(16, w=1.0, zone=lambda x, y: math.hypot(x - CX, y - CY) > 380)
-    for r in (342, 349): c.ring(CX, CY, r, 1.2)
+    for r in (366, 373): c.ring(CX, CY, r, 1.2)
     return c.svg()
 def plano_ia():
     c = Lienzo(seed=13)
@@ -160,26 +160,26 @@ def plano_ia():
     c.constel(pts, link=300, w=1.1)
     for (x, y) in pts[::2]: c.guilloche(x, y, 38, 7, .2, 8, w=.9, n=70)
     c.rosette(CX, CY, 346, 470, 14, 24, 5, w=.8, twist=.5)
-    for r in (342, 349): c.ring(CX, CY, r, 1.2)
+    for r in (366, 373): c.ring(CX, CY, r, 1.2)
     c.stars(24, w=.9, zone=lambda x, y: math.hypot(x - CX, y - CY) > 380)
     return c.svg()
 def plano_logo():
     c = Lienzo(seed=17)
     for (x, y, r, t) in [(150, 150, 120, 12), (1290, 600, 150, 14), (1230, 140, 70, 9), (210, 640, 80, 10), (720, 24, 60, 8), (720, 740, 70, 9)]: c.gear(x, y, r, t)
     c.guilloche(CX, CY, 520, 15, .12, 22, w=.8, n=240)
-    for r in (342, 349): c.ring(CX, CY, r, 1.2)
+    for r in (366, 373): c.ring(CX, CY, r, 1.2)
     return c.svg()
 def plano_sistema():
     c = Lienzo(seed=19)
     c.contour(CX, CY, 350, 900, 40, [(20, 2, 1), (12, 4, .3), (8, 7, 2.2), (4, 11, 1)], w=1.0)
     c.guilloche(CX, CY, 440, 11, .18, 20, w=.8, n=240)
-    for r in (342, 349): c.ring(CX, CY, r, 1.2)
+    for r in (366, 373): c.ring(CX, CY, r, 1.2)
     return c.svg()
 def plano_cierre():
     c = Lienzo(seed=23)
-    c.wedge(CX, CY, 346, 1000, 240, half=.008)
+    c.wedge(CX, CY, 380, 1000, 240, half=.008)
     c.guilloche(CX, CY, 470, 19, .08, 22, w=.8, n=300)
-    for r in (342, 349): c.ring(CX, CY, r, 1.2)
+    for r in (366, 373): c.ring(CX, CY, r, 1.2)
     return c.svg()
 def plano_sellos():
     c = Lienzo(hole=False, seed=29)
@@ -188,7 +188,7 @@ def plano_sellos():
 PLANOS = dict(inicio=plano_inicio, marcas=plano_marcas, catalogo=plano_catalogo, streaming=plano_streaming, ia=plano_ia, logo=plano_logo, sistema=plano_sistema, cierre=plano_cierre)
 
 # ------------------------------------------------------------------ CAPAS ROJAS
-def bisel(n=96, r=324, w=14):
+def bisel(n=96, r=320, w=30):
     d = ''
     for i in range(n):
         a0 = 2 * math.pi * i / n; a1 = a0 + 2 * math.pi / n * (.62 if i % 4 else .34)
@@ -198,7 +198,7 @@ def heroe(icon, s=1.9, extra=''):
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}">{bisel()}<circle cx="{CX}" cy="{CY}" r="300" fill="none" stroke="{K}" stroke-width="7"/><circle cx="{CX}" cy="{CY}" r="300" fill="none" stroke="{R}" stroke-width="2.4"/>{g(icon, CX, CY + 6, s)}{extra}</svg>'
 def piezas(lst):
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}">' + ''.join(g(n, x, y, s, r) for n, x, y, s, r in lst) + '</svg>'
-HEROES = dict(inicio=('triforce', 2.2), marcas=('pacman', 2.2), catalogo=('hongo', 2.3), streaming=('pantalla', 2.3), ia=('neuronal', 2.2), logo=('pokebola', 2.2), sistema=('anillo', 2.3), cierre=('espada', 1.9))
+HEROES = dict(inicio=('triforce', 2.7), marcas=('pacman', 2.7), catalogo=('hongo', 2.8), streaming=('pantalla', 2.8), ia=('neuronal', 2.6), logo=('pokebola', 2.6), sistema=('anillo', 2.8), cierre=('espada', 2.3))
 PIEZAS = dict(
     inicio=[('corazon', 190, 150, 0.65, -12), ('rupia', 1260, 170, 0.62, 10), ('ocarina', 230, 600, 0.70, 8), ('estrella', 1230, 620, 0.65, -8), ('hongo', 90, 380, 0.46, 0)],
     marcas=[('fantasma', 200, 160, 0.70, -8), ('fantasma', 1250, 600, 0.65, 8), ('invasor', 1230, 150, 0.78, 0), ('pacman', 230, 610, 0.46, 0)],
