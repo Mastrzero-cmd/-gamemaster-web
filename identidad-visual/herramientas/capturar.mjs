@@ -1,7 +1,7 @@
 // Capturas de verificación (Playwright/Chromium headless, gratis). Uso: node capturar.mjs <carpeta_salida> <url_base>
 import { chromium } from 'playwright'; import fs from 'fs';
 const out = process.argv[2], base = process.argv[3]; fs.mkdirSync(out, { recursive: true });
-const secs = [['hero', '#inicio'], ['logo', '#logo'], ['paleta', '#paleta'], ['cromo', '#cromo'], ['grabado', '#grabado'], ['parallax', '#parallax'], ['cortes', '#cortes'], ['filas', '#filas'], ['ejemplo-catalogo', '#ej-catalogo'], ['ejemplo-streaming', '#ej-streaming'], ['ejemplo-ia', '#ej-ia']];
+const secs = [['hero', '#inicio'], ['logo', '#logo'], ['paleta', '#paleta'], ['cromo', '#cromo'], ['grabado', '#grabado'], ['parallax', '#parallax'], ['cortes', '#cortes'], ['filas', '#filas'], ['logos-terceros', '#marcas'], ['ejemplo-catalogo', '#ej-catalogo'], ['ejemplo-streaming', '#ej-streaming'], ['ejemplo-ia', '#ej-ia']];
 const b = await chromium.launch(); const report = {};
 for (const w of [1440, 390]) {
   const n = String(w), h = w > 800 ? 900 : 844;

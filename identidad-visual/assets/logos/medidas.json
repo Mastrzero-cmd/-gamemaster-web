@@ -1,0 +1,66 @@
+{
+"anthropic": [
+65,
+46
+],
+"appletv": [
+78,
+38
+],
+"claude": [
+52,
+52
+],
+"crunchyroll": [
+52,
+52
+],
+"discord": [
+63,
+48
+],
+"googlegemini": [
+52,
+52
+],
+"hbomax": [
+104,
+29
+],
+"netflix": [
+29,
+52
+],
+"playstation": [
+62,
+49
+],
+"proton": [
+41,
+52
+],
+"protonvpn": [
+57,
+52
+],
+"spotify": [
+52,
+52
+],
+"steam": [
+52,
+52
+],
+"twitch": [
+45,
+52
+],
+"youtube": [
+65,
+46
+],
+"youtubemusic": [
+52,
+52
+]
+}

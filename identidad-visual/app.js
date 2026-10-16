@@ -19,15 +19,17 @@
   /* ---------- FILAS TIPO NETFLIX ---------- */
   const WA = 'https://wa.me/525527699426';
   const juegos = [['Zelda · Breath of the Wild','zelda-botw'],['Mario Kart World','mario-kart-world'],['Hollow Knight','hollow-knight'],['Metroid Dread','metroid-dread'],['Pokémon Escarlata','pokemon-scarlet'],['Super Mario Odyssey','mario-odyssey'],['Hades','hades'],['Cuphead','cuphead'],['Celeste','celeste'],['Kirby y la tierra olvidada','kirby-and-the-forgotten-land'],['Animal Crossing','animal-crossing-new-horizons'],['Mario Wonder','mario-wonder'],['Donkey Kong Bananza','donkey-kong-bananza'],['Zelda · Tears of the Kingdom','zelda-totk']];
-  const streaming = [['Netflix','netflix','Series y películas en pantalla grande.'],['Spotify','spotify','Tu música y podcasts sin anuncios.'],['HBO Max','hbo-max','Estrenos, series y cine.'],['Disney+','disney-plus','Animación, Marvel y Star Wars.'],['Crunchyroll','crunchyroll','Anime en simulcast.'],['Prime Video','amazon-prime','Series, cine y envíos.'],['Apple TV+','apple-tv-plus','Producciones originales.'],['YouTube Music','youtube-music','Música y videos oficiales.']];
-  const plataformas = [['Nintendo Switch','assets/logos/nintendo-switch.png','dk','Juegos, accesorios y cuentas para tu consola.'],['PlayStation','assets/logos/playstation.png','dk','Catálogo para PS4 y PS5.'],['Steam','assets/logos/steam.png','dk','Juegos para PC con entrega rápida.'],['Xbox Game Pass','assets/servicios/xbox-game-pass.svg','','Cientos de juegos por suscripción.']];
-  const ia = [['ChatGPT','chatgpt','Escribe, resume y resuelve dudas.'],['Claude','claude','Redacta, analiza documentos y programa.'],['Proton VPN','proton-vpn','Navega con más privacidad.']];
-  const svc = (n, img, desc, cls = '') => `<article class="card-s"><div class="plate ${cls}"><img src="${img}" alt="Logo de ${n}" loading="lazy" draggable="false"></div><div class="in"><h4>${n}</h4><p>${desc}</p><span class="chip">Consultar precio</span> <a class="btn" href="${WA}" rel="noopener" style="margin-top:10px">Cotizar →</a></div></article>`;
+  const streaming = [['Netflix','netflix','Series y películas en pantalla grande.'],['Spotify','spotify','Tu música y podcasts sin anuncios.'],['HBO Max','hbomax','Estrenos, series y cine.'],['Disney+',null,'Animación, Marvel y Star Wars.'],['Crunchyroll','crunchyroll','Anime en simulcast.'],['Prime Video',null,'Series, cine y envíos.'],['Apple TV+','appletv','Producciones originales.'],['YouTube Music','youtubemusic','Música y videos oficiales.']];
+  const plataformas = [['Nintendo Switch',null,'Juegos, accesorios y cuentas para tu consola.'],['PlayStation','playstation','Catálogo para PS4 y PS5.'],['Steam','steam','Juegos para PC con entrega rápida.'],['Xbox Game Pass',null,'Cientos de juegos por suscripción.']];
+  const ia = [['ChatGPT',null,'Escribe, resume y resuelve dudas.'],['Claude','claude','Redacta, analiza documentos y programa.'],['Proton VPN','protonvpn','Navega con más privacidad.']];
+  const LM = {"anthropic":[65,46],"appletv":[78,38],"claude":[52,52],"crunchyroll":[52,52],"discord":[63,48],"googlegemini":[52,52],"hbomax":[104,29],"netflix":[29,52],"playstation":[62,49],"proton":[41,52],"protonvpn":[57,52],"spotify":[52,52],"steam":[52,52],"twitch":[45,52],"youtube":[65,46],"youtubemusic":[52,52]}; /* tamaño óptico (px) por logo: área de tinta pareja */
+  const logo = (n, k) => { if (!k) return `<span class="wm" aria-label="${n}">${n.replace(/\+$/, '<i>+</i>')}</span>`; const [w, h] = LM[k]; return `<img class="lg l-h" src="assets/logos/${k}-hielo.svg" alt="Logo de ${n}" width="${w}" height="${h}" loading="lazy" draggable="false"><img class="lg l-n" src="assets/logos/${k}-negro.svg" alt="" width="${w}" height="${h}" loading="lazy" draggable="false">`; };
+  const svc = (n, k, desc) => `<article class="card-s"><div class="plate">${logo(n, k)}</div><div class="in"><h4>${n}</h4><p>${desc}</p><span class="chip">Consultar precio</span> <a class="btn" href="${WA}" rel="noopener" style="margin-top:10px">Cotizar →</a></div></article>`;
   const builders = {
     juegos: () => juegos.map(([n, f]) => `<article class="card-g"><div class="cover"><img src="assets/portadas/${f}.webp" alt="Portada de ${n}" loading="lazy" draggable="false"></div><h4>${n}</h4><span class="chip">Consultar precio</span></article>`).join(''),
-    streaming: () => streaming.map(([n, f, d]) => svc(n, `assets/servicios/${f}.svg`, d)).join(''),
-    plataformas: () => plataformas.map(([n, src, c, d]) => svc(n, src, d, c)).join(''),
-    ia: () => ia.map(([n, f, d]) => svc(n, `assets/servicios/${f}.svg`, d)).join('')
+    streaming: () => streaming.map(([n, k, d]) => svc(n, k, d)).join(''),
+    plataformas: () => plataformas.map(([n, k, d]) => svc(n, k, d)).join(''),
+    ia: () => ia.map(([n, k, d]) => svc(n, k, d)).join('')
   };
   document.querySelectorAll('[data-row]').forEach(row => {
     const id = 'row-' + Math.random().toString(36).slice(2, 7), title = row.dataset.title;
@@ -61,4 +63,9 @@
     };
     addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(run); } }, { passive: true }); addEventListener('resize', run); run();
   }
+
+  /* ---------- PLACAS DE LOGOS (sección 07B) ---------- */
+  const LOGOS = [["Netflix", "netflix"], ["Spotify", "spotify"], ["HBO Max", "hbomax"], ["Crunchyroll", "crunchyroll"], ["Apple TV", "appletv"], ["YouTube", "youtube"], ["YouTube Music", "youtubemusic"], ["Twitch", "twitch"], ["PlayStation", "playstation"], ["Steam", "steam"], ["Discord", "discord"], ["Claude", "claude"], ["Anthropic", "anthropic"], ["Google Gemini", "googlegemini"], ["Proton", "proton"], ["Proton VPN", "protonvpn"]];
+  const wall = document.querySelector('[data-logowall]');
+  if (wall) wall.innerHTML = LOGOS.map(([n, k]) => `<li class="lw${k==='netflix'?' on':''}" tabindex="0"><div class="plate">${logo(n, k)}</div><span>${n}</span></li>`).join('');
 })();

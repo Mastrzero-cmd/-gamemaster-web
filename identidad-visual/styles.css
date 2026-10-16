@@ -1,10 +1,10 @@
 /* GameMaster · Identidad visual v7 · cromoestereopsis: base negra, azul = plano trasero estructural, rojo = masa delantera.
    Reglas: sin blur/glow/sombras difusas, sin degradados ni opacidades sobre rojo/azul, sin magenta fuera del logo. */
-@font-face{font-family:"Instrument Serif";src:url(assets/fonts/InstrumentSerif-Regular.ttf) format("truetype");font-style:normal;font-display:swap}
-@font-face{font-family:"Instrument Serif";src:url(assets/fonts/InstrumentSerif-Italic.ttf) format("truetype");font-style:italic;font-display:swap}
-@font-face{font-family:"Outfit";src:url(assets/fonts/Outfit.ttf) format("truetype");font-weight:100 900;font-display:swap}
-@font-face{font-family:"Space Mono";src:url(assets/fonts/SpaceMono-Regular.ttf) format("truetype");font-weight:400;font-display:swap}
-@font-face{font-family:"Space Mono";src:url(assets/fonts/SpaceMono-Bold.ttf) format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url(assets/fonts/InstrumentSerif-Regular.woff2) format("woff2");font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url(assets/fonts/InstrumentSerif-Italic.woff2) format("woff2");font-style:italic;font-display:swap}
+@font-face{font-family:"Outfit";src:url(assets/fonts/Outfit.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Space Mono";src:url(assets/fonts/SpaceMono-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Space Mono";src:url(assets/fonts/SpaceMono-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
 
 :root{
   --k0:#050505; --k1:#0a0a0d; --azul:#2a3cff; --azul-d:#1a26a8; --rojo:#ff2a1a; --hielo:#f4f4ef;
@@ -171,7 +171,7 @@ p.lead{max-width:44ch;font-size:clamp(17px,1.35vw,19.5px);line-height:1.65;color
 .row-ctl{display:flex;gap:8px}
 .row-ctl button{width:44px;height:44px;display:grid;place-items:center;background:var(--k0);color:var(--hielo);border:2px solid var(--azul);font:700 18px var(--f-body);cursor:pointer;transition:transform .12s}
 .row-ctl button:hover:not(:disabled){background:var(--azul)}
-.row-ctl button:disabled{opacity:1;color:#6b6f8a;border-color:var(--azul-d);cursor:default}
+.row-ctl button:disabled{opacity:1;color:#9aa0c0;border-color:var(--azul-d);cursor:default}
 .row-wrap{position:relative;margin-inline:calc(-1*var(--pad))}
 .track{display:flex;gap:20px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding:6px var(--pad) 22px;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;touch-action:pan-x pan-y}
 .track::-webkit-scrollbar{display:none}
@@ -185,9 +185,6 @@ p.lead{max-width:44ch;font-size:clamp(17px,1.35vw,19.5px);line-height:1.65;color
 .card-g h4,.card-s h4{font:600 17px/1.25 var(--f-body);margin:18px 0 8px;color:var(--hielo)}
 .chip{display:inline-block;font:700 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;background:var(--hielo);color:var(--k0);padding:7px 9px}
 .card-s{--cw:250px;background:var(--k0);border:2px solid var(--azul);padding:0 0 18px}
-.card-s .plate{height:130px;display:grid;place-items:center;background:var(--hielo);padding:24px 28px}
-.card-s .plate.dk{background:var(--k1)}
-.card-s .plate img{max-height:70px;max-width:100%;width:auto;object-fit:contain}
 .card-s .in{padding:0 16px}
 .card-s p{font-size:14.5px;margin-bottom:12px;min-height:3.1em}
 .card-s .btn{padding:0;background:none;border:0;box-shadow:none;color:var(--hielo);font-size:14px;text-decoration:underline;text-underline-offset:4px;margin-top:12px;display:inline-flex;transform:none}
@@ -220,3 +217,22 @@ footer p{font-size:13px;max-width:70ch;margin-inline:auto;padding:0 20px}
 @media(max-width:900px){.stage{--bw:80%!important}}
 @media(max-width:900px){.stage figcaption{display:none}}
 .stage figcaption{background:var(--k0);padding:8px 10px}
+
+/* ---- placas de logos: una tinta, placa uniforme (v8) ---- */
+.plate{height:130px;display:grid;place-items:center;background:var(--k1);border-bottom:1px solid var(--azul-d);padding:20px;color:var(--hielo);transition:background-color .12s,color .12s}
+.plate .lg{display:block;max-width:100%;object-fit:contain}
+.plate .l-n{display:none}
+.plate .wm{font:700 clamp(18px,1.5vw,22px)/1 var(--f-body);letter-spacing:.06em;text-transform:uppercase;text-align:center;white-space:nowrap}
+.plate .wm i{font-style:normal;margin-left:1px}
+.card-s:hover .plate,.card-s:focus-within .plate,.lw:hover .plate,.lw:focus-within .plate,.lw.on .plate{background:var(--rojo);color:var(--k0);border-bottom-color:var(--k0)}
+.card-s:hover .l-h,.card-s:focus-within .l-h,.lw:hover .l-h,.lw:focus-within .l-h,.lw.on .l-h{display:none}
+.card-s:hover .l-n,.card-s:focus-within .l-n,.lw:hover .l-n,.lw:focus-within .l-n,.lw.on .l-n{display:block}
+.logowall{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin:clamp(34px,4vw,56px) 0 0;padding:0}
+.lw{background:var(--k0);border:2px solid var(--azul);display:flex;flex-direction:column}
+.lw .plate{height:112px;flex:1}
+.lw span{font:700 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:11px 12px;color:var(--hielo);background:var(--k0)}
+@media(max-width:1100px){.logowall{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){.logowall{grid-template-columns:repeat(3,1fr);gap:12px}.lw .plate{height:92px;padding:12px}}
+@media(max-width:480px){.logowall{grid-template-columns:repeat(2,1fr)}}
+.marcas{border-top:1px solid var(--azul-d)}
+@media(max-width:600px){.a-cromo{background-image:url(assets/planos/plano-cromo-movil.svg)}}

@@ -8,7 +8,7 @@ from fontTools.pens.transformPen import TransformPen
 from fontTools.pens.boundsPen import BoundsPen
 BB=[1e9,1e9,-1e9,-1e9]
 BB_ON=[False]
-FONT = os.path.join(os.path.dirname(__file__), '..', 'assets', 'fonts', 'Bangers-Regular.ttf')
+FONT = os.path.join(os.path.dirname(__file__), 'fuentes-origen', 'Bangers-Regular.ttf')
 font = TTFont(FONT); gs = font.getGlyphSet(); cmap = font.getBestCmap(); upm = font['head'].unitsPerEm
 SKEW = 0.20  # ~ -11.3 grados
 

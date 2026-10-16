@@ -38,3 +38,11 @@ Regenerar: `python3 herramientas/generar_logo.py assets/logo` y `node herramient
 
 ## Otros
 Fuentes libres autohospedadas (Instrument Serif, Outfit, Space Mono, Bangers para el logo). Portadas, logos de servicios y plataformas copiados del repo. Las marcas de terceros pertenecen a sus dueños.
+
+## v8 (incremental sobre v7)
+- **Logos de servicios** (`assets/logos/`): 16 marcas en una sola tinta (hielo / negro / rojo del sistema, SVG con viewBox ajustado a la tinta + PNG hielo 256 con alfa). Fuente: simple-icons 16.35.0 (CC0 del paquete); marcas de sus dueños, solo para identificar el servicio. Generados con `herramientas/integrar_logos.py`. Sin logo mono disponible (Disney+, Prime Video, ChatGPT, Nintendo Switch, Xbox) → rótulo tipográfico. Se excluyó `max` (en simple-icons es el mensajero Max, no el streaming; HBO Max = `hbomax`).
+- Placas uniformes (hielo sobre negro); al pasar/enfocar la placa pasa a masa roja con logo negro (sin glow). Sección nueva 07B «Logos de servicios».
+- Peso: SVG del logo reducido (124 KB → 43 KB, coordenadas a 1 decimal, mismo dibujo); fuentes TTF → WOFF2 subconjunto latino/español (448 KB → 96 KB); se retiraron TTF sin uso (Bangers queda solo en `herramientas/fuentes-origen/` para regenerar el logo).
+- Móvil: menos curvas y sin las brillantes detrás de «Rojo al frente, azul atrás» (`plano-cromo-movil.svg`).
+- Flecha deshabilitada de las filas: `#6b6f8a` → `#9aa0c0`.
+- Herramientas: `peso.mjs` (peso de la página).
