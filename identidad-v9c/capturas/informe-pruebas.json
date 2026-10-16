@@ -3,12 +3,12 @@
   "pesoInicialKB": 615,
   "parallax": {
    "0": [
-    "-4.5px",
-    "-14.9px"
+    "-3.9px",
+    "-12.8px"
    ],
    "600": [
-    "4.4px",
-    "14.6px"
+    "5.0px",
+    "16.7px"
    ]
   },
   "fila": {
@@ -22,7 +22,7 @@
    390,
    390
   ],
-  "pesoTotalKB": 2216,
+  "pesoTotalKB": 1813,
   "errores": []
  },
  "1440": {
@@ -48,7 +48,7 @@
    1440,
    1440
   ],
-  "pesoTotalKB": 2223,
+  "pesoTotalKB": 1820,
   "errores": []
  },
  "reducido": {

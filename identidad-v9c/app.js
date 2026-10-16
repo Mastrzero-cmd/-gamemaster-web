@@ -26,7 +26,7 @@
       const n = W < 700 ? 4 : 8, p = W / n, hi = H * .24, lo = H * .76, pts = [];
       for (let i = 0; i <= n; i++) { const y = (i + seed) % 2 ? hi : lo, y2 = (i + seed) % 2 ? lo : hi; pts.push([i * p, y]); if (i < n) pts.push([i * p + p * .22, y], [(i + 1) * p - p * .22, y2]); }
       body = fillTo(pts) + line(pts);
-      for (let i = 1; i < n; i++) body += `<path d="M${f(i * p)} 0V${H}" stroke="${ICE}" stroke-width="2" stroke-dasharray="${i % 2 ? '14 8' : '3 9'}"/>`;
+      for (let i = 1; i < n; i++) body += `<path d="M${f(i * p)} 0V${H}" stroke="${ICE}" stroke-width="2"/>`;
     }
     if (kind === 'esquina') {
       const s = H * .5, y0 = H * .62, fl = el.dataset.flip === '1';
@@ -34,19 +34,18 @@
       let flap = `<path d="M${f(W - s)} ${f(y0)}L${f(W)} ${f(y0 - s)}L${f(W - s)} ${f(y0 - s)}Z" fill="${NEG}" stroke="${ICE}" stroke-width="3" stroke-linejoin="miter"/>`;
       if (fl) { pts = [[0, y0 - s], [s, y0], [W, y0]]; flap = `<path d="M${f(s)} ${f(y0)}L0 ${f(y0 - s)}L${f(s)} ${f(y0 - s)}Z" fill="${NEG}" stroke="${ICE}" stroke-width="3" stroke-linejoin="miter"/>`; }
       body = fillTo(pts) + line(pts) + flap;
-      body += `<path d="M${fl ? 0 : W * .12} ${f(y0 + 14)}H${f(W * (fl ? .88 : 1))}" stroke="${ICE}" stroke-width="2" stroke-dasharray="10 9"/>`;
+      body += `<path d="M${fl ? 0 : W * .12} ${f(y0 + 14)}H${f(W * (fl ? .88 : 1))}" stroke="${ICE}" stroke-width="2"/>`;
     }
     if (kind === 'costa') {
       const A = H * .17, pts = [], ph = seed * 1.7;
       for (let x = 0; x <= W + 6; x += 6) pts.push([x, H * .5 + A * (Math.sin(x / (W / 6.5) + ph) + .6 * Math.sin(x / (W / 15) + ph * 2) + .3 * Math.sin(x / (W / 37) + ph * 3))]);
       body = fillTo(pts) + line(pts, 4);
-      [-12, -24].forEach((d, k) => { body += line(pts.map(p => [p[0], p[1] + d]), 2, ICE, k ? '4 10' : '16 8'); });
-      body += line(pts.map(p => [p[0], p[1] + 12]), 2, ICE, '3 9');
+      [-11, -22].forEach((d, k) => { body += line(pts.map(p => [p[0], p[1] + d]), 2 - k * .5, ICE); });
+      body += line(pts.map(p => [p[0], p[1] + 11]), 1.5, ICE);
     }
     if (kind === 'meridianos') {
       body = '';
       [.18, .38, .58, .78].forEach((fy, k) => { const y = H * fy, b = H * (.22 - k * .05); body += `<path d="M0 ${f(y)}Q${f(W / 2)} ${f(y - b * 2)} ${W} ${f(y)}" fill="none" stroke="${AZUL}" stroke-width="${6 - k}" stroke-linecap="butt"/>`; });
-      for (let i = 1; i < 12; i++) { const x = W * i / 12; body += `<path d="M${f(x)} 0V${H}" stroke="${AZUL}" stroke-width="2" stroke-dasharray="2 12"/>`; }
     }
     el.setAttribute('aria-hidden', 'true');
     el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" preserveAspectRatio="none"><rect width="${W}" height="${H}" fill="${from}"/>${body}</svg>`;
@@ -57,9 +56,7 @@
   const neat = sec => {
     const sc = $('.scene', sec); let sv = $('.neat', sc); if (!sv) { sv = document.createElementNS(ns, 'svg'); sv.setAttribute('class', 'neat'); sv.setAttribute('aria-hidden', 'true'); sc.insertBefore(sv, $('.fr', sc)); }
     const W = sec.clientWidth, H = sec.clientHeight, m = W < 700 ? 8 : 16, t = 8, seg = W < 700 ? 24 : 40; let s = '';
-    s += `<rect x="${m}" y="${m}" width="${W - 2 * m}" height="${H - 2 * m}" fill="none" stroke="${ICE}" stroke-width="3"/><rect x="${m + t + 3}" y="${m + t + 3}" width="${W - 2 * (m + t + 3)}" height="${H - 2 * (m + t + 3)}" fill="none" stroke="${ICE}" stroke-width="1.5"/>`;
-    for (let x = m + 3, i = 0; x < W - m - 3; x += seg, i++) if (i % 2) { const w = Math.min(seg, W - m - 3 - x); s += `<rect x="${x}" y="${m + 1.5}" width="${w}" height="${t}" fill="${NEG}"/><rect x="${x}" y="${H - m - t - 1.5}" width="${w}" height="${t}" fill="${NEG}"/>`; }
-    for (let y = m + 3, i = 0; y < H - m - 3; y += seg, i++) if (i % 2) { const h = Math.min(seg, H - m - 3 - y); s += `<rect x="${m + 1.5}" y="${y}" width="${t}" height="${h}" fill="${NEG}"/><rect x="${W - m - t - 1.5}" y="${y}" width="${t}" height="${h}" fill="${NEG}"/>`; }
+    s += `<rect x="${m}" y="${m}" width="${W - 2 * m}" height="${H - 2 * m}" fill="none" stroke="${ICE}" stroke-width="5"/><rect x="${m + t + 3}" y="${m + t + 3}" width="${W - 2 * (m + t + 3)}" height="${H - 2 * (m + t + 3)}" fill="none" stroke="${ICE}" stroke-width="1.5"/>`;
     sv.setAttribute('viewBox', `0 0 ${W} ${H}`); sv.innerHTML = s;
   };
 

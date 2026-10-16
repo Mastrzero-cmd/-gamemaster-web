@@ -165,8 +165,8 @@ def plano_ondas(seed, fg, bg, cx=900, rows=52):
 def plano_const(seed, fg, bg):
     rng = random.Random(seed); s = ''
     # anillos ecliptica con marcas
-    for (cx, cy, rr, dash) in [(800, 500, 470, '3 11'), (800, 500, 380, ''), (800, 500, 560, '14 9')]:
-        s += f'<circle cx="{cx}" cy="{cy}" r="{rr}" fill="none" stroke="{fg}" stroke-width="{2.2 if not dash else 3}" stroke-dasharray="{dash}"/>' if dash else f'<circle cx="{cx}" cy="{cy}" r="{rr}" fill="none" stroke="{fg}" stroke-width="2"/>'
+    for (cx, cy, rr, dash) in [(800, 500, 470, ''), (800, 500, 380, ''), (800, 500, 560, '')]:
+        s += f'<circle cx="{cx}" cy="{cy}" r="{rr}" fill="none" stroke="{fg}" stroke-width="2.4"/>'
     d = ''
     for k in range(120):
         a = math.radians(k * 3); l = 24 if k % 10 == 0 else 12 if k % 5 == 0 else 6

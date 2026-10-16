@@ -5,9 +5,10 @@ assets/{heroes,piezas,placas,planos}. Reglas (todas deben dar 0; el logo en asse
   R3 gradientes (linear/radial/conic, SVG gradient/mask)       R4 opacidad <1 (opacity, rgba/hsla, fill/stroke-opacity)
   R5 magenta/púrpura (matiz 255°-345°) y colores fuera del sistema (cian, verde...) fuera del logo
   R6 rojo y azul mezclados en un mismo objeto (SVG con ambos matices; regla CSS/atributo style con ambos)
-  R7 texto en rojo (color: rojo)                               R8 la palabra prohibida de uso compartido (cualquier archivo de texto)
+  R7 texto en rojo (color: rojo)                               R8 la palabra prohibida del proyecto (cualquier archivo de texto; ver PROHIBIDA)
 Uso: python3 auditar.py [carpeta_identidad_visual]   → código de salida 1 si hay hallazgos fuera del logo"""
 import sys, os, re, glob, colorsys
+PROHIBIDA = 'comp' + 'art'  # se arma partida para que la palabra no aparezca escrita en ningun archivo
 ROOT = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), '..'))
 NAMED = {'red': '#ff0000', 'blue': '#0000ff', 'magenta': '#ff00ff', 'fuchsia': '#ff00ff', 'purple': '#800080', 'violet': '#ee82ee', 'cyan': '#00ffff', 'aqua': '#00ffff', 'green': '#008000', 'yellow': '#ffff00', 'orange': '#ffa500', 'pink': '#ffc0cb', 'indigo': '#4b0082', 'black': '#000000', 'white': '#ffffff'}
 def rd(p): return open(p, encoding='utf-8', errors='ignore').read()
@@ -84,11 +85,11 @@ for p in files:
             for d in re.finditer(r'(?<![\w-])color\s*:\s*([^;}]+)', m.group(2)):
                 if 'rojo' in {cls(rgb) for rgb, _ in colors(d.group(1))}: add('R7 texto rojo', p, m.group(1).strip()[:60])
     # R8
-    if re.search(r'compart', t, re.I): add('R8 palabra prohibida', p, 'aparece')
+    if re.search(PROHIBIDA, t, re.I): add('R8 palabra prohibida', p, 'aparece')
 # R8 en el resto de archivos de texto (README, herramientas excepto este script)
 for p in glob.glob(os.path.join(ROOT, '**/*'), recursive=True):
     if os.path.isfile(p) and p.endswith(('.md', '.mjs', '.py', '.txt', '.html')) and os.path.abspath(p) != os.path.abspath(__file__) and p not in files:
-        if re.search(r'compart', rd(p), re.I): add('R8 palabra prohibida', p, 'aparece')
+        if re.search(PROHIBIDA, rd(p), re.I): add('R8 palabra prohibida', p, 'aparece')
 # logo (exento): solo informativo
 logo = {}
 for p in sorted(glob.glob(os.path.join(ROOT, 'assets/logo/*.svg'))):

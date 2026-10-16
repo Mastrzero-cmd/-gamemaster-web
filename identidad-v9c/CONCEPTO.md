@@ -22,3 +22,6 @@ Ver: `python3 -m http.server` dentro de esta carpeta y abrir `index.html`.
 
 ## Ronda 2 (rojo al frente)
 Sellos con aro rojo de 44 px y emblema al 96 %; tamaños de 300–900 px (hero 900 px); un sello extra («Elige tu ruta», Pokébola) en el catálogo; en móvil el sello va arriba de cada nivel (82 % del ancho). Rojo medido (capturas por sección, sin logos ni portadas): 10.2 % en promedio (escritorio 8.3 %, móvil 12.2 %); mezcla rojo/azul 0.000 %.
+
+## Ronda 3 (revisión cruzada)
+Portadas de juegos en una sola tinta (negro a hielo); sin bordes de ajedrez ni punteados (marco de mapa con doble filete continuo, guías y creases en línea sólida, ruta continua); PNG del logo solo hasta 512 px; paneles más estrechos en móvil para dejar ver el azul; sellos más grandes en Marcas y Logo; el auditor arma la palabra prohibida partida y ya no la escribe.
