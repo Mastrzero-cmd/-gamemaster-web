@@ -20,7 +20,8 @@ Propuesta de identidad visual de GameMaster hecha desde cero: un cartel de gira 
 - Un objeto, una geometría: ningún SVG ni regla CSS mezcla rojo y azul. Sin blur, glow, degradados, opacidades, morado ni copias desplazadas (`herramientas/auditar.py` = 0 hallazgos).
 - Nunca texto rojo ni rojo sobre azul. Texto en hielo (#F4F4EF) sobre negro; negro sobre rojo.
 - Parallax: azul 0.03 (más lento), rojo 0.10, piezas 0.22. El movimiento tiene tope en píxeles; con `prefers-reduced-motion` todo queda quieto.
-- La página se lee negra (~83 % negro en las capturas).
+- La página se lee negra: en las capturas ~72 % negro, ~9 % rojo y ~14 % azul (ronda 2). Los íconos rojos llevan un borde negro grueso que los separa siempre del azul.
+- Las portadas de juegos van en una sola tinta (escala de grises) para que no metan rojo y azul juntos; el color vive solo en el sistema.
 - El logo de Fernando (pincel cian-azul con contorno magenta) sólo aparece dentro de su placa (hero y sección Logo); en la barra va la versión monocroma blanca.
 
 ## Archivos

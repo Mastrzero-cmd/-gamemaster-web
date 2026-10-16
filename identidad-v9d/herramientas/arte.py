@@ -40,7 +40,7 @@ def anillos_ondulados(cx, cy, r0, n, gap, thick, amp=10, lobes=7, ph=0):
     return ''.join(out)
 def disco(cx, cy, r, fill=B): return f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(r)}" fill="{fill}"/>'
 def aro(cx, cy, r, w=3, col=B): return f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(r)}" fill="none" stroke="{col}" stroke-width="{w}"/>'
-def flor(cx, cy, R, capas=4, w=3, rot=0, col=B, relleno_alt=True):
+def flor(cx, cy, R, capas=4, w=4, rot=0, col=B, relleno_alt=True):
     out = []
     for l in range(capas):
         n = 8 + 2 * l; Rl = R * (1 - l * .2); r0 = Rl * .12; wd = Rl * (.22 - l * .02)
@@ -134,45 +134,45 @@ def estrellas(rnd, n, x0, y0, x1, y1):
 W, H = 1440, 900
 def plano_inicio():
     cx, cy = 720, 450; rnd = random.Random(5)
-    b = rayos(cx, cy, 415, 1100, 24, .45, .22, 0.05)
+    b = rayos(cx, cy, 415, 1100, 20, .62, .22, 0.0)
     b += anillos_ondulados(cx, cy, 262, 3, 26, 11, 9, 9, 0)
     b += disco(cx, cy, 245, B) + disco(cx, cy, 218, K)  # ojo central: negro, ahí vive el rojo
-    b += ondas(260, 640, 720, 4, 36, 12, 18, 300, 0, .0, .6)
+    b += ondas(200, 740, 690, 5, 46, 22, 20, 300, 0, .0, .6)
     b += flor(330, 230, 150, 4, 3, 10) + lianas(300, 880, -80, 240, 1, 4, True, 2) + lianas(1130, 880, -100, 220, -1, 4, True, 7)
     b += estrellas(rnd, 18, 280, 30, 1160, 880)
     return svg(W, H, b)
 def plano_marcas():
-    rnd = random.Random(8); b = ondas(-20, W + 20, 70, 11, 78, 24, 46, 700, 0, .25, .55, 12)
+    rnd = random.Random(8); b = ondas(-20, W + 20, 40, 11, 84, 40, 46, 700, 0, .25, .55, 12)
     b += estrellas(rnd, 22, 40, 30, 1400, 870)
     return svg(W, H, b)
 def plano_juegos():
-    b = flor(300, 430, 380, 5, 3, 0) + pavo(1010, 350, 70, 20) + pavo(1170, 650, 52, -16) + pavo(900, 690, 42, 30)
+    b = flor(300, 430, 380, 5, 5, 0) + pavo(1010, 350, 70, 20) + pavo(1170, 650, 52, -16) + pavo(900, 690, 42, 30)
     b += lianas(760, 860, -95, 420, 1, 4, True, 3) + lianas(1360, 880, -110, 380, -1, 4, True, 9) + lianas(700, 80, 80, 300, -1, 4, True, 5)
     b += estrellas(random.Random(2), 14, 600, 30, 1400, 500)
     return svg(W, H, b)
 def plano_streaming():
     cx, cy = 360, 450
-    b = arcos_senal(cx, cy, 160, 5, 62, 20, -62, 62) + arcos_senal(cx, cy, 190, 4, 62, 8, 118, 242)
-    b += ondas(800, W + 20, 120, 8, 92, 26, 40, 520, 1, .0, .6, 12)
+    b = arcos_senal(cx, cy, 200, 5, 62, 28, -62, 62) + arcos_senal(cx, cy, 230, 4, 62, 12, 118, 242)
+    b += ondas(800, W + 20, 100, 8, 100, 44, 40, 520, 1, .0, .6, 12)
     b += disco(cx, cy, 120, B) + disco(cx, cy, 92, K)
     b += estrellas(random.Random(4), 16, 560, 30, 1400, 870)
     return svg(W, H, b)
 def plano_ia():
     rnd = random.Random(11)
-    b = topo(430, 450, 60, 12, 36, 3, 4, .82)
+    b = topo(430, 450, 60, 12, 36, 5, 4, .82)
     pts = [(900, 160), (1100, 260), (1290, 150), (1000, 430), (1220, 470), (1380, 380), (880, 640), (1110, 700), (1300, 640), (1020, 840)]
     ed = [(0, 1, .12), (1, 2, -.1), (0, 3, .15), (1, 3, -.12), (1, 4, .1), (2, 5, .2), (4, 5, -.1), (3, 4, .15), (3, 6, -.12), (4, 7, .1), (6, 7, .12), (7, 8, -.1), (4, 8, .12), (6, 9, .1), (7, 9, -.14), (5, 8, .1)]
-    b += nodos(pts, ed, 13, 3) + lianas(40, 880, -70, 380, 1, 4, True, 12) + lianas(1400, 40, 100, 300, 1, 4, True, 6)
+    b += nodos(pts, ed, 18, 5) + lianas(40, 880, -70, 380, 1, 4, True, 12) + lianas(1400, 40, 100, 300, 1, 4, True, 6)
     b += estrellas(rnd, 22, 40, 30, 1400, 870)
     return svg(W, H, b)
 def plano_logo():
-    b = flor(720, 450, 430, 6, 3, 0) + anillos_ondulados(720, 450, 450, 2, 30, 10, 10, 12) + estrellas(random.Random(9), 14, 40, 30, 1400, 870)
+    b = flor(720, 450, 430, 6, 5, 0) + anillos_ondulados(720, 450, 450, 3, 36, 16, 10, 12) + estrellas(random.Random(9), 14, 40, 30, 1400, 870)
     return svg(W, H, b)
 def plano_sistema():
-    b = ondas(-20, W + 20, 40, 10, 92, 12, 60, 900, 0, .2, .5, 12) + pavo(120, 760, 60, 10) + pavo(1330, 130, 56, -20)
+    b = ondas(-20, W + 20, 40, 10, 92, 28, 60, 900, 0, .2, .5, 12) + pavo(120, 760, 60, 10) + pavo(1330, 130, 56, -20)
     return svg(W, H, b)
 def plano_contacto():
-    b = ondas(-20, W + 20, 640, 5, 48, 18, 30, 560, 0, .0, .6, 12) + flor(1180, 330, 210, 5, 3, 5) + lianas(980, 880, -90, 300, 1, 4, True, 4) + estrellas(random.Random(3), 16, 40, 30, 1400, 600)
+    b = ondas(-20, W + 20, 620, 5, 56, 28, 30, 560, 0, .0, .6, 12) + flor(1180, 330, 210, 5, 5, 5) + lianas(980, 880, -90, 300, 1, 4, True, 4) + estrellas(random.Random(3), 16, 40, 30, 1400, 600)
     return svg(W, H, b)
 
 # ----- cortes de sección (tira 1440x200, azul sobre transparente) -----

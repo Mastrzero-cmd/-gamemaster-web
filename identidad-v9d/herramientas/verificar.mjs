@@ -62,8 +62,8 @@ for (const w of [1440, 390]) {
   await p.addStyleTag({ content: '.bar,.logoplate img,.plate img,.cv img,.mk img,.disc img,.chapa img{visibility:hidden!important}' });
   for (const id of ids) {
     await p.evaluate(id => { const e = document.getElementById(id); scrollTo({ top: e.getBoundingClientRect().top + scrollY, behavior: 'instant' }); }, id);
-    await p.waitForTimeout(250); await p.screenshot({ path: `${out}/${w}-${id}.png` });
-    await p.evaluate(() => scrollBy(0, innerHeight * .6)); await p.waitForTimeout(200); await p.screenshot({ path: `${out}/${w}-${id}-b.png` });
+    await p.waitForTimeout(1000); await p.screenshot({ path: `${out}/${w}-${id}.png` });
+    await p.evaluate(() => scrollBy(0, innerHeight * .6)); await p.waitForTimeout(900); await p.screenshot({ path: `${out}/${w}-${id}-b.png` });
   }
   await ctx.close();
 }
