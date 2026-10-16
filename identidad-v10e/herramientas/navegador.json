@@ -1,0 +1,199 @@
+{
+  "version": "v10e",
+  "modo": "capturas",
+  "pruebas": [
+    {
+      "prueba": "Sin desborde a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Imágenes completas a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Títulos largos a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Búsqueda vacía a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Colección Switch 2 a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Foco de teclado visible a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Sin desborde a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Imágenes completas a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Títulos largos a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Búsqueda vacía a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Colección Switch 2 a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Foco de teclado visible a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Sin desborde a 430px",
+      "ok": true
+    },
+    {
+      "prueba": "Imágenes completas a 430px",
+      "ok": true
+    },
+    {
+      "prueba": "Títulos largos a 430px",
+      "ok": true
+    },
+    {
+      "prueba": "Búsqueda vacía a 430px",
+      "ok": true
+    },
+    {
+      "prueba": "Colección Switch 2 a 430px",
+      "ok": true
+    },
+    {
+      "prueba": "Foco de teclado visible a 430px",
+      "ok": true
+    },
+    {
+      "prueba": "Cuatro velocidades de scroll a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Frente claramente separado del fondo a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Sin desborde al tope a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Amplitud limitada a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Plano trasero cubre el área recortada a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Sin desborde con capas desplazadas a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Cinco fuentes locales cargadas a 1440px",
+      "ok": true
+    },
+    {
+      "prueba": "Cuatro velocidades de scroll a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Frente claramente separado del fondo a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Sin desborde al tope a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Amplitud limitada a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Plano trasero cubre el área recortada a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Sin desborde con capas desplazadas a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Cinco fuentes locales cargadas a 390px",
+      "ok": true
+    },
+    {
+      "prueba": "Carrusel con botones",
+      "ok": true
+    },
+    {
+      "prueba": "Puntero más amplio en las tres capas de frente",
+      "ok": true
+    },
+    {
+      "prueba": "Preferencia del sistema: sin transformaciones",
+      "ok": true
+    },
+    {
+      "prueba": "Movimiento vuelve al quitar la preferencia del sistema",
+      "ok": true
+    },
+    {
+      "prueba": "?reduce: sin transformaciones con scroll y puntero",
+      "ok": true
+    },
+    {
+      "prueba": "?reduce: sin scroll animado",
+      "ok": true
+    },
+    {
+      "prueba": "?reduce=1: sin transformaciones con scroll y puntero",
+      "ok": true
+    },
+    {
+      "prueba": "?reduce=1: sin scroll animado",
+      "ok": true
+    },
+    {
+      "prueba": "Sin errores de JavaScript, consola ni recursos",
+      "ok": true
+    },
+    {
+      "prueba": "Ninguna solicitud HTTP o HTTPS",
+      "ok": true
+    }
+  ],
+  "capturas": [
+    "capturas/v10e-1440.png",
+    "capturas/v10e-390.png"
+  ],
+  "movimiento": [
+    {
+      "ancho": 1440,
+      "cambio_px": [
+        4.49,
+        30.0,
+        54.0,
+        84.0
+      ]
+    },
+    {
+      "ancho": 390,
+      "cambio_px": [
+        2.25,
+        15.0,
+        27.0,
+        42.0
+      ]
+    }
+  ],
+  "ok": true
+}

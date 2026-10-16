@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1919E8">
+  <meta name="description" content="Un nuevo universo de juegos, streaming e inteligencia artificial. Explora GameMaster y consulta precio y disponibilidad por WhatsApp.">
+  <title>GameMaster — Órbita v10e</title>
+  <link rel="icon" href="assets/iconos/estrella.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fuentes/unbounded-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fuentes/space-grotesk-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    document.documentElement.classList.toggle('reduce-motion',
+      new URLSearchParams(location.search).has('reduce') || matchMedia('(prefers-reduced-motion: reduce)').matches);
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#gaming">Ir al catálogo</a>
+  <header class="site-header" id="inicio">
+    <a href="#inicio" class="brand" aria-label="GameMaster, inicio"><img src="assets/logos/gamemaster-hielo.svg" width="190" height="52" alt="GameMaster"></a>
+    <nav aria-label="Principal"><a href="#gaming">Gaming</a><a href="#streaming">Streaming</a><a href="#ia">IA</a></nav>
+    <a class="header-contact" href="https://wa.me/525527699426" rel="noopener">Hablemos <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title" data-scene>
+      <div class="hero-art" aria-hidden="true">
+        <picture class="atlas" data-plane="rear"><source media="(max-width: 700px)" srcset="assets/arte/atlas-mobile.svg"><img src="assets/arte/atlas-hero.svg" width="1440" height="860" alt="" draggable="false"></picture>
+        <!-- RESERVADO: imagen generada -->
+        <div class="symbol reserved-shape hero-primary" data-plane="front-3" data-reservado="hero-principal"></div>
+        <div class="symbol hero-star" data-plane="front-2"><img src="assets/iconos/estrella.svg" width="200" height="200" alt="" draggable="false"></div>
+        <!-- RESERVADO: imagen generada -->
+        <div class="symbol reserved-shape hero-diamond" data-plane="front-1" data-reservado="hero-rombo"></div>
+        <!-- RESERVADO: imagen generada -->
+        <div class="symbol reserved-shape hero-block" data-plane="front-2" data-reservado="hero-bloque"></div>
+      </div>
+      <div class="hero-meta"><p>GAMING / STREAMING / IA</p><span>MÉXICO · UNIVERSOS DIGITALES</span></div>
+      <div class="hero-copy">
+        <h1 id="hero-title">Tu próximo<br>universo.</h1>
+        <p>Lo que te gusta jugar, ver y crear.<br>Encuentra tu siguiente favorito.</p>
+        <a class="button button-dark" href="#gaming">Explorar catálogo <span aria-hidden="true">↙</span></a>
+      </div>
+      <div class="hero-foot"><span>DESLIZA. DESCUBRE. CONECTA.</span><p>Elige lo que te gusta.<br>El precio lo vemos por WhatsApp.</p><span class="orbit-sign" aria-hidden="true">ÓRBITA — 10E</span></div>
+    </section>
+
+    <div class="shore shore-games" aria-hidden="true"><img src="assets/arte/rive-jeux.svg" width="1440" height="180" alt=""></div>
+    <section class="gaming dark-section" id="gaming" aria-labelledby="gaming-title">
+      <div class="section-top"><p class="eyebrow">01 / GAMING</p><img class="switch-logo" src="assets/logos/nintendoswitch_mono_hielo.svg" width="64" height="64" alt="Nintendo Switch"></div>
+      <div class="section-title"><h2 id="gaming-title">Elige tu aventura.</h2><div class="rail-controls" data-controls="games-rail"><button type="button" data-step="-1" aria-label="Juegos anteriores" aria-controls="games-rail">←</button><button type="button" data-step="1" aria-label="Más juegos" aria-controls="games-rail">→</button></div></div>
+      <p class="section-description">Juegos digitales para Nintendo Switch y Switch 2.</p>
+      <form class="discovery" role="search" onsubmit="return false">
+        <label class="search"><span class="visually-hidden">Buscar juego</span><span class="search-icon" aria-hidden="true"></span><input type="search" id="game-search" placeholder="¿Qué quieres jugar?" autocomplete="off" aria-controls="games-rail"></label>
+        <div class="collections" role="group" aria-label="Colecciones de juegos"><button type="button" data-collection="all" aria-pressed="true">Todos</button><button type="button" data-collection="switch2" aria-pressed="false">Switch 2</button><button type="button" data-collection="mario" aria-pressed="false">Mario</button><button type="button" data-collection="aventura" aria-pressed="false">Aventura</button><button type="button" data-collection="indie" aria-pressed="false">Indie</button></div>
+      </form>
+      <p class="result-message visually-hidden" id="results" role="status" aria-live="polite"></p>
+      <div class="rail games-rail" id="games-rail" role="region" aria-label="Videojuegos, fila horizontal" tabindex="0">
+        <article class="game" data-title="Mario Kart World" data-collections="switch2 mario">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Mario Kart World"><img src="assets/portadas/mario-kart-world.webp" width="800" height="1000" alt="Portada de Mario Kart World" loading="lazy" draggable="false"></a>
+          <h3>Mario Kart World</h3><p>Nintendo Switch 2 · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Mario Kart World">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="The Legend of Zelda: Tears of the Kingdom" data-collections="aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar The Legend of Zelda: Tears of the Kingdom"><img src="assets/portadas/zelda-totk.webp" width="800" height="1000" alt="Portada de The Legend of Zelda: Tears of the Kingdom" loading="lazy" draggable="false"></a>
+          <h3>The Legend of Zelda: Tears of the Kingdom</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de The Legend of Zelda: Tears of the Kingdom">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Super Mario Bros. Wonder" data-collections="mario aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Super Mario Bros. Wonder"><img src="assets/portadas/mario-wonder.webp" width="800" height="1000" alt="Portada de Super Mario Bros. Wonder" loading="lazy" draggable="false"></a>
+          <h3>Super Mario Bros. Wonder</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Super Mario Bros. Wonder">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Pokémon Scarlet" data-collections="aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Pokémon Scarlet"><img src="assets/portadas/pokemon-scarlet.webp" width="800" height="1000" alt="Portada de Pokémon Scarlet" loading="lazy" draggable="false"></a>
+          <h3>Pokémon Scarlet</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Pokémon Scarlet">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Donkey Kong Bananza" data-collections="switch2 aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Donkey Kong Bananza"><img src="assets/portadas/donkey-kong-bananza.webp" width="800" height="1000" alt="Portada de Donkey Kong Bananza" loading="lazy" draggable="false"></a>
+          <h3>Donkey Kong Bananza</h3><p>Nintendo Switch 2 · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Donkey Kong Bananza">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Super Mario Odyssey" data-collections="mario aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Super Mario Odyssey"><img src="assets/portadas/mario-odyssey.webp" width="800" height="1000" alt="Portada de Super Mario Odyssey" loading="lazy" draggable="false"></a>
+          <h3>Super Mario Odyssey</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Super Mario Odyssey">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Hollow Knight" data-collections="indie aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Hollow Knight"><img src="assets/portadas/hollow-knight.webp" width="800" height="1000" alt="Portada de Hollow Knight" loading="lazy" draggable="false"></a>
+          <h3>Hollow Knight</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Hollow Knight">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Hades" data-collections="indie aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Hades"><img src="assets/portadas/hades.webp" width="800" height="1000" alt="Portada de Hades" loading="lazy" draggable="false"></a>
+          <h3>Hades</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Hades">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Animal Crossing: New Horizons" data-collections="aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Animal Crossing: New Horizons"><img src="assets/portadas/animal-crossing-new-horizons.webp" width="800" height="1000" alt="Portada de Animal Crossing: New Horizons" loading="lazy" draggable="false"></a>
+          <h3>Animal Crossing: New Horizons</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Animal Crossing: New Horizons">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Metroid Dread" data-collections="aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Metroid Dread"><img src="assets/portadas/metroid-dread.webp" width="800" height="1000" alt="Portada de Metroid Dread" loading="lazy" draggable="false"></a>
+          <h3>Metroid Dread</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Metroid Dread">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Kirby and the Forgotten Land" data-collections="aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Kirby and the Forgotten Land"><img src="assets/portadas/kirby-and-the-forgotten-land.webp" width="800" height="1000" alt="Portada de Kirby and the Forgotten Land" loading="lazy" draggable="false"></a>
+          <h3>Kirby and the Forgotten Land</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Kirby and the Forgotten Land">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="The Legend of Zelda: Breath of the Wild" data-collections="aventura">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar The Legend of Zelda: Breath of the Wild"><img src="assets/portadas/zelda-botw.webp" width="800" height="1000" alt="Portada de The Legend of Zelda: Breath of the Wild" loading="lazy" draggable="false"></a>
+          <h3>The Legend of Zelda: Breath of the Wild</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de The Legend of Zelda: Breath of the Wild">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Celeste" data-collections="indie">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Celeste"><img src="assets/portadas/celeste.webp" width="800" height="1000" alt="Portada de Celeste" loading="lazy" draggable="false"></a>
+          <h3>Celeste</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Celeste">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="game" data-title="Cuphead" data-collections="indie">
+          <a class="cover" href="https://wa.me/525527699426" aria-label="Consultar Cuphead"><img src="assets/portadas/cuphead.webp" width="800" height="1000" alt="Portada de Cuphead" loading="lazy" draggable="false"></a>
+          <h3>Cuphead</h3><p>Nintendo Switch · Digital</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Cuphead">Consultar precio <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+      <div class="empty-state" hidden><h3>Ese universo aún no aparece.</h3><p>Prueba otro nombre o pregúntanos por el juego que buscas.</p><button type="button" id="reset-search">Ver todos los juegos ↗</button><a href="https://wa.me/525527699426">Preguntar por WhatsApp ↗</a></div>
+      <div class="catalog-note"><p>Precio y disponibilidad se confirman por WhatsApp.</p><img src="assets/iconos/disco.svg" width="200" height="200" alt="" aria-hidden="true" loading="lazy"></div>
+    </section>
+
+    <section class="streaming blue-section" id="streaming" aria-labelledby="streaming-title" data-scene>
+      <div class="shore shore-signal" aria-hidden="true"><img src="assets/arte/rive-signal.svg" width="1440" height="240" alt=""></div>
+      <div class="signal-art" data-plane="rear" aria-hidden="true"><img src="assets/arte/paysage-signal.svg" width="1500" height="680" alt="" loading="lazy"></div>
+      <!-- RESERVADO: imagen generada -->
+      <div class="symbol reserved-shape stream-circle" data-plane="front-1" data-reservado="stream-circulo" aria-hidden="true"></div>
+      <div class="symbol stream-audio" data-plane="front-3" aria-hidden="true"><img src="assets/iconos/audio.svg" width="200" height="220" alt="" loading="lazy"></div>
+      <div class="symbol stream-play" data-plane="front-2" aria-hidden="true"><img src="assets/iconos/play.svg" width="200" height="200" alt="" loading="lazy"></div>
+      <div class="symbol stream-antenna" data-plane="front-1" aria-hidden="true"><img src="assets/iconos/antena.svg" width="200" height="200" alt="" loading="lazy"></div>
+      <div class="section-content">
+        <p class="eyebrow">02 / STREAMING & MÚSICA</p>
+        <div class="section-title"><h2 id="streaming-title">Dale play<br>a tu día.</h2><div class="rail-controls" data-controls="streaming-rail"><button type="button" data-step="-1" aria-label="Servicios anteriores" aria-controls="streaming-rail">←</button><button type="button" data-step="1" aria-label="Más servicios" aria-controls="streaming-rail">→</button></div></div>
+        <p class="section-description">Historias, música y nuevos favoritos.<br>Pregunta por el servicio que tienes en mente.</p>
+        <div class="rail service-rail" id="streaming-rail" role="region" aria-label="Streaming y música, fila horizontal" tabindex="0">
+          <article class="service"><a class="service-orb" href="https://wa.me/525527699426" aria-label="Consultar Netflix"><img src="assets/logos/netflix_mono_hielo.svg" width="112" height="80" alt="Netflix" loading="lazy" draggable="false"></a><h3>Netflix</h3><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Netflix">Consultar precio <span aria-hidden="true">↗</span></a></article>
+          <article class="service"><a class="service-orb" href="https://wa.me/525527699426" aria-label="Consultar Spotify"><img src="assets/logos/spotify_mono_hielo.svg" width="112" height="80" alt="Spotify" loading="lazy" draggable="false"></a><h3>Spotify</h3><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Spotify">Consultar precio <span aria-hidden="true">↗</span></a></article>
+          <article class="service"><a class="service-orb" href="https://wa.me/525527699426" aria-label="Consultar Max"><img class="wide-logo" src="assets/logos/max_mono_hielo.svg" width="112" height="80" alt="Max" loading="lazy" draggable="false"></a><h3>Max</h3><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Max">Consultar precio <span aria-hidden="true">↗</span></a></article>
+          <article class="service"><a class="service-orb" href="https://wa.me/525527699426" aria-label="Consultar Disney+"><img class="wide-logo" src="assets/logos/disneyplus_mono_hielo.svg" width="112" height="80" alt="Disney+" loading="lazy" draggable="false"></a><h3>Disney+</h3><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Disney+">Consultar precio <span aria-hidden="true">↗</span></a></article>
+          <article class="service"><a class="service-orb" href="https://wa.me/525527699426" aria-label="Consultar Prime Video"><img class="wide-logo" src="assets/logos/primevideo_mono_hielo.svg" width="112" height="80" alt="Prime Video" loading="lazy" draggable="false"></a><h3>Prime Video</h3><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Prime Video">Consultar precio <span aria-hidden="true">↗</span></a></article>
+          <article class="service"><a class="service-orb" href="https://wa.me/525527699426" aria-label="Consultar Apple TV+"><img class="wide-logo" src="assets/logos/appletv_mono_hielo.svg" width="112" height="80" alt="Apple TV+" loading="lazy" draggable="false"></a><h3>Apple TV+</h3><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Apple TV+">Consultar precio <span aria-hidden="true">↗</span></a></article>
+          <article class="service"><a class="service-orb" href="https://wa.me/525527699426" aria-label="Consultar Crunchyroll"><img src="assets/logos/crunchyroll_mono_hielo.svg" width="112" height="80" alt="Crunchyroll" loading="lazy" draggable="false"></a><h3>Crunchyroll</h3><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Crunchyroll">Consultar precio <span aria-hidden="true">↗</span></a></article>
+          <article class="service"><a class="service-orb" href="https://wa.me/525527699426" aria-label="Consultar YouTube Music"><img src="assets/logos/youtubemusic_mono_hielo.svg" width="112" height="80" alt="YouTube Music" loading="lazy" draggable="false"></a><h3>YouTube Music</h3><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de YouTube Music">Consultar precio <span aria-hidden="true">↗</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="shore shore-ai" aria-hidden="true"><img src="assets/arte/rive-ia.svg" width="1440" height="180" alt="" loading="lazy"></div>
+    <section class="ai dark-section" id="ia" aria-labelledby="ai-title" data-scene>
+      <div class="neural-art" data-plane="rear" aria-hidden="true"><img src="assets/arte/jardin-neural.svg" width="900" height="650" alt="" loading="lazy"></div>
+      <div class="symbol ai-star" data-plane="front-3" aria-hidden="true"><img src="assets/iconos/destello.svg" width="200" height="200" alt="" loading="lazy"></div>
+      <div class="section-content">
+        <p class="eyebrow">03 / INTELIGENCIA ARTIFICIAL</p>
+        <div class="section-title"><h2 id="ai-title">Dale espacio<br>a tus ideas.</h2><div class="rail-controls" data-controls="ai-rail"><button type="button" data-step="-1" aria-label="IA anterior" aria-controls="ai-rail">←</button><button type="button" data-step="1" aria-label="Más IA" aria-controls="ai-rail">→</button></div></div>
+        <p class="section-description">Explora ChatGPT y Claude.<br>Consulta las opciones actuales con nosotros.</p>
+        <div class="rail ai-rail" id="ai-rail" role="region" aria-label="Servicios de inteligencia artificial, fila horizontal" tabindex="0">
+          <article class="ai-card"><a href="https://wa.me/525527699426" aria-label="Consultar ChatGPT"><img src="assets/logos/chatgpt_mono_hielo.svg" width="60" height="60" alt="ChatGPT" loading="lazy"></a><div><h3>ChatGPT</h3><p>Inteligencia artificial</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de ChatGPT">Consultar precio <span aria-hidden="true">↗</span></a></div></article>
+          <article class="ai-card"><a href="https://wa.me/525527699426" aria-label="Consultar Claude"><img src="assets/logos/claude_mono_hielo.svg" width="60" height="60" alt="Claude" loading="lazy"></a><div><h3>Claude</h3><p>Inteligencia artificial</p><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Claude">Consultar precio <span aria-hidden="true">↗</span></a></div></article>
+        </div>
+        <div class="privacy"><img src="assets/logos/protonvpn_mono_hielo.svg" width="42" height="42" alt="" loading="lazy"><div><p class="eyebrow">PRIVACIDAD / SERVICIOS DIGITALES</p><h3>Proton VPN</h3></div><a class="price" href="https://wa.me/525527699426" aria-label="Consultar precio de Proton VPN">Consultar precio <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="how dark-section" id="como" aria-labelledby="how-title">
+      <p class="eyebrow">DE AQUÍ A TU SIGUIENTE FAVORITO</p>
+      <h2 id="how-title">Así de fácil.</h2>
+      <ol class="steps"><li><span>01</span><h3>Encuentra.</h3><p>Elige un juego o servicio.<br>También puedes pedirnos uno.</p></li><li><span>02</span><h3>Pregunta.</h3><p>Escríbenos por WhatsApp para<br>confirmar precio y disponibilidad.</p></li><li><span>03</span><h3>Decide.</h3><p>Revisa los detalles con nosotros<br>antes de confirmar tu compra.</p></li></ol>
+      <details><summary>¿Cómo sé el precio y si está disponible?<span aria-hidden="true">+</span></summary><p>Escríbenos el nombre del juego o servicio que te interesa. Te confirmamos el precio actual, la disponibilidad y los detalles antes de que decidas.</p></details>
+      <details><summary>¿Qué consola necesito para los juegos?<span aria-hidden="true">+</span></summary><p>El catálogo es de juegos digitales para Nintendo Switch y Nintendo Switch 2. Dinos cuál tienes para revisar la compatibilidad del título que te interesa.</p></details>
+    </section>
+
+    <section class="contact blue-section" id="contacto" aria-labelledby="contact-title" data-scene>
+      <div class="final-art" data-plane="rear" aria-hidden="true"><img src="assets/arte/courant-final.svg" width="1440" height="440" alt="" loading="lazy"></div>
+      <div class="symbol contact-controller" data-plane="front-3" aria-hidden="true"><img src="assets/iconos/mando.svg" width="280" height="180" alt="" loading="lazy"></div>
+      <div class="section-content"><p class="eyebrow">LA CONVERSACIÓN EMPIEZA CONTIGO</p><h2 id="contact-title">¿Qué sigue?</h2><p>Cuéntanos qué quieres jugar, ver o crear.</p><a class="button button-dark" href="https://wa.me/525527699426" rel="noopener">Hablemos por WhatsApp <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-main"><a href="#inicio" aria-label="Volver al inicio"><img src="assets/logos/gamemaster-blanco.png" width="170" height="46" alt="GameMaster" loading="lazy"></a><p>Juega. Descubre. Crea.</p><a href="#inicio">Volver arriba ↑</a></div><div class="footer-legal"><p>Las marcas y símbolos de terceros pertenecen a sus dueños; se usan solo como referencia de identidad. GameMaster es independiente y no tiene afiliación oficial con esas marcas.</p><span>ÓRBITA / V10E</span></div></footer>
+</body>
+</html>
