@@ -1,0 +1,59 @@
+{
+ "390": {
+  "pesoInicialKB": 725,
+  "parallax": {
+   "0": [
+    "-2.9px",
+    "-9.7px"
+   ],
+   "600": [
+    "6.0px",
+    "19.7px"
+   ]
+  },
+  "fila": {
+   "flecha": true,
+   "teclado": true,
+   "snap": "x mandatory",
+   "contador": "03 / 14",
+   "arrastre": null
+  },
+  "desborde": [
+   390,
+   390
+  ],
+  "pesoTotalKB": 2216,
+  "errores": []
+ },
+ "1440": {
+  "pesoInicialKB": 1587,
+  "parallax": {
+   "0": [
+    "-2.7px",
+    "-9.0px"
+   ],
+   "600": [
+    "13.7px",
+    "43.5px"
+   ]
+  },
+  "fila": {
+   "flecha": true,
+   "teclado": true,
+   "snap": "x mandatory",
+   "contador": "09 / 14",
+   "arrastre": true
+  },
+  "desborde": [
+   1440,
+   1440
+  ],
+  "pesoTotalKB": 2226,
+  "errores": []
+ },
+ "reducido": {
+  "clase": true,
+  "capasSinMover": true,
+  "scrollBehavior": "auto"
+ }
+}
