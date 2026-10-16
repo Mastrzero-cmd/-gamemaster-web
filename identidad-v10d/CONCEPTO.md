@@ -26,7 +26,7 @@ El desplazamiento extra va en el sentido del scroll: lo cercano avanza más ráp
 (Idéntico en las cuatro secciones medidas: inicio, catálogo, streaming, IA. En reposo, con la sección centrada, todas valen 0.)
 
 ## Cromoestereopsis más marcada
-- Masas rojas mucho mayores (×1.4 sobre v9d) sobre las ventanas azules, con halo negro grueso (22 px) que separa rojo de azul.
+- Masas rojas mucho mayores (×1.5 sobre v9d; ×1.35 extra en móvil) sobre las ventanas azules, con halo negro grueso (22 px) que separa rojo de azul.
 - Cintas, arcos y discos rojos abstractos que cruzan y rompen el marco de la ventana.
 - Plano negro intermedio (bandas y discos con aro azul fino) que añade una capa más entre azul y rojo.
 - Escalas muy contrastadas (slots de 150 a 700 u frente a ornamento de trazo fino) y velocidades escalonadas por capa.
@@ -41,4 +41,4 @@ Los personajes ya no se dibujan: son 19 `span.slot[data-slot="personaje-…"]` c
 Palabra prohibida construida partida en `auditar.py`, portadas de una sola tinta, borde negro separador, contornos gruesos, filas con flechas, `index.html` estático sin CDN.
 
 ## Proporción de color medida (capturas con logos y portadas ocultos)
-1440: rojo 9.9 %, azul 13.4 %, negro 72.7 %. 390: rojo 7.3 %, azul 13.6 %. Mezcla ≤0.006 %.
+1440: rojo 9.5 %, azul 14.2 %, negro 72.4 %. 390: rojo 8.6 %, azul 13.6 %, negro 71.3 %. 0 solapes en verificar.mjs. Mezcla ≤0.006 %.

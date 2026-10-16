@@ -9,10 +9,10 @@ Mejora de v9d: parallax por 5 capas, rojo mucho más grande sobre ventanas azule
 ## Medido (1440 / 390 px)
 | | 1440 | 390 |
 |---|---|---|
-| Rojo | 9.9 % | 7.3 % |
-| Azul | 13.4 % | 13.6 % |
-| Negro | 72.7 % | 72.6 % |
+| Rojo | 9.5 % | 8.6 % |
+| Azul | 14.2 % | 13.6 % |
+| Negro | 72.4 % | 71.3 % |
 | Mezcla rojo+azul | ≤0.006 % | 0 % |
-| Peso | 512 KB | 512 KB |
+| Peso | 489 KB | 489 KB |
 
 Parallax a +600 px (1440): azul 8.3 px (1.4 %), negro 30.2 px (5 %), rojo frente 125 px (21 %), piezas 205 px (34 %). A 390: 5.8 / 22.1 / 86.8 / 151.4 px. Con movimiento reducido todo queda quieto.

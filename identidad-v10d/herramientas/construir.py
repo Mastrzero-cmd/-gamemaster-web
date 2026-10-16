@@ -103,9 +103,9 @@ H = f'''<!doctype html>
  <div class="txt wide">{num('06', 'Sistema cromo')}<h2 id="h-sis" class="pila"><span class="a">Rojo al frente,</span><span class="b">azul atrás</span></h2>
  <p class="lead">Tres planos con papeles distintos, separados por negro. Nada de copias desplazadas, brillos ni degradados: cada forma es de un solo color y de un solo plano.</p></div>
  <div class="planes">
-  <div class="pl pr"><b>Frente</b><p>Rojo. Íconos y trazos gigantes que rompen el marco.</p><small>12 %</small></div>
-  <div class="pl pk"><b>Medio</b><p>Negro. Aire, lectura y texto en hielo.</p><small>62 %</small></div>
-  <div class="pl pb"><b>Fondo</b><p>Azul. Ondas, rayos, ornamento y grabado.</p><small>26 %</small></div>
+  <div class="pl pr"><b>Frente</b><p>Rojo. Íconos y trazos gigantes que rompen el marco.</p><small>9 %</small></div>
+  <div class="pl pk"><b>Medio</b><p>Negro. Aire, lectura y texto en hielo.</p><small>72 %</small></div>
+  <div class="pl pb"><b>Fondo</b><p>Azul. Ondas, rayos, ornamento y grabado.</p><small>14 %</small></div>
  </div>
  <h3 class="sub">Objetos rojos y espacios de personaje</h3>
  <ul class="pan">{pan}</ul>
