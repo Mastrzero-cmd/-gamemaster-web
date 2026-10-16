@@ -305,13 +305,14 @@ def emb_aguja():
     return poly([(200, 20), (250, 200), (200, 380), (150, 200)], R, sw=10) + f'<polygon points="200,20 250,200 200,200" fill="{K}"/><circle cx="200" cy="200" r="18" fill="{I}" stroke="{K}" stroke-width="8"/>'
 EMB = {'triforce': emb_triforce, 'espada': emb_espada, 'hongo': emb_hongo, 'pokebola': emb_pokebola, 'anillo': emb_anillo, 'estrella': emb_estrella, 'corazon': emb_corazon, 'fantasma': emb_fantasma, 'pacman': emb_pacman, 'invader': emb_invader, 'creeper': emb_creeper, 'tv': emb_tv, 'chip': emb_chip, 'x': emb_x, 'aguja': emb_aguja}
 def sello(name):
-    s = f'<circle cx="300" cy="300" r="292" fill="{K}"/><circle cx="300" cy="300" r="268" fill="none" stroke="{R}" stroke-width="16"/>'
+    # disco negro + aro rojo grueso + marcas de grado rojas + emblema grande
+    s = f'<circle cx="300" cy="300" r="294" fill="{K}"/><circle cx="300" cy="300" r="258" fill="none" stroke="{R}" stroke-width="44"/>'
     d = ''
-    for k in range(60):
-        a = math.radians(k * 6); l0, l1 = (232, 250) if k % 5 == 0 else (240, 250)
+    for k in range(48):
+        a = math.radians(k * 7.5); l0, l1 = (196, 226) if k % 4 == 0 else (208, 226)
         d += f'M{f1(300 + l0 * math.cos(a))} {f1(300 + l0 * math.sin(a))}L{f1(300 + l1 * math.cos(a))} {f1(300 + l1 * math.sin(a))}'
-    s += path(d, R, 5) + f'<circle cx="300" cy="300" r="222" fill="none" stroke="{R}" stroke-width="3"/>'
-    s += f'<g transform="translate(300 300) scale(.9) translate(-200 -200)">{EMB[name]()}</g>'
+    s += path(d, R, 7) + f'<circle cx="300" cy="300" r="236" fill="none" stroke="{K}" stroke-width="5"/>'
+    s += f'<g transform="translate(300 300) scale(.96) translate(-200 -200)">{EMB[name]()}</g>'
     return svg(600, 600, s)
 for k in EMB:
     w(f'heroes/{k}.svg', sello(k)); w(f'piezas/{k}.svg', svg(400, 400, EMB[k]()))

@@ -19,3 +19,6 @@ Rojo al frente (sellos), negro en medio (disco del sello y cartelas), azul detr�
 `index.html`, `styles.css`, `app.js` (estáticos, sin build ni CDN) · `assets/{planos,heroes,piezas,fonts,logo,logos-mono,portadas}` · `herramientas/` (`generar_arte.py` genera todo el arte, `auditar.py`, `medir_mezcla.py`, `capturar.mjs`, `solape.mjs`, `contraste.mjs`) · `capturas/`.
 Los logos de `logos-mono/` son copia sin cambios de `/workspace/bots/Gpt/arte_gm/E_logos/`.
 Ver: `python3 -m http.server` dentro de esta carpeta y abrir `index.html`.
+
+## Ronda 2 (rojo al frente)
+Sellos con aro rojo de 44 px y emblema al 96 %; tamaños de 300–900 px (hero 900 px); un sello extra («Elige tu ruta», Pokébola) en el catálogo; en móvil el sello va arriba de cada nivel (82 % del ancho). Rojo medido (capturas por sección, sin logos ni portadas): 10.2 % en promedio (escritorio 8.3 %, móvil 12.2 %); mezcla rojo/azul 0.000 %.
