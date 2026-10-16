@@ -43,13 +43,13 @@ for (const w of [1440, 390]) {
       const vis = e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight };
       for (const im of document.querySelectorAll('.stage>.box>.ly.fr,.stage>.box>.ly.pc')) {
         for (const sl of im.querySelectorAll('.slot')) { const r = sl.getBoundingClientRect(); const cx = r.left + r.width / 2, cy = r.top + r.height / 2, rad = r.width / 2;
-          for (const t of T) { if (!vis(t) || t.closest('.bar') || t.closest('.stage')) continue; const tr = t.getBoundingClientRect(); const nx = Math.max(tr.left, Math.min(cx, tr.right)), ny = Math.max(tr.top, Math.min(cy, tr.bottom)); if ((nx - cx) ** 2 + (ny - cy) ** 2 < (rad * .85) ** 2) out.push(im.closest('section').id + ' slot(' + sl.dataset.slot + ') × ' + t.tagName + "." + (t.className || '') + ' "' + t.textContent.trim().slice(0, 20) + '"'); } }
+          for (const t of T) { if (!vis(t) || t.closest('.bar') || t.closest('.stage')) continue; const tr = t.getBoundingClientRect(); const sb = im.closest('.stage').getBoundingClientRect(); if (tr.top >= sb.bottom - 1 || (innerWidth < 761 && tr.bottom <= sb.top + 1)) continue; const nx = Math.max(tr.left, Math.min(cx, tr.right)), ny = Math.max(tr.top, Math.min(cy, tr.bottom)); if ((nx - cx) ** 2 + (ny - cy) ** 2 < (rad * .85) ** 2) out.push(im.closest('section').id + ' slot(' + sl.dataset.slot + ') × ' + t.tagName + "." + (t.className || '') + ' "' + t.textContent.trim().slice(0, 20) + '"'); } }
         const rc = im.getBoundingClientRect(); const sec = im.closest('section').id; const spec = iconos.find(i => i.id === sec && im.className.includes(i.cls.includes('fr') ? 'fr' : 'pc'));
         if (!spec) continue;
         for (const g of spec.gs) {
           const cx = rc.left + (g.x - spec.vb[0]) / spec.vb[2] * rc.width, cy = rc.top + (g.y - spec.vb[1]) / spec.vb[3] * rc.height, rad = g.r / spec.vb[2] * rc.width;
           for (const t of T) {
-            if (!vis(t) || t.closest('.bar') || t.closest('.stage')) continue; const tr = t.getBoundingClientRect();
+            if (!vis(t) || t.closest('.bar') || t.closest('.stage')) continue; const tr = t.getBoundingClientRect(); const sb = im.closest('.stage').getBoundingClientRect(); if (tr.top >= sb.bottom - 1 || (innerWidth < 761 && tr.bottom <= sb.top + 1)) continue;
             const nx = Math.max(tr.left, Math.min(cx, tr.right)), ny = Math.max(tr.top, Math.min(cy, tr.bottom));
             if ((nx - cx) ** 2 + (ny - cy) ** 2 < (rad * .85) ** 2) out.push(sec + ' ícono(' + Math.round(g.r) + ') × ' + t.tagName + '.' + (t.className || '') + ' "' + t.textContent.trim().slice(0, 20) + '"');
           }

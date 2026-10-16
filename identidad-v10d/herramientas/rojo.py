@@ -38,22 +38,22 @@ def svg(body): return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{VB}" p
 
 # ---- composiciones: ('ico', nombre, x, y, tam, rot) | ('cinta', ...) | ('disco', ...) | ('arco', ...) | ('slot', nombre, x, y, tam, rot, forma)
 FR = {
- 'inicio': [('cinta', 120, 1100, 800, 36, 330, 90, 0, -3), ('slot', 'personaje-mario-hongo', 720, 440, 560, 8, 'blob')],
+ 'inicio': [('cinta', 120, 1100, 740, 36, 330, 90, 0, -3), ('slot', 'personaje-mario-hongo', 720, 440, 560, 8, 'blob')],
  'juegos': [('cinta', 60, 700, 120, 30, 400, 70, 1, 3), ('slot', 'personaje-zelda-trifuerza', 300, 470, 620, -4, 'triangulo'), ('slot', 'personaje-pikachu', 900, 600, 430, 6, 'blob')],
- 'marcas': [('arco', 230, 470, 330, 110, 150, 330), ('slot', 'personaje-sonic-anillo', 240, 450, 470, -14, 'anillo')],
- 'streaming': [('cinta', 760, 1610, 820, 30, 380, 70, 2, 0), ('ico', 'tv', 560, 450, 560, -5), ('ico', 'play', 1150, 450, 380, 0)],
- 'ia': [('arco', 1110, 480, 300, 80, 200, 20), ('ico', 'robot', 560, 450, 600, -4), ('ico', 'destello', 1110, 480, 380, 0)],
- 'logo': [('cinta', 560, 1500, 880, 30, 300, 70, 3, 2), ('ico', 'mando', 700, 640, 380, -8), ('slot', 'personaje-creeper', 1180, 640, 360, 8, 'cuadro')],
+ 'marcas': [('arco', 230, 470, 330, 110, 150, 330), ('slot', 'personaje-sonic-anillo', 190, 450, 400, -14, 'anillo')],
+ 'streaming': [('cinta', 760, 1610, 740, 30, 380, 70, 2, 0), ('ico', 'tv', 560, 450, 560, -5), ('ico', 'play', 1150, 450, 380, 0)],
+ 'ia': [('arco', 1000, 480, 300, 80, 200, 20), ('ico', 'robot', 520, 450, 540, -4), ('ico', 'destello', 1030, 470, 300, 0)],
+ 'logo': [('cinta', 560, 1500, 770, 30, 300, 70, 3, 2), ('ico', 'mando', 700, 640, 380, -8), ('slot', 'personaje-creeper', 1180, 640, 360, 8, 'cuadro')],
 }
 PC = {
  'inicio': [('slot', 'personaje-mario-estrella', 1170, 320, 170, 15, 'estrella'), ('ico', 'destello', 420, 770, 140, 0), ('slot', 'personaje-sonic-anillo-mini', 1130, 760, 210, -10, 'anillo'), ('ico', 'corazon', 330, 330, 130, -8)],
- 'juegos': [('ico', 'espada', 1210, 170, 220, 30), ('ico', 'corazon', 650, 170, 150, -10), ('ico', 'pokebola', 890, 140, 230, 10), ('slot', 'personaje-mario-hongo-mini', 200, 760, 200, -10, 'blob')],
- 'marcas': [('ico', 'destello', 1390, 40, 130, 0), ('ico', 'destello', 40, 870, 90, 0), ('slot', 'personaje-kirby', 1450, 980, 320, 8, 'blob'), ('slot', 'personaje-mario-estrella-b', 330, 60, 110, -10, 'estrella')],
- 'streaming': [('slot', 'personaje-pacman', 1250, 190, 230, -8, 'blob'), ('slot', 'personaje-fantasma', 1290, 770, 190, 6, 'fantasma'), ('slot', 'personaje-amongus', 740, 800, 170, -6, 'fantasma'), ('ico', 'destello', 700, 130, 100, 0)],
- 'ia': [('slot', 'personaje-invasor', 1130, 130, 220, 0, 'cuadro'), ('slot', 'personaje-mario-bloque', 860, 790, 180, 12, 'cuadro'), ('ico', 'destello', 90, 120, 130, 0)],
+ 'juegos': [('ico', 'espada', 1210, 170, 220, 30), ('ico', 'corazon', 650, 170, 150, -10), ('ico', 'pokebola', 890, 140, 230, 10), ('slot', 'personaje-mario-hongo-mini', 200, 690, 170, -10, 'blob')],
+ 'marcas': [('ico', 'destello', 60, 60, 110, 0), ('ico', 'destello', 1410, 770, 90, 0), ('slot', 'personaje-kirby', 420, 780, 200, 8, 'blob'), ('slot', 'personaje-mario-estrella-b', 330, 60, 110, -10, 'estrella')],
+ 'streaming': [('slot', 'personaje-pacman', 1250, 190, 230, -8, 'blob'), ('slot', 'personaje-fantasma', 1290, 690, 160, 6, 'fantasma'), ('slot', 'personaje-amongus', 740, 700, 150, -6, 'fantasma'), ('ico', 'destello', 700, 130, 100, 0)],
+ 'ia': [('slot', 'personaje-invasor', 1110, 120, 150, 0, 'cuadro'), ('slot', 'personaje-mario-bloque', 1080, 790, 150, 12, 'cuadro'), ('ico', 'destello', 90, 120, 130, 0)],
  'logo': [('ico', 'destello', 720, 80, 110, 0), ('ico', 'corazon', 1290, 150, 150, 10), ('slot', 'personaje-mario-estrella-c', 1350, 880, 170, -10, 'estrella')],
 }
-GROW = 1.4  # escala global del rojo (afinada para ~10 % de rojo medido)
+GROW = 1.5  # escala global del rojo (afinada para ~10 % de rojo medido)
 SLOTS = []  # (nombre, seccion, capa, x, y, tam, rot, forma)
 def layer(sec, capa, items):
     svgb, slots = '', []
@@ -74,12 +74,12 @@ def layer(sec, capa, items):
 def medio(sec, seed):
     import random
     rnd = random.Random(seed); b = ''
-    for k in range(2):
-        y = rnd.uniform(160, 700); amp = rnd.uniform(40, 90); wl = rnd.uniform(500, 900); ph = rnd.uniform(0, 6); th = rnd.uniform(70, 120)
+    for k in range(1):
+        y = rnd.uniform(160, 700); amp = rnd.uniform(40, 90); wl = rnd.uniform(500, 900); ph = rnd.uniform(0, 6); th = rnd.uniform(40, 70)
         xs = range(-200, 1700, 14); top = [(x, y + amp * math.sin(2 * math.pi * x / wl + ph)) for x in xs]; bot = [(x, yy + th) for x, yy in reversed(top)]
         b += f'<path d="{pts_d(top + bot, True)}" fill="{K}"/>'
     for k in range(2):
-        cx, cy, r = rnd.uniform(150, 1300), rnd.uniform(120, 780), rnd.uniform(70, 130)
+        cx, cy, r = rnd.uniform(150, 1300), rnd.uniform(120, 780), rnd.uniform(40, 80)
         b += f'<circle cx="{cx:.0f}" cy="{cy:.0f}" r="{r+16:.0f}" fill="none" stroke="{B}" stroke-width="7"/><circle cx="{cx:.0f}" cy="{cy:.0f}" r="{r:.0f}" fill="{K}"/>'
     return svg(b)
 
@@ -98,9 +98,9 @@ def main():
     open(os.path.join(OUT, 'heroes', 'contacto.svg'), 'w').write(svg(sol))
     SLOTS.append(('personaje-pikachu-contacto', 'contacto', 'fr', 500, 450, 300, 0, 'blob'))
     _, s = None, [dict(name='personaje-pikachu-contacto', x=500, y=450, size=300, rot=0, forma='blob')]
-    pcs = [('ico', 'destello', 1100, 160, 130, 0), ('ico', 'corazon', 1260, 260, 150, 10)]
+    pcs = [('ico', 'destello', 1250, 130, 130, 0), ('ico', 'corazon', 1070, 240, 150, 10)]
     p, _ = layer('contacto', 'pc', pcs)
-    pcs2 = [('slot', 'personaje-pacman-contacto', 1070, 740, 200, -8, 'blob'), ('slot', 'personaje-mario-estrella-d', 1390, 90, 150, 12, 'estrella')]
+    pcs2 = [('slot', 'personaje-pacman-contacto', 1070, 740, 200, -8, 'blob'), ('slot', 'personaje-mario-estrella-d', 1240, 540, 140, 12, 'estrella')]
     p2, s2 = layer('contacto', 'pc', pcs2); p = svg(re.search(r'<svg[^>]*>(.*)</svg>', p).group(1) + re.search(r'<svg[^>]*>(.*)</svg>', p2).group(1))
     open(os.path.join(OUT, 'piezas', 'contacto.svg'), 'w').write(p)
     secs['contacto'] = dict(fr=s, pc=s2)

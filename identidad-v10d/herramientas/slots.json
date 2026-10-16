@@ -5,7 +5,7 @@
     "name": "personaje-mario-hongo",
     "x": 720,
     "y": 440,
-    "size": 784,
+    "size": 840,
     "rot": 8,
     "forma": "blob"
    }
@@ -15,7 +15,7 @@
     "name": "personaje-mario-estrella",
     "x": 1170,
     "y": 320,
-    "size": 238,
+    "size": 255,
     "rot": 15,
     "forma": "estrella"
    },
@@ -23,7 +23,7 @@
     "name": "personaje-sonic-anillo-mini",
     "x": 1130,
     "y": 760,
-    "size": 294,
+    "size": 315,
     "rot": -10,
     "forma": "anillo"
    }
@@ -35,7 +35,7 @@
     "name": "personaje-zelda-trifuerza",
     "x": 300,
     "y": 470,
-    "size": 868,
+    "size": 930,
     "rot": -4,
     "forma": "triangulo"
    },
@@ -43,7 +43,7 @@
     "name": "personaje-pikachu",
     "x": 900,
     "y": 600,
-    "size": 602,
+    "size": 645,
     "rot": 6,
     "forma": "blob"
    }
@@ -52,8 +52,8 @@
    {
     "name": "personaje-mario-hongo-mini",
     "x": 200,
-    "y": 760,
-    "size": 280,
+    "y": 690,
+    "size": 255,
     "rot": -10,
     "forma": "blob"
    }
@@ -63,9 +63,9 @@
   "fr": [
    {
     "name": "personaje-sonic-anillo",
-    "x": 240,
+    "x": 190,
     "y": 450,
-    "size": 658,
+    "size": 600,
     "rot": -14,
     "forma": "anillo"
    }
@@ -73,9 +73,9 @@
   "pc": [
    {
     "name": "personaje-kirby",
-    "x": 1450,
-    "y": 980,
-    "size": 448,
+    "x": 420,
+    "y": 780,
+    "size": 300,
     "rot": 8,
     "forma": "blob"
    },
@@ -83,7 +83,7 @@
     "name": "personaje-mario-estrella-b",
     "x": 330,
     "y": 60,
-    "size": 154,
+    "size": 165,
     "rot": -10,
     "forma": "estrella"
    }
@@ -96,23 +96,23 @@
     "name": "personaje-pacman",
     "x": 1250,
     "y": 190,
-    "size": 322,
+    "size": 345,
     "rot": -8,
     "forma": "blob"
    },
    {
     "name": "personaje-fantasma",
     "x": 1290,
-    "y": 770,
-    "size": 266,
+    "y": 690,
+    "size": 240,
     "rot": 6,
     "forma": "fantasma"
    },
    {
     "name": "personaje-amongus",
     "x": 740,
-    "y": 800,
-    "size": 238,
+    "y": 700,
+    "size": 225,
     "rot": -6,
     "forma": "fantasma"
    }
@@ -123,17 +123,17 @@
   "pc": [
    {
     "name": "personaje-invasor",
-    "x": 1130,
-    "y": 130,
-    "size": 308,
+    "x": 1110,
+    "y": 120,
+    "size": 225,
     "rot": 0,
     "forma": "cuadro"
    },
    {
     "name": "personaje-mario-bloque",
-    "x": 860,
+    "x": 1080,
     "y": 790,
-    "size": 252,
+    "size": 225,
     "rot": 12,
     "forma": "cuadro"
    }
@@ -145,7 +145,7 @@
     "name": "personaje-creeper",
     "x": 1180,
     "y": 640,
-    "size": 504,
+    "size": 540,
     "rot": 8,
     "forma": "cuadro"
    }
@@ -155,7 +155,7 @@
     "name": "personaje-mario-estrella-c",
     "x": 1350,
     "y": 880,
-    "size": 238,
+    "size": 255,
     "rot": -10,
     "forma": "estrella"
    }
@@ -177,14 +177,14 @@
     "name": "personaje-pacman-contacto",
     "x": 1070,
     "y": 740,
-    "size": 280,
+    "size": 300,
     "rot": -8,
     "forma": "blob"
    },
    {
     "name": "personaje-mario-estrella-d",
-    "x": 1390,
-    "y": 90,
+    "x": 1240,
+    "y": 540,
     "size": 210,
     "rot": 12,
     "forma": "estrella"

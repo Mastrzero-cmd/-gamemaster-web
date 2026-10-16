@@ -243,3 +243,6 @@ h1.pila{font-size:min(calc(158cqw / var(--n,8)),140px)}
 
 /* móvil: el rojo no invade los títulos vecinos (recorte vertical al plano, sin recorte lateral) */
 @media (max-width:760px){.stage{clip-path:inset(0 -30vw)}}
+
+@media (min-width:761px){.stage{clip-path:inset(-12% -30vw 0 -30vw)}}
+@media (max-width:760px){.ly.fr,.ly.pc{width:calc(var(--s) * 1785.6 * 1.35);height:calc(var(--s) * 1116 * 1.35)}}
