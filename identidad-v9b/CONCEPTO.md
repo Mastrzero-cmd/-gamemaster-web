@@ -30,3 +30,10 @@ Pac‑Man + fantasma + fila de puntos · Space Invaders · Tetris (T, L, S, I, O
 
 ## Cómo verlo
 Abrir `identidad-v9b/index.html` o `python3 -m http.server` dentro de la carpeta. Capturas: `node herramientas/capturar.mjs capturas http://localhost:8779/index.html` (Playwright).
+
+## Ronda 2 (rojo y azul más presentes)
+- Sprites y piezas rojas ~30-50 % más grandes; cada cuadro de diálogo lleva además un sprite rojo; etiquetas de nivel, números de tarjeta y de ranking y botón «siguiente» van en rojo con texto negro.
+- Trazo azul ~3.4× más grueso (sin cuadrículas); marcos de cabina, líneas de nivel y de fila más anchos; pantallas más altas (1200×720).
+- Portadas de juegos en una sola tinta (hielo sobre negro), sin rojo ni azul mezclados.
+- Se quitó el doble contorno con box-shadow: ahora un solo borde u outline nítido por elemento.
+- Medido (36 capturas, 1440 y 390): rojo ~10.4 %, azul ~12.1 %, negro ~71 %, mezcla 0.000 %.

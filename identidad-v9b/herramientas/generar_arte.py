@@ -6,10 +6,17 @@ sys.path.insert(0, os.path.dirname(__file__))
 import sprites as SP
 BL, BK = '#1616FF', '#050505'
 OUT = os.path.join(os.path.dirname(__file__), '..', 'assets')
-W, H = 1200, 640
+W, H = 1200, 720
+KH, KP, KS = 1.12, 1.3, 3.4  # escala de sprites rojos (ronda 2) y grosor del trazo azul
 def f(v): return ('%.1f' % v).rstrip('0').rstrip('.')
 def pl(pts): return 'M' + 'L'.join(f'{f(x)} {f(y)}' for x, y in pts)
-def svg(w, h, body, bg=None): return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">' + (f'<rect width="{w}" height="{h}" fill="{bg}"/>' if bg else '') + body + '</svg>'
+import re
+def engrosar(body):
+    body = re.sub(r'stroke-width="([\d.]+)"', lambda m: 'stroke-width="%s"' % (m.group(1) if float(m.group(1)) > 6 else f(float(m.group(1)) * KS)), body)
+    return re.sub(r'stroke-dasharray="([\d. ]+)"', lambda m: 'stroke-dasharray="%s"' % ' '.join(f(float(v) * 1.6) for v in m.group(1).split()), body)
+def svg(w, h, body, bg=None):
+    if 'stroke' in body and 'fill="#F4F4EF"' not in body: body = engrosar(body)
+    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">' + (f'<rect width="{w}" height="{h}" fill="{bg}"/>' if bg else '') + body + '</svg>'
 def stroke(d, w=2, dash=None, fill='none', extra=''): return f'<path d="{d}" fill="{fill}" stroke="{BL}" stroke-width="{w}"' + (f' stroke-dasharray="{dash}"' if dash else '') + f' stroke-linejoin="round" stroke-linecap="round"{extra}/>'
 
 # ---------- 1. crestas de señal (estilo oscilograma apilado, líneas ocultas) ----------
@@ -23,7 +30,7 @@ def crestas(w=W, h=H, y0=120, n=26, gap=19, seed=1, peaks=((.5, .9),), amp=70, x
             env = sum(a * math.exp(-((t - c) / .16) ** 2) for c, a in peaks) + .08
             v = (math.sin(t * 38 + ph[0] + i * .35) * .55 + math.sin(t * 17 + ph[1] - i * .2) * .3 + math.sin(t * 71 + ph[2]) * .15) * env * amp
             pts.append((x, y - abs(v) * 1.0 if False else y - v))
-        d = pl(pts); out.append(f'<path d="{d}L{f(x1)} {h}L{f(x0)} {h}Z" fill="{BK}" stroke="{BL}" stroke-width="2" stroke-linejoin="round"/>')
+        d = pl(pts); out.append(f'<path d="{d}L{f(x1)} {h + 20}L{f(x0)} {h + 20}Z" fill="{BK}"/>' + stroke(d, 2))
     return ''.join(out)
 
 # ---------- 2. constelaciones ----------
@@ -160,28 +167,34 @@ PLANOS = {
 def estrella4and(): return stroke(estrella4(1000, 100, 24), 2, fill=BL) + stroke(estrella4(160, 560, 16), 2, fill=BL)
 
 # ---------- escenas rojas ----------
-def sp(name, x, y, cell): return SP.group(name, x, y, cell)[0]
-def scene(items):
-    return svg(W, H, ''.join(sp(*it) for it in items))
+DY = 75
+SK = 1.0
+def sp(name, cx, cy, wpx, cy_abs=True):
+    """Sprite centrado en (cx, cy) con ancho final wpx (px del lienzo 1200×640)."""
+    w0, h0, _ = SP.render(name); wpx = wpx * (SK if cy_abs else 1); cell = wpx / w0
+    return SP.group(name, round(cx - wpx / 2), round(cy - h0 * cell / 2) + (DY if cy_abs else 0), cell)[0]
+def scene(items, k=1.0):
+    global SK
+    SK = k; s = svg(W, H, ''.join(sp(*it) for it in items)); SK = 1.0; return s
 HEROES = {
- 'inicio': [('fantasma', 250, 190, 13), ('pacman', 540, 120, 23), ('pellet', 940, 292, 9), ('pellet', 1000, 292, 9), ('pellet', 1060, 292, 9)],
- 'marcas': [('tetris_L', 330, 330, 15), ('tetris_T', 530, 405, 15), ('tetris_I', 780, 480, 15), ('tetris_S', 560, 225, 15), ('tetris_O', 800, 150, 15)],
- 'catalogo': [('hongo', 560, 130, 22), ('pokebola', 250, 290, 14), ('trifuerza', 770, 10, 10)],
- 'streaming': [('tv', 600, 110, 23)],
- 'ia': [('robot', 590, 100, 24)],
- 'logo': [('mando', 470, 190, 22)],
- 'sistema': [('amongus', 520, 110, 26)],
- 'contacto': [('moneda', 380, 80, 28)],
+ 'inicio': [('fantasma', 260, 340, 360), ('pacman', 690, 320, 520), ('pellet', 1000, 330, 40), ('pellet', 1070, 330, 40), ('pellet', 1140, 330, 40)],
+ 'marcas': [('tetris_L', 250, 460, 230), ('tetris_T', 560, 510, 320), ('tetris_I', 930, 560, 420), ('tetris_S', 560, 285, 320), ('tetris_O', 880, 380, 230)],
+ 'catalogo': [('hongo', 690, 300, 460), ('pokebola', 310, 400, 340), ('trifuerza', 1000, 100, 280)],
+ 'streaming': [('tv', 700, 330, 560)],
+ 'ia': [('robot', 680, 330, 560)],
+ 'logo': [('mando', 600, 330, 520)],
+ 'sistema': [('amongus', 600, 330, 520)],
+ 'contacto': [('moneda', 600, 330, 480)],
 }
 PIEZAS = {
- 'inicio': [('invader', 150, 70, 8), ('corazon', 900, 60, 7), ('estrella', 150, 430, 9), ('corazon', 990, 60, 7), ('invader', 840, 480, 6)],
- 'marcas': [('bloque', 160, 90, 8), ('moneda', 950, 70, 6), ('tetris_O', 140, 470, 8)],
- 'catalogo': [('bloque', 140, 70, 8), ('estrella', 960, 430, 8), ('corazon', 760, 540, 6), ('corazon', 850, 540, 6), ('pikachu', 330, 40, 9), ('anillo', 1000, 200, 7)],
- 'streaming': [('fantasma', 150, 110, 8), ('mando', 930, 460, 6), ('pacman', 150, 440, 7)],
- 'ia': [('creeper', 150, 90, 8), ('invader', 960, 90, 8), ('anillo', 150, 460, 8), ('kirby', 950, 430, 7)],
- 'logo': [('anillo', 160, 100, 9), ('moneda', 960, 440, 7), ('corazon', 150, 450, 7), ('estrella', 960, 100, 8)],
- 'sistema': [('creeper', 150, 110, 8), ('kirby', 940, 90, 8), ('pikachu', 930, 400, 9), ('pokebola', 150, 430, 8)],
- 'contacto': [('corazon', 160, 90, 8), ('corazon', 260, 90, 8), ('corazon', 360, 90, 8), ('estrella', 960, 90, 9), ('invader', 150, 420, 8)],
+ 'inicio': [('invader', 130, 110, 140), ('corazon', 1040, 100, 110), ('estrella', 1060, 520, 170), ('corazon', 1150, 100, 110), ('invader', 880, 590, 90)],
+ 'marcas': [('bloque', 200, 110, 150), ('moneda', 1040, 110, 130)],
+ 'catalogo': [('bloque', 170, 110, 130), ('pikachu', 400, 100, 200), ('corazon', 830, 550, 90), ('corazon', 930, 550, 90), ('estrella', 1060, 420, 140)],
+ 'streaming': [('fantasma', 270, 180, 260), ('mando', 1080, 570, 160), ('pacman', 280, 470, 220)],
+ 'ia': [('creeper', 230, 160, 200), ('invader', 1060, 130, 170), ('anillo', 200, 480, 170), ('kirby', 1060, 490, 210)],
+ 'logo': [('anillo', 230, 150, 190), ('estrella', 1010, 140, 170), ('corazon', 220, 510, 140), ('moneda', 1010, 510, 170)],
+ 'sistema': [('creeper', 230, 170, 200), ('kirby', 990, 160, 220), ('pikachu', 990, 490, 230), ('pokebola', 230, 490, 220)],
+ 'contacto': [('corazon', 200, 100, 120), ('corazon', 330, 100, 120), ('corazon', 460, 100, 120), ('estrella', 1010, 150, 200), ('invader', 200, 500, 190)],
 }
 # ---------- cortes (1440x120) ----------
 CW, CH = 1440, 120
@@ -197,16 +210,19 @@ def corte(kind):
         return stroke(pl(pts), 3.5) + stroke(f'M0 106H{CW}', 1.5, dash='3 9')
     if kind == 'circuito': return trazas(CW, CH, 81, 20)
 CUTS = ['onda', 'cuadrada', 'ecualizador', 'constelacion', 'latido', 'circuito']
-PELLETS = lambda: svg(CW, CH, ''.join(sp('pellet', 40 + i * 70, 56, 7) for i in range(20)) + sp('pacman', 1340, 22, 5))
+PELLETS = lambda: svg(CW, CH, ''.join(sp('pellet', 40 + i * 70, 60, 26, False) for i in range(19)) + sp('pacman', 1360, 60, 92, False))
 
 def main():
     for d in ('planos', 'heroes', 'piezas'): os.makedirs(os.path.join(OUT, d), exist_ok=True)
     def w(sub, name, s): open(os.path.join(OUT, sub, name + '.svg'), 'w').write(s)
     for k, fn in PLANOS.items(): w('planos', k, svg(W, H, fn()))
-    for k, it in HEROES.items(): w('heroes', k, scene(it))
-    for k, it in PIEZAS.items(): w('piezas', k, scene(it))
+    for k, it in HEROES.items(): w('heroes', k, scene(it, KH))
+    for k, it in PIEZAS.items(): w('piezas', k, scene(it, KP))
     for k in CUTS: w('planos', 'corte-' + k, svg(CW, CH, corte(k)))
     w('piezas', 'corte-pellets', PELLETS())
+    DL = {'marcas': 'fantasma', 'catalogo': 'pikachu', 'streaming': 'invader', 'ia': 'creeper', 'logo': 'corazon', 'sistema': 'kirby', 'contacto': 'pacman', 'cortes': 'estrella'}
+    for k, n in DL.items():
+        s, _, _ = SP.sprite_svg(n, 4); w('piezas', 'dlg-' + k, s)
     # sprites sueltos para HUD y rellenos
     for n in ('corazon', 'moneda', 'estrella', 'invader', 'pacman', 'fantasma', 'hongo'):
         s, _, _ = SP.sprite_svg(n, 4); w('piezas', 'sprite-' + n, s)
